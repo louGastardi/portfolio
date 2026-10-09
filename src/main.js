@@ -35,7 +35,7 @@ initMarquee(document.querySelector('.marquee__run'), () => (i18n.lang === 'de' ?
 initTimeline()
 initMotion({ reduced })
 initWeb()
-initPipelines({ reduced })
+initPipelines({ reduced, t: key => i18n.t(key) })
 initToolbox()
 
 // Keep last: re-measures every ScrollTrigger once images and fonts settle

@@ -17,12 +17,12 @@
     "y2024": "eduBITES. Kurse, Motion und Web.",
     "y2026": "Creative Technologist. Pipelines."
   },
+  "motion": { "capybara": "Mundo Curioso · Wasserschwein", "shorts": "The Bias Gap · Shorts", "eraserboy": "Eraserboy · Stop-Motion", "diderot": "The Bias Gap · Diderot-Effekt" },
   "web": {
     "title": "Gebaut fürs Web",
     "edubites": "eduBITES · AI Skill Assessment. Design, Code und Betreuung.",
     "rpg": "JS · OOP-Spiel",
-    "decrypter": "HTML · CSS · JS",
-    "visit": "Ansehen"
+    "decrypter": "HTML · CSS · JS"
   },
   "pipelines": {
     "aria": "Automatisierte YouTube-Pipeline: Thema, Skript, Stimme, Frames, Schnitt, Untertitel, Upload, YouTube, Analytics, Kommentare, dann zurück zum Thema",
@@ -34,10 +34,14 @@
     "srt": "Lädt ein Voiceover-Transkript (.srt) und ein Cut Sheet und setzt jede Bildebene genau dorthin, wo ihr Satz gesprochen wird. Aus einer Stunde Timing wird ein Klick.",
     "meta": ".jsx · AE 2024+ · kostenlos",
     "download": "Download",
+    "steps": { "topic": "THEMA", "script": "SKRIPT", "voice": "STIMME", "frames": "FRAMES", "edit": "SCHNITT", "captions": "UNTERTITEL", "upload": "UPLOAD", "youtube": "YOUTUBE", "analytics": "ANALYTICS", "comments": "KOMMENTARE" },
     "soon": "Bald"
   },
   "automation": { "title": "Automatisierung", "intro": "Plugins für After Effects, maßgeschneidert für wiederkehrende Projekte. Sie nehmen die repetitiven Schritte aus dem Workflow, damit mehr Zeit für die Teile bleibt, die ein menschliches Auge brauchen." },
-  "toolbox": { "title": "Werkzeuge" },
+  "toolbox": {
+    "title": "Werkzeuge",
+    "items": { "stopMotion": "Stop-Motion", "imageGen": "Bildgenerierung", "videoGen": "Videogenerierung", "aiVoice": "KI-Voiceover", "vibeCoding": "Vibe Coding", "workflow": "Workflow-Automatisierung", "editing": "Schnitt", "grading": "Color Grading", "audio": "Audio-Mastering", "camera": "Kameraführung", "responsive": "Responsive Design" }
+  },
   "contact": { "title": "Bringen wir Dinge in", "move": "Bewegung.", "cvEn": "CV · English", "cvDe": "Lebenslauf · Deutsch", "reel": "Showreel" },
   "a11y": { "top": "LG, Lou Gastardi, zurück nach oben", "sections": "Bereiche", "language": "Sprache", "player": "Videoplayer", "close": "Schließen" }
 }

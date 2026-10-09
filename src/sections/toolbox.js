@@ -40,12 +40,16 @@ export function initToolbox() {
       }, 200)
     }
     window.addEventListener('resize', onResize)
+    // A language switch changes the box widths, so drop them again with the new sizes
+    const onLang = () => { if (stop) run() }
+    document.addEventListener('langchange', onLang)
 
     return () => {
       cancelled = true
       io.disconnect()
       clearTimeout(resizeTimer)
       window.removeEventListener('resize', onResize)
+      document.removeEventListener('langchange', onLang)
       stop?.()
       stop = null
     }

@@ -8,4 +8,5 @@
 .nav__lang button[aria-pressed="true"] { background: var(--ink); color: #fff; }
 /* Seven links in German need tighter spacing on small laptops and tablets */
 @media (max-width: 1100px) { .nav__links { gap: 12px; } }
-@media (max-width: 760px) { .nav__links { display: none; } }
+/* Phones keep one link, so contact, CV and reel stay one tap away */
+@media (max-width: 760px) { .nav__links { margin-left: auto; } .nav__links a:not([href="#contact"]) { display: none; } }

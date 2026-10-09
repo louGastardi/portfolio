@@ -17,12 +17,12 @@
     "y2024": "eduBITES. Courses, motion and web.",
     "y2026": "Creative Technologist. Pipelines."
   },
+  "motion": { "capybara": "Mundo Curioso · capybara", "shorts": "The Bias Gap · Shorts", "eraserboy": "Eraserboy · stop motion", "diderot": "The Bias Gap · Diderot effect" },
   "web": {
     "title": "Built for the web",
     "edubites": "eduBITES · AI Skill Assessment. Design, code and upkeep.",
     "rpg": "JS · OOP game",
-    "decrypter": "HTML · CSS · JS",
-    "visit": "Visit"
+    "decrypter": "HTML · CSS · JS"
   },
   "pipelines": {
     "aria": "Automated YouTube pipeline: topic, script, voice, frames, edit, captions, upload, YouTube, analytics, comments, then back to topic",
@@ -34,10 +34,14 @@
     "srt": "Load a voiceover transcript (.srt) and a cut sheet, and it places every image layer where its line is spoken. An hour of manual timing becomes one click.",
     "meta": ".jsx · AE 2024+ · free",
     "download": "Download",
+    "steps": { "topic": "TOPIC", "script": "SCRIPT", "voice": "VOICE", "frames": "FRAMES", "edit": "EDIT", "captions": "CAPTIONS", "upload": "UPLOAD", "youtube": "YOUTUBE", "analytics": "ANALYTICS", "comments": "COMMENTS" },
     "soon": "Soon"
   },
   "automation": { "title": "Automation", "intro": "Plugins I built for After Effects, made to measure for recurring projects. They take the repetitive steps out of the workflow, so more time goes into the parts that need a human eye." },
-  "toolbox": { "title": "Toolbox" },
+  "toolbox": {
+    "title": "Toolbox",
+    "items": { "stopMotion": "Stop motion", "imageGen": "Image generation", "videoGen": "Video generation", "aiVoice": "AI voiceover", "vibeCoding": "Vibe coding", "workflow": "Workflow automation", "editing": "Editing", "grading": "Color grading", "audio": "Audio mastering", "camera": "Camera operation", "responsive": "Responsive design" }
+  },
   "contact": { "title": "Let's make things", "move": "move.", "cvEn": "CV · English", "cvDe": "Lebenslauf · Deutsch", "reel": "Showreel" },
   "a11y": { "top": "LG, Lou Gastardi, back to top", "sections": "Sections", "language": "Language", "player": "Video player", "close": "Close" }
 }

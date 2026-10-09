@@ -33,22 +33,19 @@ export function initCrystal(canvas, { reduced = false } = {}) {
     if (reduced) render()
   }
 
-  window.addEventListener('pointermove', e => {
-    target.y = (e.clientX / window.innerWidth - 0.5) * 1.6
-    target.x = (e.clientY / window.innerHeight - 0.5) * 1.2
-    if (reduced) {
-      // No animation: jump straight to the pose and draw one frame
-      mesh.rotation.set(target.x, target.y, 0)
-      render()
-    }
-  })
   window.addEventListener('resize', resize)
   resize()
 
+  // Reduced motion: one static frame, the crystal does not follow the mouse
   if (reduced) {
     render()
     return { mesh, renderer }
   }
+
+  window.addEventListener('pointermove', e => {
+    target.y = (e.clientX / window.innerWidth - 0.5) * 1.6
+    target.x = (e.clientY / window.innerHeight - 0.5) * 1.2
+  })
 
   let raf = 0
   let last = 0

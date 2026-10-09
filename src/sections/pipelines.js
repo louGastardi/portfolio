@@ -3,17 +3,10 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 gsap.registerPlugin(ScrollTrigger)
 
+// Labels come from the dictionary (pipelines.steps.<id>) so they follow the EN/DE switch
 const STEPS = [
-  { id: 'topic', label: 'TOPIC' },
-  { id: 'script', label: 'SCRIPT' },
-  { id: 'voice', label: 'VOICE' },
-  { id: 'frames', label: 'FRAMES' },
-  { id: 'edit', label: 'EDIT' },
-  { id: 'captions', label: 'CAPTIONS' },
-  { id: 'upload', label: 'UPLOAD' },
-  { id: 'youtube', label: 'YOUTUBE', dark: true },
-  { id: 'analytics', label: 'ANALYTICS' },
-  { id: 'comments', label: 'COMMENTS' }
+  { id: 'topic' }, { id: 'script' }, { id: 'voice' }, { id: 'frames' }, { id: 'edit' },
+  { id: 'captions' }, { id: 'upload' }, { id: 'youtube', dark: true }, { id: 'analytics' }, { id: 'comments' }
 ]
 
 // Desktop: row 1 left to right, row 2 right to left, row 3 (analytics, comments) left to right.
@@ -47,7 +40,8 @@ const el = (tag, attrs) => {
   return node
 }
 
-export function initPipelines({ reduced }) {
+export function initPipelines({ reduced, t }) {
+  const labelOf = step => t(`pipelines.steps.${step.id}`)
   const graph = document.querySelector('.pipe__graph')
   if (!graph) return
   const svg = graph.querySelector('svg')
@@ -68,7 +62,7 @@ export function initPipelines({ reduced }) {
     if (stacked) return
     const box = node.getBoundingClientRect()
     const host = graph.getBoundingClientRect()
-    tipCaption.textContent = step.label.toLowerCase()
+    tipCaption.textContent = labelOf(step).toLowerCase()
     // Load the clip on first hover only
     if (!tipVideo.getAttribute('src')) tipVideo.src = clip
     tip.hidden = false
@@ -94,13 +88,21 @@ export function initPipelines({ reduced }) {
       node.append(
         el('rect', { class: 'sh', x: x + 6, y: y + 6, width: layout.w, height: layout.h }),
         el('rect', { class: 'bx', x, y, width: layout.w, height: layout.h }),
-        Object.assign(el('text', { x: x + 12, y: y + layout.h / 2 + 4 }), { textContent: step.label })
+        Object.assign(el('text', { x: x + 12, y: y + layout.h / 2 + 4 }), { textContent: labelOf(step) })
       )
       node.addEventListener('pointerenter', e => { if (e.pointerType === 'mouse') showTip(node, step) })
       node.addEventListener('pointerleave', hideTip)
       g.appendChild(node)
     })
   }
+
+  // Language switch: relabel the nodes in place
+  document.addEventListener('langchange', () => {
+    g.querySelectorAll('.pipe__node').forEach(node => {
+      node.querySelector('text').textContent = labelOf({ id: node.dataset.step })
+    })
+    hideTip()
+  })
 
   const length = () => path.getTotalLength()
   const place = p => {
