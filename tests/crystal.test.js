@@ -71,3 +71,32 @@ describe('keyframe geometry', () => {
     }
   })
 })
+
+describe('keyframe glass and backdrop', () => {
+  it('makes the glass half real glass: full transmission, thickness, ior 1.45, clearcoat', async () => {
+    const { glassMaterial } = await import('../src/sections/crystal.js')
+    const m = glassMaterial()
+    expect(m.transmission).toBe(1)
+    expect(m.thickness).toBeGreaterThan(0)
+    expect(m.ior).toBeCloseTo(1.45, 2)
+    expect(m.roughness).toBeLessThan(0.15)
+    expect(m.clearcoat).toBeGreaterThan(0)
+    expect(m.metalness).toBe(0)
+  })
+
+  it('draws a dark backdrop: ink base and only faint, low-alpha light on top', async () => {
+    const { drawBackdrop, BACKDROP } = await import('../src/sections/crystal.js')
+    const colors = []
+    const grad = { addColorStop: (_, c) => colors.push(c) }
+    const ctx = new Proxy({}, {
+      get: (t, k) => (k in t ? t[k] : k === 'createRadialGradient' ? () => grad : () => {}),
+      set: (t, k, v) => { if (k === 'fillStyle' || k === 'strokeStyle') colors.push(v); t[k] = v; return true }
+    })
+    let seed = 1
+    drawBackdrop(ctx, BACKDROP, () => ((seed = (seed * 16807) % 2147483647) / 2147483647))
+    expect(colors[0]).toBe(BACKDROP.ink)
+    const alphas = colors.filter(c => typeof c === 'string' && c.startsWith('rgba')).map(c => parseFloat(c.split(',')[3]))
+    expect(alphas.length).toBeGreaterThan(20)
+    alphas.forEach(a => expect(a).toBeLessThanOrEqual(0.2))
+  })
+})

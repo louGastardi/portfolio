@@ -8,7 +8,10 @@
 .hero__r { position: relative; background: var(--ink); }
 /* Soft lime glow behind the keyframe */
 .hero__r::before { content: ''; position: absolute; left: 50%; top: 50%; width: min(70%, 520px); aspect-ratio: 1; translate: -50% -50%; border-radius: 50%; background: radial-gradient(closest-side, rgba(145,193,30,.12), rgba(145,193,30,.035) 55%, transparent); pointer-events: none; }
-.hero__crystal { position: absolute; inset: 0; width: 100%; height: 100%; }
+.hero__crystal { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; transition: opacity .8s ease; }
+/* The canvas paints its own dark backdrop, so it fades in once the first frame is drawn */
+.hero__crystal.is-ready { opacity: 1; }
+@media (prefers-reduced-motion: reduce) { .hero__crystal { transition: none; } }
 /* Mobile: name block first, black block with the keyframe below */
 @media (max-width: 760px) {
   .hero { grid-template-columns: 1fr; grid-template-rows: auto 1fr; height: auto; min-height: calc(100svh - var(--nav-h)); }
