@@ -1,6 +1,6 @@
 {
   "nav": { "about": "Über mich", "timeline": "Werdegang", "motion": "Motion", "web": "Web", "pipelines": "Pipelines", "automation": "Automatisierung", "contact": "Kontakt" },
-  "hero": { "role": "Motion Designerin / Creative Technologist · Berlin" },
+  "hero": { "role": "Motion Designerin / Creative Technologist" },
   "marquee": ["Motion Design", "After Effects", "Cinema 4D", "Premiere Pro", "KI-Video", "Bildgenerierung", "Automatisierung", "Pipelines", "Remotion", "Compositing", "Color Grading", "Stop Motion", "Web", "React", "Figma"],
   "about": {
     "title": "Über mich:",

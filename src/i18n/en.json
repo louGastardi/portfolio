@@ -1,6 +1,6 @@
 {
   "nav": { "about": "About", "timeline": "Timeline", "motion": "Motion", "web": "Web", "pipelines": "Pipelines", "automation": "Automation", "contact": "Contact" },
-  "hero": { "role": "Motion Designer / Creative Technologist · Berlin" },
+  "hero": { "role": "Motion Designer / Creative Technologist" },
   "marquee": ["Motion design", "After Effects", "Cinema 4D", "Premiere Pro", "AI video", "Image generation", "Automation", "Pipelines", "Remotion", "Compositing", "Color grading", "Stop motion", "Web", "React", "Figma"],
   "about": {
     "title": "About me:",
