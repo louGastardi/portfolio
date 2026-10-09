@@ -1,6 +1,6 @@
-/* Text starts at the page gutter like every other section. Capped columns keep the photo
-   right next to the text on wide screens instead of drifting to the right edge. */
-.about__inner { width: 100%; max-width: calc(1240px + 2 * var(--gutter)); padding: 72px var(--gutter); display: grid; grid-template-columns: minmax(0, 640px) minmax(320px, 440px); justify-content: start; column-gap: 64px; align-items: center; }
+/* Unlike the other sections, About is centered as one block: text and photo sit together
+   in the middle of the page with equal space left and right. */
+.about__inner { width: 100%; max-width: calc(1240px + 2 * var(--gutter)); margin-inline: auto; padding: 72px var(--gutter); display: grid; grid-template-columns: minmax(0, 640px) minmax(320px, 440px); justify-content: center; column-gap: 64px; align-items: center; }
 .about__title { font-size: var(--title); line-height: 1; }
 .about__title span { display: inline-block; line-height: 1; box-shadow: inset 0 -14px 0 var(--lime); }
 .about__bio { font-size: 19px; line-height: 1.45; margin: 40px 0 30px; max-width: 560px; }
