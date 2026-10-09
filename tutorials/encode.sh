@@ -4,7 +4,7 @@
 set -e
 cd "$(dirname "$0")"
 M=../public/media
-for pair in "AnimationAutomation aa 9.9" "SequenceFromSRT srt 16.2"; do
+for pair in "AnimationAutomation aa 9.2" "SequenceFromSRT srt 16.2"; do
   set -- $pair
   npx remotion render "$1" "out/$2-master.mp4" --codec=h264 --crf=14 ${REMOTION_CHROME:+--browser-executable="$REMOTION_CHROME"}
   ffmpeg -v error -y -i "out/$2-master.mp4" -vf scale=1350:690:flags=lanczos -c:v libx264 -preset veryslow -tune animation -crf 25 -pix_fmt yuv420p -movflags +faststart -an "$M/tutorial-$2.mp4"

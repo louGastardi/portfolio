@@ -33,9 +33,9 @@ export const aaLayout = () => {
   const groups: Grp[] = [];
   let y = G.right.y + 18 + 10;
 
-  // In/Out (s): [0.5]  Scale %: [20]  Fade (frames): [10]
+  // In/Out (s): [1]  Scale %: [20]  Fade (frames): [10]
   let x = X0;
-  for (const [lab, val] of [["In/Out (s):", "0.5"], ["Scale %:", "20"], ["Fade (frames):", "10"]]) {
+  for (const [lab, val] of [["In/Out (s):", "1"], ["Scale %:", "20"], ["Fade (frames):", "10"]]) {
     labels.push({ x, y, h: ROW, text: lab });
     x += textW(lab) + 5;
     fields.push({ r: { x, y, w: 30, h: ROW }, text: val });
