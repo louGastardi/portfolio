@@ -6,7 +6,7 @@ Visual reference: `.superpowers/brainstorm/98262-1791471131/content/page-mockup.
 
 ## 1. Goal
 
-A one-page scroll portfolio for Lou Gastardi (Senior Motion Designer / Creative Technologist, Berlin). It has to show motion craft, web work and automation work in one place, feel personal and not templated, and stay visually tied to the CV and LinkedIn (same colors, type and solid offset shadows).
+A one-page scroll portfolio for Lou Gastardi (Motion Designer / Creative Technologist, Berlin). It has to show motion craft, web work and automation work in one place, feel personal and not templated, and stay visually tied to the CV and LinkedIn (same colors, type and solid offset shadows).
 
 Primary use: send with job applications (first target: HelloFresh Senior Motion Designer). Secondary: personal brand page linked from LinkedIn and CV.
 
@@ -26,7 +26,7 @@ No small "eyebrow" labels above section titles.
 
 ### 00 Hero
 - Giant "LOU / GASTARDI" in Anton, bleeding off the left edge.
-- Role line: "Senior Motion Designer / Creative Technologist · Berlin". No slogan here.
+- Role line: "Motion Designer / Creative Technologist · Berlin". No slogan here.
 - 3D keyframe crystal (Three.js), center right. Rotates with the mouse, slow idle spin.
 - 3 tilted work cards with lime shadow that drift with the mouse: Mundo Curioso capybara loop (video), eduBITES AI Skill Assessment (screenshot), The Bias Gap cover.
 
