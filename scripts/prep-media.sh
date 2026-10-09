@@ -14,9 +14,6 @@ img edubites_agentic_desktop.jpg 1200 75
 img edubites_agentic_mobile.jpg 420 75
 img rpg_game.png 800
 img encryptor.png 800
-img eraserboy_frame.jpg 1200
-img eraserboy_thumb.jpg 1200
-img curioso_caju.png 900
 # Old portfolio photos are circle-masked squares: crop the inscribed square (side = 3616/sqrt2), then export at 900px
 career() { # src name
   python3 -c "from PIL import Image; im=Image.open('$SRC/curriculum_old/$1').convert('RGB'); o=530; im.crop((o,o,im.width-o,im.height-o)).save('$SRC/curriculum_old/${1%.*}_sq.jpg', quality=92)"
@@ -24,26 +21,22 @@ career() { # src name
 }
 career foto_01.png career-camera
 career foto_02.png career-stopmotion
-career foto_03.png career-faces
-for n in 24 28 54; do img "biasgap_cover_$n.jpg" 600; done
 
 loop() { # name src
   ffmpeg -v error -y -i "$SRC/$2" -an -c:v libx264 -crf 26 -preset slow -pix_fmt yuv420p -movflags +faststart "$OUT/$1.mp4"
   ffmpeg -v error -y -i "$SRC/$2" -an -c:v libvpx-vp9 -crf 36 -b:v 0 "$OUT/$1.webm"
   ffmpeg -v error -y -ss 1 -i "$SRC/$2" -frames:v 1 -q:v 3 "$OUT/$1-poster.jpg"
 }
-loop curioso-capybara curioso_loop_capivara.mp4
 loop curioso-penguin curioso_loop_penguin.mp4
 loop biasgap-halo biasgap_loop_halo.mp4
-loop biasgap-diderot biasgap_loop_diderot.mp4
-# Round 4 loops are already encoded (see assets/round4/clips.md), copy them with clean names
-clip() { # name src
-  cp "$SRC/round4/$2.mp4" "$OUT/$1.mp4"
-  cp "$SRC/round4/$2.webm" "$OUT/$1.webm"
-  cp "$SRC/round4/$2.jpg" "$OUT/$1-poster.jpg"
-}
-clip eraserboy eraserboy-loop
-for n in framebyframe 3d character type 2d fx; do clip "reel-$n" "reel-$n"; done
+# Animation bento loops: cut and encoded by scripts/cut-clips.sh (see assets/round4/clips-v2.md),
+# copied here with clean names
+[ -f assets/round4/v2/explainer.mp4 ] || scripts/cut-clips.sh
+for n in stopmotion aftereffects character compositing motiongraphics explainer fx framebyframe; do
+  cp "$SRC/round4/v2/$n.mp4" "$OUT/anim-$n.mp4"
+  cp "$SRC/round4/v2/$n.webm" "$OUT/anim-$n.webm"
+  cp "$SRC/round4/v2/$n.jpg" "$OUT/anim-$n-poster.jpg"
+done
 # Pipeline prints, one per step (see assets/round4/pipeline.md)
 mkdir -p "$OUT/pipeline"
 for f in "$SRC"/round4/pipeline/*.png; do n=$(basename "$f" .png); cwebp -quiet -q 78 -resize 1000 0 "$f" -o "$OUT/pipeline/$n.webp"; done

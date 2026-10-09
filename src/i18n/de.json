@@ -17,7 +17,7 @@
     "y2024": "eduBITES. Kurse, Motion und Web.",
     "y2026": "Creative Technologist. Pipelines."
   },
-  "motion": { "eraserboy": "Eraserboy · Stop-Motion", "penguin": "Mundo Curioso · KI-Animation", "shorts": "The Bias Gap · Shorts", "frameByFrame": "Frame-by-Frame", "threeD": "3D", "character": "Character-Animation", "type": "Kinetische Typografie", "twoD": "2D-Erklärvideo", "fx": "FX / Partikel" },
+  "motion": { "stopMotion": "Stop-Motion", "afterEffects": "After Effects", "penguin": "KI-Animation", "character": "Character-Animation", "compositing": "Compositing", "shorts": "YouTube Shorts", "motionGraphics": "Motion Graphics", "explainer": "2D/3D-Erklärvideo", "fx": "FX / Partikel", "frameByFrame": "Frame-by-Frame" },
   "web": {
     "title": "Gebaut fürs Web",
     "edubites": "eduBITES · Test Your Agentic Skills. Design, Code und Betreuung.",

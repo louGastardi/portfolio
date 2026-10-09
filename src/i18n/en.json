@@ -17,7 +17,7 @@
     "y2024": "eduBITES. Courses, motion and web.",
     "y2026": "Creative Technologist. Pipelines."
   },
-  "motion": { "eraserboy": "Eraserboy · stop motion", "penguin": "Mundo Curioso · AI animation", "shorts": "The Bias Gap · Shorts", "frameByFrame": "Frame-by-frame", "threeD": "3D", "character": "Character animation", "type": "Kinetic type", "twoD": "2D explainer", "fx": "FX / particles" },
+  "motion": { "stopMotion": "Stop motion", "afterEffects": "After Effects", "penguin": "AI animation", "character": "Character animation", "compositing": "Compositing", "shorts": "YouTube Shorts", "motionGraphics": "Motion graphics", "explainer": "2D/3D explainer", "fx": "FX / particles", "frameByFrame": "Frame-by-frame" },
   "web": {
     "title": "Built for the web",
     "edubites": "eduBITES · Test Your Agentic Skills. Design, code and upkeep.",
