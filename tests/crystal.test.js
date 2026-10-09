@@ -73,7 +73,7 @@ describe('keyframe geometry', () => {
 })
 
 describe('keyframe glass and backdrop', () => {
-  it('makes the glass half real glass: full transmission, thickness, ior 1.45, clearcoat', async () => {
+  it('makes the glass half real glass: full transmission, thickness, ior 1.45, a light clearcoat', async () => {
     const { glassMaterial } = await import('../src/sections/crystal.js')
     const m = glassMaterial()
     expect(m.transmission).toBe(1)
@@ -81,6 +81,32 @@ describe('keyframe glass and backdrop', () => {
     expect(m.ior).toBeCloseTo(1.45, 2)
     expect(m.roughness).toBeLessThan(0.15)
     expect(m.clearcoat).toBeGreaterThan(0)
+    expect(m.metalness).toBe(0)
+  })
+
+  it('keeps reflections low on the glass half', async () => {
+    const { glassMaterial } = await import('../src/sections/crystal.js')
+    const m = glassMaterial()
+    expect(m.envMapIntensity).toBeLessThanOrEqual(0.5)
+    expect(m.clearcoat).toBeLessThanOrEqual(0.4)
+    expect(m.specularIntensity).toBeLessThanOrEqual(0.6)
+  })
+
+  it('makes the lime half see-through lime glass with even fewer reflections', async () => {
+    const THREE = await import('three')
+    const { limeGlassMaterial, glassMaterial, LIME } = await import('../src/sections/crystal.js')
+    const m = limeGlassMaterial()
+    const g = glassMaterial()
+    expect(m.color.getHex()).toBe(new THREE.Color(LIME).getHex())
+    // Clearly green, but you can see through it a bit
+    expect(m.opacity).toBeGreaterThanOrEqual(0.4)
+    expect(m.opacity).toBeLessThanOrEqual(0.75)
+    // Blended in the opaque pass (alpha kept), so the clear half shows it through its transmission
+    expect(m.transparent).toBe(false)
+    expect(m.blending).toBe(THREE.CustomBlending)
+    expect(m.depthWrite).toBe(true)
+    expect(m.envMapIntensity).toBeLessThan(g.envMapIntensity)
+    expect(m.clearcoat).toBe(0)
     expect(m.metalness).toBe(0)
   })
 

@@ -3,7 +3,7 @@ import * as THREE from 'three'
 // An After Effects keyframe seen in 3D: a diamond with a square waist (four points around
 // the middle) and a tip above and below at the same distance, so the top half mirrors the
 // bottom half. A little taller than a regular octahedron. Split left/right through the tips:
-// the left half is solid lime, the right half is clear glass, like a selected keyframe.
+// the left half is lime tinted glass, the right half is clear glass, like a selected keyframe.
 const R = 1 // center to each middle point
 const H = 1.18 // center to each tip
 export const KEYFRAME = { R, H }
@@ -40,8 +40,8 @@ export function keyframeGeometry() {
   return geo
 }
 
-// The cut face of the solid half: the square through both tips and the front and back points.
-// Seen through the glass, it shows the lime half is solid, not a hollow shell.
+// The cut face between the halves: the square through both tips and the front and back points.
+// A faint lime pane, so the split between the green and the clear half reads at every angle.
 function cutFace() {
   const geo = new THREE.BufferGeometry().setAttribute('position', new THREE.Float32BufferAttribute([0, H, 0, 0, 0, R, 0, -H, 0, 0, H, 0, 0, -H, 0, 0, 0, -R], 3))
   geo.computeVertexNormals()
@@ -79,7 +79,7 @@ export function drawBackdrop(ctx, { w, h, ink } = BACKDROP, rand = Math.random) 
     ctx.restore()
   }
   // Lime glow behind the keyframe (replaces the CSS glow, which the canvas covers)
-  blob(w * 0.5, h * 0.5, w * 0.3, h * 0.42, 0, '145,193,30', 0.1)
+  blob(w * 0.5, h * 0.5, w * 0.3, h * 0.42, 0, '145,193,30', 0.05)
   // Diagonal light streaks
   const streaks = [
     [0.18, 0.28, 0.42, 0.035, -0.5, '145,193,30', 0.16],
@@ -135,12 +135,12 @@ function backdropTexture() {
   return tex
 }
 
-// A studio for reflections: a dark room with a few softboxes (white strips and one lime card).
-// Flat facets mirror them as clean bright bands that slide across the glass while it turns,
-// and the dark walls keep the glass dark, so it stays on the black block.
+// A studio for reflections: a dark room with a few dim softboxes (white strips and one lime card).
+// Flat facets mirror them as soft bands that slide across the glass while it turns. Kept sparse
+// and low, so the keyframe reads through its tint and the backdrop, not through its reflections.
 function studioEnvironment() {
   const env = new THREE.Scene()
-  const room = new THREE.Mesh(new THREE.BoxGeometry(20, 20, 20), new THREE.MeshBasicMaterial({ color: 0x404040, side: THREE.BackSide }))
+  const room = new THREE.Mesh(new THREE.BoxGeometry(20, 20, 20), new THREE.MeshBasicMaterial({ color: 0x2a2a2a, side: THREE.BackSide }))
   env.add(room)
   const box = (w, h, color, strength, pos, rotY = 0, rotX = 0) => {
     const m = new THREE.Mesh(new THREE.PlaneGeometry(w, h), new THREE.MeshBasicMaterial({ color: new THREE.Color(color).multiplyScalar(strength), side: THREE.DoubleSide }))
@@ -148,13 +148,13 @@ function studioEnvironment() {
     m.rotation.set(rotX, rotY, 0)
     env.add(m)
   }
-  box(9, 1.4, 0xffffff, 3, [0, 3.5, 9.5])                       // wide strip, front top
-  box(12, 12, 0xffffff, 0.9, [0, 9.5, 0], 0, Math.PI / 2)       // soft top light
-  box(5, 5, 0x91c11e, 1.6, [6, -2, 8], -0.6)                    // lime card, front right
-  // A ring of tall strips all around, so a facet catches one at almost any angle of the spin
-  for (let i = 0; i < 8; i++) {
-    const a = (i / 8) * Math.PI * 2 + 0.2
-    box(1.1, 9, 0xffffff, i % 2 ? 1.2 : 2.4, [Math.sin(a) * 9.5, i % 3 - 1, Math.cos(a) * 9.5], a + Math.PI)
+  box(9, 1.4, 0xffffff, 1.4, [0, 3.5, 9.5])                     // wide strip, front top
+  box(12, 12, 0xffffff, 0.5, [0, 9.5, 0], 0, Math.PI / 2)       // soft top light
+  box(5, 5, 0x91c11e, 0.7, [6, -2, 8], -0.6)                    // lime card, front right
+  // A few tall strips around, so a facet now and then catches one during the spin
+  for (let i = 0; i < 4; i++) {
+    const a = (i / 4) * Math.PI * 2 + 0.6
+    box(1, 9, 0xffffff, i % 2 ? 0.7 : 1.2, [Math.sin(a) * 9.5, 0, Math.cos(a) * 9.5], a + Math.PI)
   }
   return env
 }
@@ -168,7 +168,7 @@ export function sheenMaterial() {
     depthWrite: false,
     blending: THREE.AdditiveBlending,
     side: THREE.DoubleSide,
-    uniforms: { tint: { value: new THREE.Color(0xe8f2d8) }, base: { value: 0.06 }, rim: { value: 0.2 } },
+    uniforms: { tint: { value: new THREE.Color(0xe8f2d8) }, base: { value: 0.05 }, rim: { value: 0.15 } },
     vertexShader: `
       varying vec3 vN;
       varying vec3 vV;
@@ -194,27 +194,57 @@ export function sheenMaterial() {
   })
 }
 
-// Glass with mass: full transmission with thickness and a low ior, so it bends the backdrop,
-// plus clearcoat and a room environment for specular highlights and bright fresnel edges.
-// Exported for the tests.
+// Glass with mass: full transmission with thickness and a low ior, so it bends the backdrop.
+// Reflections are held back (low specular, light clearcoat, dim environment), so the clear half
+// reads as glass you look through, not as a mirror. Exported for the tests.
 export function glassMaterial() {
   return new THREE.MeshPhysicalMaterial({
     color: 0xffffff,
     metalness: 0,
-    roughness: 0.04,
+    roughness: 0.06,
     transmission: 1,
     thickness: 1.1,
     ior: 1.45,
-    attenuationColor: new THREE.Color(0xc9d6bf),
-    attenuationDistance: 1.4,
-    clearcoat: 1,
-    clearcoatRoughness: 0.03,
-    specularIntensity: 1,
-    envMapIntensity: 1,
+    attenuationColor: new THREE.Color(0xe2e6de),
+    attenuationDistance: 2.4,
+    clearcoat: 0.25,
+    clearcoatRoughness: 0.15,
+    specularIntensity: 0.45,
+    envMapIntensity: 0.4,
     side: THREE.DoubleSide,
     flatShading: true,
     // No depth write, so the lime cut face and the far edges still draw behind it
     depthWrite: false
+  })
+}
+
+// Lime tinted glass for the other half: see-through lime #91C11E at partial opacity, with a faint
+// lime glow of its own so it stays clearly green from every side, and even fewer reflections
+// than the clear half. It is blended with custom alpha blending instead of the transparent flag,
+// so it renders in the opaque pass: it then shows up, properly lit, inside the transmission pass
+// (the clear half bends a real lime half behind it), and it writes depth, so the glass behind it
+// does not draw over it. Polygon offset pushes its faces back a little, so the edge lines sit
+// cleanly on top. Exported for the tests.
+export const LIME = 0x91c11e
+export function limeGlassMaterial() {
+  return new THREE.MeshPhysicalMaterial({
+    color: LIME,
+    metalness: 0,
+    roughness: 0.25,
+    opacity: 0.55,
+    blending: THREE.CustomBlending,
+    blendSrc: THREE.SrcAlphaFactor,
+    blendDst: THREE.OneMinusSrcAlphaFactor,
+    emissive: new THREE.Color(LIME),
+    emissiveIntensity: 0.14,
+    clearcoat: 0,
+    specularIntensity: 0.3,
+    envMapIntensity: 0.25,
+    side: THREE.FrontSide,
+    flatShading: true,
+    polygonOffset: true,
+    polygonOffsetFactor: 1,
+    polygonOffsetUnits: 1
   })
 }
 
@@ -239,15 +269,14 @@ export function initCrystal(canvas, { reduced = false } = {}) {
   const backMat = new THREE.MeshBasicMaterial({ map: backdropTexture(), toneMapped: false })
   const backdrop = new THREE.Mesh(new THREE.PlaneGeometry(1, 1), backMat)
   backdrop.position.z = BACK_Z
+  // Drawn first in the opaque pass, so the blended lime half sits on top of it, not on the clear color
+  backdrop.renderOrder = -1
   scene.add(backdrop)
 
-  // Solid lime #91C11E half with a light clearcoat, and the glass half. Polygon offset pushes the
-  // lime faces back a little, so the edge lines sit cleanly on top. A see-through lime cut face
-  // closes the solid half. It is transparent, so it stays out of the transmission pass and the
-  // glass bends the backdrop, not a lime wall.
-  const offset = { flatShading: true, polygonOffset: true, polygonOffsetFactor: 1, polygonOffsetUnits: 1 }
-  const lime = new THREE.MeshPhysicalMaterial({ color: 0x91c11e, roughness: 0.6, metalness: 0, clearcoat: 0.35, clearcoatRoughness: 0.25, envMapIntensity: 0.12, ...offset })
-  const cut = new THREE.Mesh(cutFace(), new THREE.MeshBasicMaterial({ color: 0x91c11e, transparent: true, opacity: 0.2, depthWrite: false, side: THREE.DoubleSide }))
+  // Lime tinted half and clear glass half. A see-through lime cut face marks the split. It is
+  // transparent, so it stays out of the transmission pass.
+  const lime = limeGlassMaterial()
+  const cut = new THREE.Mesh(cutFace(), new THREE.MeshBasicMaterial({ color: LIME, transparent: true, opacity: 0.18, depthWrite: false, side: THREE.DoubleSide }))
   const glass = glassMaterial()
   const geo = keyframeGeometry()
   const slab = new THREE.Mesh(geo, [lime, glass])
