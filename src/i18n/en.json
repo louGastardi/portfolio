@@ -3,7 +3,7 @@
   "hero": { "role": "Motion Designer / Creative Technologist" },
   "marquee": ["Motion design", "After Effects", "Cinema 4D", "Premiere Pro", "AI video", "Image generation", "Automation", "Pipelines", "Remotion", "Compositing", "Color grading", "Stop motion", "Frame-by-frame animation", "Web", "React", "Figma"],
   "about": {
-    "title": "About me:",
+    "title": "About me",
     "bio": "I animate the parts that need a human eye, and build the systems that handle the rest. I started with paper and a camera, making stop motion. Now I connect motion, code and AI.",
     "based": "Based in", "basedValue": "Berlin, Germany",
     "doing": "Doing", "doingValue": "Motion · Frame-by-frame · Creative tech · AI pipelines",
