@@ -1,0 +1,9 @@
+main > section.tools { background: var(--soft); border-top: var(--border); padding: 60px var(--gutter); display: grid; grid-template-columns: 330px 1fr; gap: 30px; align-content: center; }
+.tools__title { font-size: clamp(64px, 9vw, 100px); }
+.tools__pile { position: relative; height: 340px; display: flex; flex-wrap: wrap; gap: 10px; align-content: flex-start; }
+.tools__pile b { background: #fff; border: var(--border); box-shadow: var(--shadow-sm); padding: 7px 13px; font: 500 17px var(--font-body); white-space: nowrap; user-select: none; }
+/* Clipped so boxes drop in from the top edge and never spill over the title or the next section */
+.tools__pile.is-physics { overflow: hidden; }
+.tools__pile.is-physics b { position: absolute; left: 0; top: 0; cursor: grab; will-change: transform; }
+.tools__pile.is-physics b:active { cursor: grabbing; }
+@media (max-width: 760px) { main > section.tools { grid-template-columns: 1fr; align-content: center; } .tools__pile { height: auto; } .tools__pile b { font-size: 15px; } }

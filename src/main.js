@@ -9,6 +9,7 @@ import './styles/motion.css'
 import './styles/web.css'
 import './styles/pipelines.css'
 import './styles/automation.css'
+import './styles/toolbox.css'
 import en from './i18n/en.json'
 import de from './i18n/de.json'
 import { createI18n } from './i18n/i18n.js'
@@ -19,6 +20,7 @@ import { initMarquee } from './sections/marquee.js'
 import { initTimeline, refreshOnLayoutChange } from './sections/timeline.js'
 import { initMotion } from './sections/motion.js'
 import { initPipelines } from './sections/pipelines.js'
+import { initToolbox } from './sections/toolbox.js'
 
 const i18n = createI18n({ en, de }, 'en')
 initNav(i18n)
@@ -31,6 +33,7 @@ initMarquee(document.querySelector('.marquee__run'), () => (i18n.lang === 'de' ?
 initTimeline()
 initMotion({ reduced })
 initPipelines({ reduced })
+initToolbox()
 
 // Keep last: re-measures every ScrollTrigger once images and fonts settle
 refreshOnLayoutChange()
