@@ -3,8 +3,8 @@
 main > section.web { padding: 70px var(--gutter); }
 .web__body { display: flex; justify-content: center; align-items: center; gap: 64px; margin-top: 36px; }
 .web__title { font-size: var(--title); }
-/* The two project cards stack in a column next to the devices */
-.web__learn { display: flex; flex-direction: column; gap: 18px; flex: none; }
+/* The two project cards sit side by side in a row next to the devices, equal width */
+.web__learn { display: grid; grid-template-columns: repeat(2, 200px); gap: 18px; flex: none; }
 .web__mini { display: flex; flex-direction: column; width: 200px; text-decoration: none; font-size: 12px; transition: transform .2s; }
 .web__mini:hover, .web__mini:focus-visible { transform: translate(-2px, -2px); }
 .web__mini img { height: 100px; width: 100%; object-fit: cover; object-position: center top; border-bottom: var(--border); }
@@ -25,11 +25,17 @@ main > section.web { padding: 70px var(--gutter); }
 .web__devices:hover .web__shot, .web__devices.is-paused .web__shot { animation-play-state: paused; }
 @keyframes shot-scroll { to { transform: translateY(calc(-100% + var(--view))); } }
 @media (prefers-reduced-motion: reduce) { .web__shot { animation: none; } }
+/* Narrow desktop and tablet: the card row moves under the devices, centered */
+@media (max-width: 1180px) and (min-width: 761px) {
+  .web__body { flex-direction: column; gap: 40px; }
+  .web__devices { flex: none; width: min(680px, 100%); }
+  .web__learn { order: 1; }
+}
 @media (max-width: 760px) {
   main > section.web { padding: 60px var(--gutter); }
   .web__body { display: block; margin-top: 28px; }
-  .web__learn { flex-direction: row; gap: 12px; margin-bottom: 40px; }
-  .web__mini { flex: 1; width: auto; min-width: 0; }
+  .web__learn { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin-bottom: 40px; }
+  .web__mini { width: auto; min-width: 0; }
   .web__mini img { height: 96px; }
   .web__mini div { padding: 10px; }
   .web__devices { min-height: 380px; }
