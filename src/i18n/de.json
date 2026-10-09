@@ -4,7 +4,7 @@
   "marquee": ["Motion Design", "3D-Animation", "Frame-by-Frame-Animation", "Stop Motion", "Vektorillustration", "Compositing", "Color Grading", "Schnitt", "Audio-Mastering", "Kameraführung", "KI-Video", "Bildgenerierung", "Automatisierung", "Pipelines", "Webdesign"],
   "about": {
     "title": "Über mich",
-    "bio": "Ich komme aus Brasilien und bin vor über 20 Jahren nach Deutschland gezogen. Animation war schon immer meine größte Leidenschaft, und ich suche ständig nach neuen Wegen, verschiedene Stile zu mischen und zu kombinieren. Wenn ich nicht animiere, koche ich meistens oder mache Musik.",
+    "bio": "Hi, ich bin Lou. Ich bin in Brasilien aufgewachsen und vor über 20 Jahren nach Deutschland gezogen. Animation ist meine Leidenschaft, seit ich zum ersten Mal eine Puppe Bild für Bild bewegt habe, und ich suche immer noch nach neuen Wegen, Stile, Techniken und Tools zu mischen, bis etwas Unerwartetes lebendig wird. Abseits des Bildschirms koche ich für Freunde, mache Musik oder rolle mit meinem Longboard durch die Stadt.",
     "based": "Wohnort", "basedValue": "Berlin",
     "doing": "Fokus", "doingValue": "Motion · Creative Tech · KI-Pipelines",
     "speaks": "Sprachen", "speaksValue": "PT · EN · DE · ES"
@@ -12,8 +12,8 @@
   "timeline": {
     "title": "Von Keyframes…",
     "y2010": "Studium der Medienkunst. Stop Motion war meine erste Liebe und hat mir Fähigkeiten gezeigt, von denen ich nichts wusste.",
-    "y2014": "Motion Designerin. Acht Jahre und Hunderte Kundenprojekte, von Erklärvideos bis 3D.",
-    "y2022": "Programmieren hat mich immer mehr interessiert.",
+    "y2014": "Motion Designerin und Videoproduzentin. Projekte vom Dreh bis zum Finishing, mit 2D- und 3D-Animation.",
+    "y2022": "Ich wollte wissen, was hinter dem Bildschirm passiert, und habe angefangen zu programmieren. Erst kleine Webprojekte, dann Full-Stack-Apps und ein Spiel. Code wurde zu einer weiteren Art zu animieren.",
     "y2024": "Neben der Animation habe ich angefangen, Kurse, interaktive Lektionen und Multimedia-Erlebnisse zu gestalten.",
     "y2026": "Creative Technologist. Ich baue Pipelines und Skripte, die Motion, Code und KI verbinden."
   },
