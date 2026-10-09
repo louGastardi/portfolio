@@ -54,7 +54,7 @@ Lime band with a running list: Motion design ◆ After Effects ◆ Cinema 4D ◆
   - Mundo Curioso capybara loop
   - The Bias Gap Halo Effect loop
   - Caju character still
-  - Eraserboy stop motion frame
+  - Eraserboy stop motion teaser (YouTube `UStyAQmSXkM`, frame as poster)
   - 2 The Bias Gap covers
   - Lime "▶ Full reel" tile
 - Hover plays a loop, click opens the full video.
@@ -95,7 +95,7 @@ Lime band with a running list: Motion design ◆ After Effects ◆ Cinema 4D ◆
 | RPG and Decrypter screenshots | ready |
 | The Bias Gap covers and Halo loop | ready |
 | Mundo Curioso capybara loop, Caju | ready |
-| Eraserboy | frame only. Video is private on YouTube, so it can't be embedded. Needs to be set to Unlisted, or the file uploaded to the site |
+| Eraserboy teaser | ready. Unlisted on YouTube (`UStyAQmSXkM`), embeddable. Frame and thumbnail in `assets/` |
 | Showreel | temporary YouTube `VSI67Y0nnyo`, will be replaced |
 | Loops cut from the reel | to do after the final reel |
 | Old stop motion material from Google Drive | to search |
