@@ -1,5 +1,5 @@
 {
-  "nav": { "about": "Über mich", "timeline": "Werdegang", "motion": "Motion", "web": "Web", "pipelines": "Pipelines", "contact": "Kontakt" },
+  "nav": { "about": "Über mich", "timeline": "Werdegang", "motion": "Motion", "web": "Web", "pipelines": "Pipelines", "automation": "Automatisierung", "contact": "Kontakt" },
   "hero": { "role": "Motion Designerin / Creative Technologist · Berlin" },
   "marquee": ["Motion Design", "After Effects", "Cinema 4D", "Premiere Pro", "KI-Video", "Bildgenerierung", "Automatisierung", "Pipelines", "Remotion", "Compositing", "Color Grading", "Stop Motion", "Web", "React", "Figma"],
   "about": {
@@ -35,6 +35,7 @@
     "download": "Download",
     "soon": "Bald"
   },
+  "automation": { "title": "Automatisierung", "intro": "Plugins für After Effects, maßgeschneidert für wiederkehrende Projekte. Sie nehmen die repetitiven Schritte aus dem Workflow, damit mehr Zeit für die Teile bleibt, die ein menschliches Auge brauchen." },
   "toolbox": { "title": "Werkzeuge" },
   "contact": { "title": "Bringen wir Dinge in", "move": "Bewegung.", "cvEn": "CV · English", "cvDe": "Lebenslauf · Deutsch", "reel": "Showreel" }
 }

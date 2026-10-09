@@ -1,0 +1,26 @@
+.auto { background: var(--ink); color: #fff; padding: 70px var(--gutter) 90px; }
+.auto__head { display: grid; grid-template-columns: auto 1fr; gap: 40px; align-items: end; }
+.auto__title { font-size: clamp(72px, 12vw, 160px); }
+/* The German word is half again as long, so it gets a smaller size to leave room for the intro */
+:lang(de) .auto__title { font-size: clamp(60px, 8.5vw, 120px); }
+.auto__intro { font-size: 19px; line-height: 1.45; max-width: 520px; color: #ddd; }
+.auto .script { color: var(--ink); }
+.scripts { display: grid; grid-template-columns: 1fr 1fr; gap: 34px; margin-top: 50px; }
+.script__tut { height: 230px; background: #1d1d1d; border-bottom: var(--border); overflow: hidden; }
+.script__tut img, .script__tut video { width: 100%; height: 100%; object-fit: cover; }
+.script__body { padding: 16px 18px 18px; }
+.script__body h3 { font-size: 30px; }
+.script__body p { font-size: 15px; line-height: 1.45; margin: 8px 0 14px; }
+.script__meta { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+.script__dl { background: var(--ink); color: #fff; padding: 10px 16px; font: 700 14px var(--font-body); box-shadow: var(--shadow-sm); text-decoration: none; }
+/* #6b6b6b keeps white text above 4.5:1, the plan's #999 does not */
+.script__dl.is-soon { background: #6b6b6b; box-shadow: none; }
+@media (max-width: 760px) {
+  .auto { padding: 60px var(--gutter) 70px; }
+  .auto__head, .scripts { grid-template-columns: 1fr; }
+  .auto__head { gap: 20px; }
+  .auto__title, :lang(de) .auto__title { font-size: clamp(44px, 13vw, 72px); }
+  .auto__intro { font-size: 17px; }
+  .scripts { gap: 28px; margin-top: 36px; }
+  .script__tut { height: auto; aspect-ratio: 90 / 46; }
+}

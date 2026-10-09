@@ -1,0 +1,58 @@
+<!doctype html>
+<!-- Script card poster, styled like an After Effects panel screenshot.
+     Render with scripts/posters/render.sh (900x460). ?v=aa or ?v=srt picks the panel.
+     Content stays inside x 90..810, y 70..390 because the card crops with object-fit: cover. -->
+<html>
+<head>
+<meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500&family=JetBrains+Mono:wght@600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { width: 900px; height: 460px; overflow: hidden; background: #1d1d1d; }
+  .menubar { position: absolute; left: 0; right: 0; top: 0; height: 30px; background: #2b2b2b; border-bottom: 1px solid #000; }
+  .menubar i { position: absolute; top: 11px; height: 8px; width: 46px; background: #444; }
+  .comp { position: absolute; left: 100px; top: 78px; width: 430px; height: 232px; background: #3a3a3a; border: 1px solid #000; overflow: hidden; }
+  .comp::before { content: 'Comp 1'; position: absolute; left: 0; right: 0; top: 0; height: 22px; padding: 4px 10px; background: #2b2b2b; border-bottom: 1px solid #000; font: 600 11px 'JetBrains Mono'; color: #9a9a9a; letter-spacing: 1px; }
+  .layer { position: absolute; background: #91C11E; border: 3px solid #111; }
+  .ghost { position: absolute; border: 2px dashed #91C11E; opacity: .45; }
+  .tl { position: absolute; left: 100px; top: 322px; width: 430px; height: 62px; background: #2b2b2b; border: 1px solid #000; }
+  .tl i { position: absolute; height: 14px; background: #6a8f1a; }
+  .tl b { position: absolute; top: 0; bottom: 0; width: 2px; background: #4aa3ff; }
+  .panel { position: absolute; left: 560px; top: 78px; width: 240px; height: 306px; background: #2b2b2b; border: 1px solid #000; padding: 12px; }
+  .pt { font: 600 11px 'JetBrains Mono'; color: #bbb; letter-spacing: 1.5px; margin-bottom: 12px; }
+  .btn { font: 400 15px 'Space Grotesk'; color: #ddd; background: #3c3c3c; border: 1px solid #555; padding: 8px 10px; margin-bottom: 9px; }
+  .btn.hl { background: #91C11E; color: #111; border-color: #111; font-weight: 500; }
+  .cursor { position: absolute; width: 26px; height: 34px; filter: drop-shadow(2px 2px 0 rgba(0,0,0,.6)); }
+  .ring { position: absolute; width: 38px; height: 38px; border: 3px solid #91C11E; border-radius: 50%; opacity: .8; }
+  [hidden] { display: none !important; }
+</style>
+</head>
+<body>
+  <div class="menubar"><i style="left:14px"></i><i style="left:70px"></i><i style="left:126px"></i><i style="left:182px"></i></div>
+
+  <section id="aa" hidden>
+    <div class="comp"><div class="ghost" style="left:30px;top:96px;width:120px;height:68px"></div><div class="layer" style="left:150px;top:96px;width:120px;height:68px"></div></div>
+    <div class="tl"><i style="left:8px;top:12px;width:380px"></i><i style="left:8px;top:34px;width:240px;background:#86a83a"></i><b style="left:150px"></b></div>
+    <div class="panel"><div class="pt">LOU · ANIMATION AUTOMATION</div>
+      <div class="btn hl">Slide in from left</div><div class="btn">Scale in (elastic)</div><div class="btn">Fade in + out</div><div class="btn">Sequence layers</div><div class="btn">Copy frame</div>
+    </div>
+    <div class="ring" style="left:700px;top:112px"></div>
+    <svg class="cursor" style="left:716px;top:128px" viewBox="0 0 26 34"><path d="M2 2 L2 28 L9 21 L14 32 L19 30 L14 19 L24 19 Z" fill="#fff" stroke="#000" stroke-width="2" stroke-linejoin="round"/></svg>
+  </section>
+
+  <section id="srt" hidden>
+    <div class="comp" style="background:#333"><div class="layer" style="left:150px;top:70px;width:140px;height:96px;background:#555"></div><div class="layer" style="left:180px;top:96px;width:140px;height:96px"></div></div>
+    <div class="tl"><i style="left:8px;top:12px;width:80px"></i><i style="left:92px;top:12px;width:96px;background:#86a83a"></i><i style="left:192px;top:12px;width:66px"></i><i style="left:262px;top:12px;width:120px;background:#86a83a"></i><i style="left:8px;top:36px;width:374px;height:8px;background:#4a6b8f"></i><b style="left:262px"></b></div>
+    <div class="panel"><div class="pt">LOU · SEQUENCE FROM SRT</div>
+      <div class="btn">cutsheet.md</div><div class="btn">voiceover.srt</div><div class="btn">Gap: 0 frames</div><div class="btn hl">Place frames</div>
+    </div>
+    <div class="ring" style="left:700px;top:236px"></div>
+    <svg class="cursor" style="left:716px;top:252px" viewBox="0 0 26 34"><path d="M2 2 L2 28 L9 21 L14 32 L19 30 L14 19 L24 19 Z" fill="#fff" stroke="#000" stroke-width="2" stroke-linejoin="round"/></svg>
+  </section>
+
+  <script>
+    const v = new URLSearchParams(location.search).get('v') || 'aa'
+    document.getElementById(v).hidden = false
+  </script>
+</body>
+</html>
