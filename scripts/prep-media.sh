@@ -13,10 +13,17 @@ cwebp -quiet -q 82 -resize 900 0 "$SRC/lou_portrait_about.jpg" -o "$OUT/lou_port
 img edubites_ai_skills_desktop.jpg 1200 75
 img edubites_ai_skills_mobile.jpg 420 75
 img rpg_game.png 800
-img encryptor.png 800
 img eraserboy_frame.jpg 1200
 img eraserboy_thumb.jpg 1200
 img curioso_caju.png 900
+# Old portfolio photos are circle-masked squares: crop the inscribed square (side = 3616/sqrt2), then export at 900px
+career() { # src name
+  python3 -c "from PIL import Image; im=Image.open('$SRC/curriculum_old/$1').convert('RGB'); o=530; im.crop((o,o,im.width-o,im.height-o)).save('$SRC/curriculum_old/${1%.*}_sq.jpg', quality=92)"
+  cwebp -quiet -q 80 -resize 900 0 "$SRC/curriculum_old/${1%.*}_sq.jpg" -o "$OUT/$2.webp"
+}
+career foto_01.png career-camera
+career foto_02.png career-stopmotion
+career foto_03.png career-faces
 for n in 24 28 54; do img "biasgap_cover_$n.jpg" 600; done
 
 loop() { # name src

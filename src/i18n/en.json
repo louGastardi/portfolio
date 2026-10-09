@@ -17,12 +17,12 @@
     "y2024": "eduBITES. Courses, motion and web.",
     "y2026": "Creative Technologist. Pipelines."
   },
-  "motion": { "capybara": "Mundo Curioso · capybara", "shorts": "The Bias Gap · Shorts", "eraserboy": "Eraserboy · stop motion", "diderot": "The Bias Gap · Diderot effect" },
+  "motion": { "capybara": "Mundo Curioso · capybara", "shorts": "The Bias Gap · Shorts", "eraserboy": "Eraserboy · stop motion", "diderot": "The Bias Gap · Diderot effect", "faces": "Stop motion · replacement faces" },
   "web": {
     "title": "Built for the web",
     "edubites": "eduBITES · AI Skill Assessment. Design, code and upkeep.",
-    "rpg": "JS · OOP game",
-    "decrypter": "HTML · CSS · JS"
+    "rpgLine": "A browser game played with the arrow keys and the space bar.",
+    "rpg": "JS · OOP game"
   },
   "pipelines": {
     "aria": "Automated YouTube pipeline: topic, script, voice, frames, edit, captions, upload, YouTube, analytics, comments, then back to topic",

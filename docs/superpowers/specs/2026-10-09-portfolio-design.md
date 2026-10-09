@@ -42,8 +42,8 @@ Lime band with a running list: Motion design ◆ After Effects ◆ Cinema 4D ◆
 - Pinned section. A real After Effects style timeline: ruler, 3 layers (craft, code, scale), keyframes, green playhead that moves with scroll.
 - The hero crystal splits into 5 keyframes that land on this timeline.
 - 5 cards above the timeline, the active one grows and lights up:
-  - 2010 Bauhaus Weimar, stop motion (Eraserboy frame)
-  - 2014 Camera Medica, motion for hundreds of clients
+  - 2010 Bauhaus Weimar, stop motion (photo of Lou animating a stop motion set)
+  - 2014 Camera Medica, motion for hundreds of clients (photo of Lou operating a cinema camera)
   - 2022 learned to code (ONE, Ironhack), code card
   - 2024 eduBITES, courses, motion, web
   - 2026 Creative Technologist, pipelines (mini node diagram)
@@ -56,13 +56,14 @@ Lime band with a running list: Motion design ◆ After Effects ◆ Cinema 4D ◆
   - The Bias Gap Halo Effect loop
   - Caju character still
   - Eraserboy stop motion teaser (YouTube `UStyAQmSXkM`, frame as poster)
-  - 2 The Bias Gap covers
+  - 1 The Bias Gap cover
+  - Stop motion replacement faces (photo from the old portfolio)
   - The Bias Gap Diderot effect loop (last tile)
 - Hover plays a loop, click opens the full video.
 
 ### 04 Web ("Built for the web")
 - eduBITES AI Skill Assessment (`edubites.com/ai_skills/`) shown in a laptop and a phone on a lime block. Real full-page screenshots auto-scroll inside the screens.
-- Small row: Procrastination RPG (`lougastardi.github.io/Procrastination-RPG-Game/`) and Message Decrypter (`lougastardi.github.io/Codificador-de-texto/`), each a small card with a real screenshot and a link.
+- One project card: Procrastination RPG (`lougastardi.github.io/Procrastination-RPG-Game/`), screenshot on the left, title, a one-line description and the stack on the right, with a link.
 
 ### 05 Pipelines ("…to pipelines.")
 - Node graph of The Bias Gap automated YouTube channel: Topic → Script → Voice → Frames → Edit → Captions → Upload → YouTube → Performance analytics → Comment management. A dashed line loops from the last step back to Topic ("insights feed the next topic"). A green dot travels the path on scroll. Hovering a node shows a short clip of that step.
@@ -96,7 +97,8 @@ Lime band with a running list: Motion design ◆ After Effects ◆ Cinema 4D ◆
 |---|---|
 | Portrait (Flow, mirrored) | ready, `assets/lou_portrait.jpg` |
 | eduBITES AI Skills screenshots (desktop, mobile) | ready |
-| RPG and Decrypter screenshots | ready |
+| RPG screenshot | ready |
+| Old portfolio photos (camera, stop motion set, replacement faces) | ready. Circle-masked PNGs in `assets/curriculum_old/`, center square crop |
 | The Bias Gap covers and Halo loop | ready |
 | Mundo Curioso capybara and penguin loops, Caju | ready |
 | Eraserboy teaser | ready. Unlisted on YouTube (`UStyAQmSXkM`), embeddable. Frame and thumbnail in `assets/` |

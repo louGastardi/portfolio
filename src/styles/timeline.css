@@ -6,6 +6,8 @@
 .tl__card { rotate: var(--r); opacity: .45; transform: scale(.94); transition: opacity .35s, transform .35s; }
 .tl__card.is-on { opacity: 1; transform: scale(1.06); z-index: 2; }
 .tl__card img, .tl__code, .tl__mini { height: 112px; width: 100%; object-fit: cover; }
+/* Keep the face in frame on the wide, short card */
+.tl__card img.tl__img--face { object-position: 50% 12%; }
 .tl__code { margin: 0; background: #1e1e1e; color: var(--lime); padding: 10px; font: 11px/1.5 var(--font-mono); }
 .tl__code i { color: #888; font-style: normal; }
 .tl__mini { display: flex; align-items: center; justify-content: center; gap: 6px; border-bottom: var(--border); }
