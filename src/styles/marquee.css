@@ -1,0 +1,5 @@
+.marquee { background: var(--lime); border-block: var(--border); overflow: hidden; white-space: nowrap; padding: 12px 0; }
+.marquee__run { display: inline-block; font-size: 26px; animation: marquee 22s linear infinite; }
+.marquee__run em { font-style: normal; margin: 0 22px; }
+@keyframes marquee { to { transform: translateX(-50%); } }
+@media (prefers-reduced-motion: reduce) { .marquee__run { animation: none; } }

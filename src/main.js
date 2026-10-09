@@ -15,3 +15,14 @@ import { initHero } from './sections/hero.js'
 
 const reduced = reducedMotion()
 initHero({ reduced })
+
+import './styles/marquee.css'
+import './styles/about.css'
+
+const fillMarquee = () => {
+  const items = (i18n.lang === 'de' ? de : en).marquee
+  const run = items.map(w => `<em>${w}</em>◆`).join('')
+  document.querySelector('.marquee__run').innerHTML = run + run
+}
+fillMarquee()
+document.addEventListener('langchange', fillMarquee)
