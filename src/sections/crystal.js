@@ -1,35 +1,29 @@
 import * as THREE from 'three'
 
-// An After Effects keyframe as a 3D slab: a square turned 45 degrees, extruded, with a small
-// bevel on the front and back edges. Left half lime, right half white, like the logo.
-const R = 1 // center to tip
-const DEPTH = 0.34 // full thickness
-const BEVEL = 0.07 // bevel width (and depth) on each face
-const W = 2 * R // tip to tip
+// An After Effects keyframe seen in 3D: a diamond with a square waist (four points around
+// the middle) and a tip above and below at the same distance, so the top half mirrors the
+// bottom half. A little taller than a regular octahedron. Split left/right through the tips:
+// the left half is solid lime, the right half is clear glass, like a selected keyframe.
+const R = 1 // center to each middle point
+const H = 1.18 // center to each tip
+export const KEYFRAME = { R, H }
 
 // Non-indexed triangle list, so every facet gets its own flat normal. Left half (x <= 0)
-// first, then the right half: both halves have the same triangle count. Exported for the tests.
+// first, then the right half: four facets each. Exported for the tests.
 export function keyframePositions() {
-  const d = DEPTH / 2
-  const inner = R - BEVEL * Math.SQRT2 // face diamond, shrunk so the bevel is 45 degrees
-  // Diamond corners for one half: top, side tip, bottom. sx = -1 left, +1 right.
-  const corners = (r, z, sx) => [[0, r, z], [sx * r, 0, z], [0, -r, z]]
+  const top = [0, H, 0]
+  const bottom = [0, -H, 0]
+  const front = [0, 0, R]
+  const back = [0, 0, -R]
   const half = sx => {
+    const side = [sx * R, 0, 0]
     const tris = []
-    const ff = corners(inner, d, sx) // front face
-    const fo = corners(R, d - BEVEL, sx) // front bevel, outer ring
-    const bo = corners(R, -d + BEVEL, sx) // back bevel, outer ring
-    const bf = corners(inner, -d, sx) // back face
-    // Triangles wound so the normal points out, mirrored for the right half
+    // Wound so the normal points out, mirrored for the right half
     const tri = (a, b, c) => tris.push(...(sx < 0 ? [a, b, c] : [a, c, b]))
-    const quad = (a, b, c, e) => { tri(a, b, c); tri(a, c, e) }
-    tri(ff[0], ff[1], ff[2])
-    tri(bf[0], bf[2], bf[1])
-    for (let k = 0; k < 2; k++) {
-      quad(ff[k], fo[k], fo[k + 1], ff[k + 1]) // front bevel
-      quad(fo[k], bo[k], bo[k + 1], fo[k + 1]) // side band
-      quad(bo[k], bf[k], bf[k + 1], bo[k + 1]) // back bevel
-    }
+    tri(top, side, front)
+    tri(top, back, side)
+    tri(bottom, front, side)
+    tri(bottom, side, back)
     return tris
   }
   return new Float32Array([...half(-1), ...half(1)].flat())
@@ -46,16 +40,20 @@ export function keyframeGeometry() {
   return geo
 }
 
-// Thin ink lines on every fold plus the split between the halves, front and back
+// The cut face of the solid half: the square through both tips and the front and back points.
+// Seen through the glass, it shows the lime half is solid, not a hollow shell.
+function cutFace() {
+  const geo = new THREE.BufferGeometry().setAttribute('position', new THREE.Float32BufferAttribute([0, H, 0, 0, 0, R, 0, -H, 0, 0, H, 0, 0, -H, 0, 0, 0, -R], 3))
+  geo.computeVertexNormals()
+  return geo
+}
+
+// Light lines on all twelve edges, so the shape reads on the black block. The edges behind
+// the glass half stay visible through it.
 function keyframeEdges(geo) {
-  const lines = new THREE.EdgesGeometry(geo, 10)
-  const d = DEPTH / 2 + 0.002
-  const inner = R - BEVEL * Math.SQRT2
-  const split = new THREE.BufferGeometry().setAttribute('position', new THREE.Float32BufferAttribute([0, inner, d, 0, -inner, d, 0, inner, -d, 0, -inner, -d], 3))
-  const mat = new THREE.LineBasicMaterial({ color: 0x232323 })
-  const group = new THREE.Group()
-  group.add(new THREE.LineSegments(lines, mat), new THREE.LineSegments(split, mat))
-  return group
+  const lines = new THREE.EdgesGeometry(geo, 1)
+  const mat = new THREE.LineBasicMaterial({ color: 0xf4f4f1, transparent: true, opacity: 0.9 })
+  return new THREE.LineSegments(lines, mat)
 }
 
 // Idle spin and float, the mouse tilts and turns it. Returns { mesh, renderer }.
@@ -66,11 +64,15 @@ export function initCrystal(canvas, { reduced = false } = {}) {
   camera.position.set(0, 0.35, 6)
   camera.lookAt(0, 0, 0)
 
-  // Lime #91C11E and off-white halves. Polygon offset pushes the faces back a little,
-  // so the ink edge lines sit cleanly on top.
-  const face = color => new THREE.MeshLambertMaterial({ color, flatShading: true, polygonOffset: true, polygonOffsetFactor: 1, polygonOffsetUnits: 1 })
+  // Solid lime #91C11E half and a clear glass half. Polygon offset pushes the faces back a
+  // little, so the edge lines sit cleanly on top. A see-through lime cut face closes the solid half.
+  // The glass does not write depth, so the far edges stay visible through it.
+  const offset = { flatShading: true, polygonOffset: true, polygonOffsetFactor: 1, polygonOffsetUnits: 1 }
+  const lime = new THREE.MeshLambertMaterial({ color: 0x91c11e, ...offset })
+  const cut = new THREE.Mesh(cutFace(), new THREE.MeshLambertMaterial({ color: 0x91c11e, transparent: true, opacity: 0.35, depthWrite: false, side: THREE.DoubleSide, ...offset }))
+  const glass = new THREE.MeshLambertMaterial({ color: 0xffffff, transparent: true, opacity: 0.08, depthWrite: false, side: THREE.DoubleSide, ...offset })
   const geo = keyframeGeometry()
-  const slab = new THREE.Mesh(geo, [face(0x91c11e), face(0xf4f4f1)])
+  const slab = new THREE.Mesh(geo, [lime, glass])
   // (three.js lights are physical, so a diffuse face gets intensity / PI: hence the high values)
   scene.add(new THREE.AmbientLight(0xffffff, 1.9))
   const key = new THREE.DirectionalLight(0xffffff, 1.5)
@@ -81,11 +83,12 @@ export function initCrystal(canvas, { reduced = false } = {}) {
   scene.add(key, fill)
 
   const mesh = new THREE.Group()
-  mesh.add(slab, keyframeEdges(geo))
+  mesh.add(slab, cut, keyframeEdges(geo))
   scene.add(mesh)
 
   // spin = idle rotation, yaw = mouse offset. Kept apart so easing never cancels the spin.
-  let spin = 0.4
+  // Starts turned a little: lime half left, glass half right, both read at once
+  let spin = 0.3
   let yaw = 0
   const target = { x: 0, y: 0, px: 0, py: 0 }
 
@@ -99,10 +102,10 @@ export function initCrystal(canvas, { reduced = false } = {}) {
     renderer.setSize(w, h, false)
     camera.aspect = w / h
     camera.updateProjectionMatrix()
-    // Keyframe width = about half of the shorter side of the black block
+    // Keyframe height = about 60% of the black block, never wider than half of it
     const visH = 2 * camera.position.z * Math.tan(THREE.MathUtils.degToRad(camera.fov / 2))
     const visW = visH * camera.aspect
-    mesh.scale.setScalar((Math.min(visW, visH * 1.25) * 0.5) / W)
+    mesh.scale.setScalar(Math.min((visW * 0.5) / (2 * R), (visH * 0.6) / (2 * H)))
     if (reduced) render()
   }
 

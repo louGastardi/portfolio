@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import { keyframePositions } from '../src/sections/crystal.js'
+import { keyframePositions, KEYFRAME } from '../src/sections/crystal.js'
 
 const points = () => {
   const p = keyframePositions()
@@ -19,34 +19,46 @@ const dot = (a, b) => a[0] * b[0] + a[1] * b[1] + a[2] * b[2]
 const has = (list, [x, y, z]) => list.some(q => Math.abs(q[0] - x) < 1e-6 && Math.abs(q[1] - y) < 1e-6 && Math.abs(q[2] - z) < 1e-6)
 
 describe('keyframe geometry', () => {
-  it('is a square diamond: as wide as tall, tips on the axes, thinner than wide', () => {
+  it('is a diamond with a square waist and two tips at equal distance', () => {
     const v = points()
     const xs = v.map(p => p[0]), ys = v.map(p => p[1]), zs = v.map(p => p[2])
     const w = Math.max(...xs) - Math.min(...xs)
-    const h = Math.max(...ys) - Math.min(...ys)
     const d = Math.max(...zs) - Math.min(...zs)
-    expect(w).toBeCloseTo(h, 6)
-    expect(Math.max(...xs)).toBeCloseTo(-Math.min(...xs), 6)
+    const h = Math.max(...ys) - Math.min(...ys)
+    // Square cross-section: as deep as wide
+    expect(w).toBeCloseTo(d, 6)
+    // Tips as far up as down, a regular octahedron or a little taller
     expect(Math.max(...ys)).toBeCloseTo(-Math.min(...ys), 6)
-    expect(d / w).toBeGreaterThan(0.1)
-    expect(d / w).toBeLessThan(0.3)
-    // The tips sit on the axes, so the outline is a square turned 45 degrees
-    expect(v.some(p => p[0] === 0 && p[1] === Math.max(...ys))).toBe(true)
-    expect(v.some(p => p[1] === 0 && p[0] === Math.max(...xs))).toBe(true)
+    expect(h / w).toBeGreaterThanOrEqual(1)
+    expect(h / w).toBeLessThan(1.35)
+    // Six corners: two tips on the y axis, four waist points on the x and z axes
+    const { R, H } = KEYFRAME
+    for (const c of [[0, H, 0], [0, -H, 0], [R, 0, 0], [-R, 0, 0], [0, 0, R], [0, 0, -R]]) expect(has(v, c)).toBe(true)
+    expect(v.every(p => has([[0, H, 0], [0, -H, 0], [R, 0, 0], [-R, 0, 0], [0, 0, R], [0, 0, -R]], p))).toBe(true)
   })
 
-  it('is mirror symmetric left to right and front to back', () => {
+  it('is mirror symmetric top to bottom, left to right and front to back', () => {
     const v = points()
     for (const [x, y, z] of v) {
+      expect(has(v, [x, -y, z])).toBe(true)
       expect(has(v, [-x, y, z])).toBe(true)
       expect(has(v, [x, y, -z])).toBe(true)
     }
   })
 
+  it('mirrors every facet of the top half in the bottom half', () => {
+    const t = tris()
+    const key = tri => tri.map(p => p.map(n => n.toFixed(5)).join(',')).sort().join('|')
+    const all = new Set(t.map(key))
+    const top = t.filter(tri => tri.some(p => p[1] > 0))
+    expect(top.length).toBe(t.length / 2)
+    top.forEach(tri => expect(all.has(key(tri.map(([x, y, z]) => [x, -y, z])))).toBe(true))
+  })
+
   it('splits into a left half and a right half of equal size', () => {
     const t = tris()
     const half = t.length / 2
-    expect(Number.isInteger(half)).toBe(true)
+    expect(t.length).toBe(8)
     t.slice(0, half).forEach(tri => tri.forEach(p => expect(p[0]).toBeLessThanOrEqual(1e-9)))
     t.slice(half).forEach(tri => tri.forEach(p => expect(p[0]).toBeGreaterThanOrEqual(-1e-9)))
   })
