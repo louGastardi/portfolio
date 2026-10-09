@@ -24,7 +24,6 @@
   "web": {
     "title": "Gebaut fürs Web",
     "intro": "Ich habe Webentwicklung gelernt, um meine Ideen selbst zu bauen, nicht nur zu gestalten. Seitdem finde ich immer bessere Wege: leichtere Seiten, saubereren Code und kleine Automatisierungen, die Stunden sparen.",
-    "edubites": "eduBITES · Test Your Agentic Skills. Design, Code und Betreuung.",
     "rpgLine": "Ein Browserspiel, gesteuert mit Pfeiltasten und Leertaste.",
     "rpg": "JS · OOP-Spiel",
     "decrypterLine": "Verwandelt eine Nachricht in Code und wieder zurück.",
