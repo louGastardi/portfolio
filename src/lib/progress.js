@@ -3,12 +3,13 @@ export const clamp = (v, min, max) => Math.min(max, Math.max(min, v))
 // Which of `count` equal slots a 0..1 progress value falls into.
 export const activeIndex = (progress, count) => Math.min(count - 1, Math.floor(clamp(progress, 0, 1) * count))
 
-// Where a looping animation is within its period, 0..1. Works for any elapsed time.
-export const loopPhase = (ms, period) => (((ms % period) + period) % period) / period
-
-// Index of the last step whose position along the path (arcs, ascending) the dot has reached.
-export const stepAt = (distance, arcs) => {
-  let i = 0
-  while (i + 1 < arcs.length && arcs[i + 1] <= distance) i++
-  return i
+// Stop-and-go loop over `count` stops: wait `dwell` ms on a stop, then travel `travel` ms
+// to the next one (the last stop travels back to the first). Returns the stop the dot is
+// on or leaving, and how far along the trip it is (0 while it waits).
+export const dwellPhase = (ms, count, dwell, travel) => {
+  const slot = dwell + travel
+  const lap = ms - Math.floor(ms / (count * slot)) * count * slot
+  const step = Math.min(count - 1, Math.floor(lap / slot))
+  const inSlot = lap - step * slot
+  return { step, trip: inSlot < dwell ? 0 : (inSlot - dwell) / travel }
 }

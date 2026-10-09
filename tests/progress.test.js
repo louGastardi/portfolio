@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import { clamp, activeIndex, loopPhase, stepAt } from '../src/lib/progress.js'
+import { clamp, activeIndex, dwellPhase } from '../src/lib/progress.js'
 
 describe('clamp', () => {
   it('limits to range', () => {
@@ -25,24 +25,27 @@ describe('activeIndex', () => {
   })
 })
 
-describe('loopPhase', () => {
-  it('runs 0..1 over one period and wraps', () => {
-    expect(loopPhase(0, 10000)).toBe(0)
-    expect(loopPhase(2500, 10000)).toBe(0.25)
-    expect(loopPhase(12500, 10000)).toBe(0.25)
-    expect(loopPhase(-2500, 10000)).toBe(0.75)
+describe('dwellPhase', () => {
+  // 10 stops, 3.4 s wait + 0.8 s trip = 4.2 s per stop, 42 s per lap
+  const at = ms => dwellPhase(ms, 10, 3400, 800)
+  it('waits on the first stop at the start', () => {
+    expect(at(0)).toEqual({ step: 0, trip: 0 })
+    expect(at(3399)).toEqual({ step: 0, trip: 0 })
   })
-})
-
-describe('stepAt', () => {
-  const arcs = [0, 220, 440, 660]
-  it('is the last step the dot has reached', () => {
-    expect(stepAt(0, arcs)).toBe(0)
-    expect(stepAt(219, arcs)).toBe(0)
-    expect(stepAt(220, arcs)).toBe(1)
-    expect(stepAt(500, arcs)).toBe(2)
+  it('travels to the next stop after the wait', () => {
+    expect(at(3400)).toEqual({ step: 0, trip: 0 })
+    expect(at(3800).trip).toBeCloseTo(0.5)
+    expect(at(4200)).toEqual({ step: 1, trip: 0 })
   })
-  it('stays on the last step past the end', () => {
-    expect(stepAt(9999, arcs)).toBe(3)
+  it('waits on every stop for the full dwell', () => {
+    for (let i = 0; i < 10; i++) {
+      expect(at(i * 4200 + 100)).toEqual({ step: i, trip: 0 })
+      expect(at(i * 4200 + 3300)).toEqual({ step: i, trip: 0 })
+    }
+  })
+  it('runs the last trip back to the first stop and wraps the lap', () => {
+    expect(at(9 * 4200 + 3800)).toEqual({ step: 9, trip: 0.5 })
+    expect(at(42000)).toEqual({ step: 0, trip: 0 })
+    expect(at(42000 * 3 + 4200 * 2 + 10)).toEqual({ step: 2, trip: 0 })
   })
 })

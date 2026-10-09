@@ -1,4 +1,4 @@
-import { loopPhase, stepAt } from '../lib/progress.js'
+import { dwellPhase } from '../lib/progress.js'
 
 // Labels come from the dictionary (pipelines.steps.<id>) so they follow the EN/DE switch
 const STEPS = [
@@ -14,10 +14,10 @@ const LAYOUT = {
   pos: [[70, 45], [290, 45], [510, 45], [730, 45], [730, 225], [510, 225], [290, 225], [70, 225], [290, 405], [510, 405]]
 }
 
-// One lap of the dot: the main path takes most of the time at an even pace,
-// the dashed way back to TOPIC is quicker and eased.
-const PERIOD = 10000
-const MAIN_SHARE = 0.85
+// The dot stops on every node long enough to read its card, then glides to the next one.
+// 10 stops x (3.4 s + 0.8 s) = one lap of about 42 s. The last trip runs the dashed loop.
+const DWELL = 3400
+const TRAVEL = 800
 const easeInOut = t => (t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2)
 
 const svgNS = 'http://www.w3.org/2000/svg'
@@ -100,23 +100,36 @@ export function initPipelines({ reduced, t }) {
     return
   }
 
-  // Time based, independent of scroll and mouse. Runs only while the section is on screen.
+  // Walks the dot `trip` (0..1, eased) of the way from node i to the next one.
+  // From COMMENTS it finishes the main path, runs the dashed loop and lands on TOPIC.
+  const tail = mainLength - arcs[arcs.length - 1]
+  const placeTrip = (i, trip) => {
+    const e = easeInOut(trip)
+    if (i < arcs.length - 1) return placeAt(path, arcs[i] + e * (arcs[i + 1] - arcs[i]))
+    let d = e * (tail + loopLength + arcs[0])
+    if (d < tail) return placeAt(path, arcs[i] + d)
+    d -= tail
+    if (d < loopLength) return placeAt(loop, d)
+    placeAt(path, d - loopLength)
+  }
+
+  // Time based, independent of scroll and mouse. Runs only while the section is on screen,
+  // and the clock pauses with it, so the lap always resumes where the viewer left it.
+  let clock = 0
+  let last = 0
   const frame = now => {
-    const phase = loopPhase(now, PERIOD)
-    if (phase < MAIN_SHARE) {
-      const d = (phase / MAIN_SHARE) * mainLength
-      placeAt(path, d)
-      auto = stepAt(d, arcs)
-    } else {
-      placeAt(loop, easeInOut((phase - MAIN_SHARE) / (1 - MAIN_SHARE)) * loopLength)
-      auto = STEPS.length - 1
-    }
+    clock += last ? Math.min(now - last, 100) : 0
+    last = now
+    const { step, trip } = dwellPhase(clock, STEPS.length, DWELL, TRAVEL)
+    placeTrip(step, trip)
+    // The card switches when the dot arrives, so each description stays up for the whole stop
+    auto = step
     show()
     raf = requestAnimationFrame(frame)
   }
   let raf = 0
   const start = () => { if (!raf) raf = requestAnimationFrame(frame) }
-  const stop = () => { cancelAnimationFrame(raf); raf = 0 }
+  const stop = () => { cancelAnimationFrame(raf); raf = 0; last = 0 }
   if ('IntersectionObserver' in window) {
     new IntersectionObserver(([entry]) => (entry.isIntersecting ? start() : stop())).observe(document.querySelector('.pipe__body'))
   } else {
