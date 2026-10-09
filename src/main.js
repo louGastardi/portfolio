@@ -23,6 +23,7 @@ import { initMotion } from './sections/motion.js'
 import { initPipelines } from './sections/pipelines.js'
 import { initToolbox } from './sections/toolbox.js'
 import { initWeb } from './sections/web.js'
+import { initTutorials } from './sections/tutorials.js'
 
 const i18n = createI18n({ en, de }, 'en')
 initNav(i18n)
@@ -37,6 +38,7 @@ initMotion({ reduced })
 initWeb()
 initPipelines({ reduced, t: key => i18n.t(key) })
 initToolbox()
+initTutorials({ reduced })
 
 // Keep last: re-measures every ScrollTrigger once images and fonts settle
 refreshOnLayoutChange()

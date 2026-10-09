@@ -36,7 +36,7 @@
     "download": "Download",
     "steps": { "topic": "THEMA", "script": "SKRIPT", "voice": "STIMME", "frames": "FRAMES", "edit": "SCHNITT", "captions": "UNTERTITEL", "upload": "UPLOAD", "youtube": "YOUTUBE", "analytics": "ANALYTICS", "comments": "KOMMENTARE" }
   },
-  "automation": { "title": "Automatisierung", "intro": "Plugins für After Effects, maßgeschneidert für wiederkehrende Projekte. Sie nehmen die repetitiven Schritte aus dem Workflow, damit mehr Zeit für die Teile bleibt, die ein menschliches Auge brauchen." },
+  "automation": { "title": "Automatisierung", "intro": "Plugins für After Effects, maßgeschneidert für wiederkehrende Projekte. Sie nehmen die repetitiven Schritte aus dem Workflow, damit mehr Zeit für die Teile bleibt, die ein menschliches Auge brauchen.", "tutAa": "Tutorial: Animation Automation", "tutSrt": "Tutorial: Sequence from SRT", "play": "Tutorial abspielen" },
   "toolbox": {
     "title": "Werkzeuge",
     "items": { "stopMotion": "Stop-Motion", "imageGen": "Bildgenerierung", "videoGen": "Videogenerierung", "aiVoice": "KI-Voiceover", "vibeCoding": "Vibe Coding", "workflow": "Workflow-Automatisierung", "editing": "Schnitt", "grading": "Color Grading", "audio": "Audio-Mastering", "camera": "Kameraführung", "responsive": "Responsive Design" }

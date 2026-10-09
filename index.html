@@ -153,7 +153,13 @@
       </div>
       <div class="scripts">
         <article class="script card">
-          <div class="script__tut"><img src="./media/script-aa-poster.webp" alt="" class="script__poster" loading="lazy" width="900" height="460"></div>
+          <div class="script__tut">
+            <video class="script__video" muted loop playsinline preload="none" poster="./media/script-aa-poster.webp" width="1350" height="690" data-i18n-aria="automation.tutAa" aria-label="Tutorial: Animation Automation">
+              <source src="./media/tutorial-aa.webm" type="video/webm">
+              <source src="./media/tutorial-aa.mp4" type="video/mp4">
+            </video>
+            <button class="script__play" type="button" aria-pressed="false" hidden data-i18n-aria="automation.play" aria-label="Play tutorial"></button>
+          </div>
           <div class="script__body">
             <h3 class="disp">Animation Automation</h3>
             <p data-i18n="pipelines.aa"></p>
@@ -161,7 +167,13 @@
           </div>
         </article>
         <article class="script card">
-          <div class="script__tut"><img src="./media/script-srt-poster.webp" alt="" class="script__poster" loading="lazy" width="900" height="460"></div>
+          <div class="script__tut">
+            <video class="script__video" muted loop playsinline preload="none" poster="./media/script-srt-poster.webp" width="1350" height="690" data-i18n-aria="automation.tutSrt" aria-label="Tutorial: Sequence from SRT">
+              <source src="./media/tutorial-srt.webm" type="video/webm">
+              <source src="./media/tutorial-srt.mp4" type="video/mp4">
+            </video>
+            <button class="script__play" type="button" aria-pressed="false" hidden data-i18n-aria="automation.play" aria-label="Play tutorial"></button>
+          </div>
           <div class="script__body">
             <h3 class="disp">Sequence from SRT</h3>
             <p data-i18n="pipelines.srt"></p>

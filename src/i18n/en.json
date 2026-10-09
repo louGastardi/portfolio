@@ -36,7 +36,7 @@
     "download": "Download",
     "steps": { "topic": "TOPIC", "script": "SCRIPT", "voice": "VOICE", "frames": "FRAMES", "edit": "EDIT", "captions": "CAPTIONS", "upload": "UPLOAD", "youtube": "YOUTUBE", "analytics": "ANALYTICS", "comments": "COMMENTS" }
   },
-  "automation": { "title": "Automation", "intro": "Plugins I built for After Effects, made to measure for recurring projects. They take the repetitive steps out of the workflow, so more time goes into the parts that need a human eye." },
+  "automation": { "title": "Automation", "intro": "Plugins I built for After Effects, made to measure for recurring projects. They take the repetitive steps out of the workflow, so more time goes into the parts that need a human eye.", "tutAa": "Tutorial: Animation Automation", "tutSrt": "Tutorial: Sequence from SRT", "play": "Play tutorial" },
   "toolbox": {
     "title": "Toolbox",
     "items": { "stopMotion": "Stop motion", "imageGen": "Image generation", "videoGen": "Video generation", "aiVoice": "AI voiceover", "vibeCoding": "Vibe coding", "workflow": "Workflow automation", "editing": "Editing", "grading": "Color grading", "audio": "Audio mastering", "camera": "Camera operation", "responsive": "Responsive design" }
