@@ -30,7 +30,10 @@
       <h1 class="hero__name disp"><span>Lou</span><span class="hero__l2">Gastardi</span></h1>
       <canvas class="hero__crystal" aria-hidden="true"></canvas>
       <figure class="hero__card hero__card--1 card" data-depth="18">
-        <video src="./media/curioso-penguin.mp4" poster="./media/curioso-penguin-poster.jpg" muted loop playsinline autoplay></video>
+        <video poster="./media/curioso-penguin-poster.jpg" muted loop playsinline autoplay aria-hidden="true">
+          <source src="./media/curioso-penguin.webm" type="video/webm">
+          <source src="./media/curioso-penguin.mp4" type="video/mp4">
+        </video>
       </figure>
       <figure class="hero__card hero__card--2 card" data-depth="10">
         <img src="./media/edubites_ai_skills_desktop.webp" alt="eduBITES AI Skill Assessment">

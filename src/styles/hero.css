@@ -3,17 +3,17 @@
 .hero__name span { display: block; }
 .hero__l2 { margin-left: 8vw; }
 .hero__crystal { position: absolute; left: 42%; top: 6%; width: min(26vw, 280px); height: min(26vw, 280px); }
-.hero__card { position: absolute; overflow: hidden; will-change: transform; }
+.hero__card { position: absolute; overflow: hidden; will-change: translate; }
 .hero__card img, .hero__card video { width: 100%; height: 100%; object-fit: cover; object-position: top; }
 .hero__card--1 { right: 6%; top: 9%; width: 230px; height: 150px; rotate: 6deg; }
 .hero__card--2 { right: 22%; top: 40%; width: 210px; height: 135px; rotate: -8deg; }
 .hero__card--3 { right: 4%; top: 46%; width: 170px; height: 225px; rotate: 3deg; }
 .hero__role { position: absolute; left: var(--gutter); bottom: 44px; font-size: 13px; }
 @media (max-width: 760px) {
-  .hero { height: auto; padding: 40px var(--gutter) 320px; }
+  .hero { height: auto; min-height: calc(100svh - var(--nav-h)); justify-content: flex-start; padding: 40px var(--gutter) 320px; }
   .hero__name { position: static; font-size: 22vw; }
   .hero__l2 { margin-left: 4vw; }
-  .hero__crystal { left: auto; right: 4%; top: 30%; width: 38vw; height: 38vw; }
+  .hero__crystal { left: auto; right: 4%; top: 36%; width: 38vw; height: 38vw; }
   .hero__card--1 { right: auto; left: 6%; top: auto; bottom: 120px; width: 46vw; height: 30vw; }
   .hero__card--2 { display: none; }
   .hero__card--3 { right: 6%; top: auto; bottom: 60px; width: 34vw; height: 44vw; }
