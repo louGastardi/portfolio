@@ -1,5 +1,5 @@
 {
-  "nav": { "about": "About", "timeline": "Timeline", "motion": "Animation", "web": "Web", "pipelines": "Pipelines", "automation": "Automation", "contact": "Contact" },
+  "nav": { "about": "About", "motion": "Animation", "web": "Web", "automation": "Automation", "contact": "Contact" },
   "hero": { "role": "Motion Designer / Creative Technologist" },
   "marquee": ["Motion design", "3D animation", "Frame-by-frame animation", "Stop motion", "Vector illustration", "Compositing", "Color grading", "Editing", "Audio mastering", "Camera operation", "AI video", "Image generation", "Automation", "Pipelines", "Web design"],
   "about": {
