@@ -130,6 +130,21 @@
         <div class="web__phone"><img class="web__shot" src="./media/edubites_ai_skills_mobile.webp" alt="eduBITES AI Skill Assessment, mobile" loading="lazy"></div>
       </div>
     </section>
+    <section class="pipe" id="pipelines">
+      <h2 class="pipe__title disp" data-i18n="pipelines.title">…to pipelines.</h2>
+      <p class="mono pipe__flow" data-i18n="pipelines.flow"></p>
+      <div class="pipe__graph">
+        <svg viewBox="0 0 1000 480" role="img" aria-label="Automated YouTube pipeline: topic, script, voice, frames, edit, captions, upload, YouTube, analytics, comments, then back to topic">
+          <path class="pipe__wire" id="pipe-path" d="M120 67 H 900 V 247 H 120 V 427 H 560"/>
+          <path class="pipe__wire pipe__wire--loop" d="M610 427 H 960 V 10 H 120 V 45"/>
+          <text class="pipe__loop-label" x="700" y="462" data-i18n="pipelines.loop">insights feed the next topic</text>
+          <circle class="pipe__dot" r="8" cx="120" cy="67"/>
+          <g class="pipe__nodes"></g>
+        </svg>
+        <figure class="pipe__tip card" hidden aria-hidden="true"><video muted loop playsinline preload="none" poster="./media/biasgap-halo-poster.jpg"></video><figcaption class="mono"></figcaption></figure>
+      </div>
+      <p class="pipe__hint mono" data-i18n="pipelines.hover"></p>
+    </section>
   </main>
   <dialog class="lightbox" aria-label="Video player"><button class="lightbox__close" type="button" aria-label="Close">×</button><div class="lightbox__frame"></div></dialog>
   <script type="module" src="/src/main.js"></script>

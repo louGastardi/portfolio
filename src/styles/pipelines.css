@@ -1,0 +1,31 @@
+.pipe { border-top: var(--border); padding: 70px var(--gutter) 80px; }
+.pipe__title { font-size: clamp(64px, 10vw, 110px); }
+.pipe__flow { margin-top: 26px; }
+.pipe__graph { position: relative; }
+/* Height capped so title plus graph fit one desktop screen, the drawing centers in the box */
+.pipe__graph svg { display: block; width: 100%; height: auto; max-height: min(470px, 58vh); margin-top: 14px; overflow: visible; }
+.pipe__wire { stroke: var(--ink); stroke-width: 2; fill: none; }
+.pipe__dot { fill: var(--green); }
+.pipe__wire--loop { stroke: var(--green); stroke-dasharray: 6 6; }
+.pipe__loop-label { font: 600 10px var(--font-mono); letter-spacing: 1px; fill: var(--green); }
+.pipe__node { cursor: pointer; }
+.pipe__node .sh { fill: var(--lime); }
+.pipe__node .bx { fill: #fff; stroke: var(--ink); stroke-width: 2; }
+.pipe__node.is-dark .bx { fill: var(--ink); }
+.pipe__node text { font: 600 12px var(--font-mono); letter-spacing: 1px; fill: var(--ink); }
+.pipe__node.is-dark text { fill: var(--lime); }
+.pipe__node:hover .bx { fill: var(--lime); }
+.pipe__node.is-dark:hover text { fill: var(--ink); }
+.pipe__tip { position: absolute; z-index: 2; width: 220px; pointer-events: none; rotate: 3deg; }
+.pipe__tip video { width: 100%; height: 130px; object-fit: cover; }
+.pipe__tip figcaption { padding: 6px 8px; }
+.pipe__hint { margin-top: 10px; color: #6b6b6b; }
+@media (max-width: 760px) {
+  .pipe { padding: 60px var(--gutter); }
+  /* One line on phones, a wrapped ellipsis collides with the tight display line height */
+  .pipe__title { font-size: clamp(40px, 13.5vw, 64px); }
+  .pipe__graph svg { max-height: none; }
+  .pipe__tip { display: none; }
+}
+/* The tip needs a mouse, so the hint would point at nothing on touch screens */
+@media (hover: none) { .pipe__hint { display: none; } }
