@@ -1,17 +1,16 @@
 .contact { background: var(--ink); color: #fff; padding: 80px var(--gutter) 50px; overflow: hidden; }
 .contact__big { font-size: clamp(64px, 13vw, 150px); }
-.contact__mail { display: inline-block; align-self: flex-start; font-size: clamp(22px, 3.4vw, 38px); margin: 26px 0 36px; border-bottom: 3px solid var(--lime); text-decoration: none; overflow-wrap: anywhere; }
-.contact__btns { display: flex; flex-wrap: wrap; gap: 20px; }
+.contact__btns { display: flex; flex-wrap: wrap; gap: 20px; margin-top: 48px; }
 .contact__btn { background: #fff; color: var(--ink); border: 2px solid #fff; box-shadow: 6px 6px 0 var(--lime); padding: 14px 22px; font: 700 18px var(--font-body); text-decoration: none; }
 .contact__btn--lime { background: var(--lime); border-color: var(--lime); }
 .contact__btn:hover { translate: -2px -2px; box-shadow: 8px 8px 0 var(--lime); }
-.contact__btn:focus-visible, .contact__mail:focus-visible { outline: 3px solid var(--lime); outline-offset: 4px; }
+.contact__btn:focus-visible { outline: 3px solid var(--lime); outline-offset: 4px; }
 .contact__btn--icon { display: flex; align-items: center; justify-content: center; width: 56px; padding: 0; }
 .contact__btn--icon svg { width: 24px; height: 24px; fill: var(--ink); }
 @media (max-width: 760px) {
   .contact { padding: 60px var(--gutter) 50px; }
   .contact__big { font-size: clamp(48px, 15vw, 64px); }
-  .contact__btns { gap: 16px; }
+  .contact__btns { gap: 16px; margin-top: 36px; }
   .contact__btn { padding: 12px 18px; font-size: 16px; }
   .contact__btn--icon { width: 50px; min-height: 50px; padding: 0; }
 }
