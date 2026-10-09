@@ -1,31 +1,50 @@
 .pipe { border-top: var(--border); padding: 70px var(--gutter) 80px; }
 .pipe__title { font-size: var(--title); }
 .pipe__flow { margin-top: 26px; }
-.pipe__graph { position: relative; }
+/* Graph left, framed print card right */
+.pipe__body { display: grid; grid-template-columns: minmax(0, 1fr) minmax(300px, 400px); gap: 48px; align-items: center; margin-top: 14px; }
+.pipe__graph { position: relative; min-width: 0; }
 /* Height capped so title plus graph fit one desktop screen, the drawing centers in the box */
-.pipe__graph svg { display: block; width: 100%; height: auto; max-height: min(470px, 58vh); margin-top: 14px; overflow: visible; }
+.pipe__graph svg { display: block; width: 100%; height: auto; max-height: min(470px, 58vh); overflow: visible; }
 .pipe__wire { stroke: var(--ink); stroke-width: 2; fill: none; }
 .pipe__dot { fill: var(--green); }
 .pipe__wire--loop { stroke: var(--green); stroke-dasharray: 6 6; }
 .pipe__loop-label { font: 600 10px var(--font-mono); letter-spacing: 1px; fill: var(--green); }
-.pipe__node { cursor: pointer; }
+.pipe__node { cursor: default; }
 .pipe__node .sh { fill: var(--lime); }
-.pipe__node .bx { fill: #fff; stroke: var(--ink); stroke-width: 2; }
+.pipe__node .bx { fill: #fff; stroke: var(--ink); stroke-width: 2; transition: fill .25s; }
 .pipe__node.is-dark .bx { fill: var(--ink); }
-.pipe__node text { font: 600 12px var(--font-mono); letter-spacing: 1px; fill: var(--ink); }
+.pipe__node text { font: 600 12px var(--font-mono); letter-spacing: 1px; fill: var(--ink); transition: fill .25s; }
 .pipe__node.is-dark text { fill: var(--lime); }
-.pipe__node:hover .bx { fill: var(--lime); }
-.pipe__node.is-dark:hover text { fill: var(--ink); }
-.pipe__tip { position: absolute; z-index: 2; width: 220px; pointer-events: none; rotate: 3deg; }
-.pipe__tip video { width: 100%; height: 130px; object-fit: cover; }
-.pipe__tip figcaption { padding: 6px 8px; }
-.pipe__hint { margin-top: 10px; color: #6b6b6b; }
+.pipe__node.is-on .bx { fill: var(--lime); }
+.pipe__node.is-dark.is-on text { fill: var(--ink); }
+/* Every step sits in the same grid cell, only the active one is visible: a crossfading card */
+.pipe__steps { list-style: none; display: grid; border: var(--border); box-shadow: var(--shadow); background: #fff; }
+.pipe__step { grid-area: 1 / 1; opacity: 0; transition: opacity .45s; }
+.pipe__step.is-on { opacity: 1; }
+.pipe__step img { width: 100%; height: auto; aspect-ratio: 16 / 10; object-fit: cover; border-bottom: var(--border); background: #1d1d1d; }
+.pipe__step div { padding: 14px 16px 16px; }
+.pipe__step span { color: var(--green); }
+.pipe__step b { font-size: 12px; }
+.pipe__step p { margin-top: 8px; font-size: 16px; line-height: 1.4; }
+.pipe__hint { margin-top: 18px; color: #6b6b6b; }
+@media (max-width: 1100px) {
+  .pipe__body { grid-template-columns: minmax(0, 1fr) 300px; gap: 32px; }
+}
+/* Phones: the graph is too small to read, the steps become a list with a small print each.
+   The active step still lights up as the loop runs. */
 @media (max-width: 760px) {
   .pipe { padding: 60px var(--gutter); }
   /* One line on phones, a wrapped ellipsis collides with the tight display line height */
   .pipe__title { font-size: clamp(40px, 13.5vw, 64px); }
-  .pipe__graph svg { max-height: none; }
-  .pipe__tip { display: none; }
+  .pipe__body { grid-template-columns: 1fr; margin-top: 24px; }
+  .pipe__graph { display: none; }
+  .pipe__steps { gap: 10px; border: 0; box-shadow: none; background: none; }
+  .pipe__step { grid-area: auto; opacity: 1; display: grid; grid-template-columns: 112px 1fr; align-items: center; border: var(--border); background: #fff; transition: box-shadow .3s; }
+  .pipe__step.is-on { box-shadow: var(--shadow-sm); }
+  .pipe__step img { height: 100%; aspect-ratio: auto; min-height: 70px; border-bottom: 0; border-right: var(--border); }
+  .pipe__step div { padding: 10px 12px; }
+  .pipe__step p { margin-top: 4px; font-size: 14px; }
 }
-/* The tip needs a mouse, so the hint would point at nothing on touch screens */
-@media (hover: none) { .pipe__hint { display: none; } }
+/* The hover details need a mouse, so the hint would point at nothing on touch screens */
+@media (hover: none), (max-width: 760px) { .pipe__hint { display: none; } }

@@ -30,13 +30,25 @@
     "aria": "Automatisierte YouTube-Pipeline: Thema, Skript, Stimme, Frames, Schnitt, Untertitel, Upload, YouTube, Analytics, Kommentare, dann zurück zum Thema",
     "title": "…zu Pipelines.",
     "flow": "The Bias Gap · automatisierter YouTube-Kanal",
-    "hover": "Über einen Schritt fahren, um ihn laufen zu sehen",
+    "hover": "Für Details über einen Schritt fahren",
     "loop": "Erkenntnisse speisen das nächste Thema",
     "aa": "Ein ScriptUI-Panel für After Effects. Ein Klick fügt jeder Ebene Ein- und Ausgänge, elastische Skalierung, Fades und leichte Kamerabewegungen hinzu. Mit Expressions gebaut, die Animationen passen sich beim Trimmen an. Sequenziert, precomposed und kopiert außerdem den aktuellen Frame.",
     "srt": "Lädt ein Voiceover-Transkript (.srt) und ein Cut Sheet und setzt jede Bildebene genau dorthin, wo ihr Satz gesprochen wird. Aus einer Stunde Timing wird ein Klick.",
     "meta": ".jsx · AE 2024+ · kostenlos",
     "download": "Download",
-    "steps": { "topic": "THEMA", "script": "SKRIPT", "voice": "STIMME", "frames": "FRAMES", "edit": "SCHNITT", "captions": "UNTERTITEL", "upload": "UPLOAD", "youtube": "YOUTUBE", "analytics": "ANALYTICS", "comments": "KOMMENTARE" }
+    "steps": { "topic": "THEMA", "script": "SKRIPT", "voice": "STIMME", "frames": "FRAMES", "edit": "SCHNITT", "captions": "UNTERTITEL", "upload": "UPLOAD", "youtube": "YOUTUBE", "analytics": "ANALYTICS", "comments": "KOMMENTARE" },
+    "desc": {
+      "topic": "Einen Bias aus dem Backlog wählen, sortiert nach dem, was gut läuft",
+      "script": "Das kurze Skript in Markdown schreiben",
+      "voice": "Das Voiceover mit einer geklonten Stimme erzeugen",
+      "frames": "Die Bilder in Google Flow generieren",
+      "edit": "Schnitte auf die gesprochenen Wörter setzen",
+      "captions": "Untertitel Wort für Wort einbrennen",
+      "upload": "Hochladen mit Titel, Beschreibung und Termin",
+      "youtube": "Auf dem Kanal veröffentlichen",
+      "analytics": "Aufrufe und Retention abrufen",
+      "comments": "Automatisch einen Kommentar anpinnen"
+    }
   },
   "automation": { "title": "Automatisierung", "intro": "Plugins für After Effects, maßgeschneidert für wiederkehrende Projekte. Sie nehmen die repetitiven Schritte aus dem Workflow, damit mehr Zeit für die Teile bleibt, die ein menschliches Auge brauchen.", "tutAa": "Tutorial: Animation Automation", "tutSrt": "Tutorial: Sequence from SRT", "play": "Tutorial abspielen" },
   "toolbox": { "title": "Werkzeuge" },

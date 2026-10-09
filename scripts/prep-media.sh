@@ -44,4 +44,7 @@ clip() { # name src
 }
 clip eraserboy eraserboy-loop
 for n in framebyframe 3d character type 2d fx; do clip "reel-$n" "reel-$n"; done
+# Pipeline prints, one per step (see assets/round4/pipeline.md)
+mkdir -p "$OUT/pipeline"
+for f in "$SRC"/round4/pipeline/*.png; do n=$(basename "$f" .png); cwebp -quiet -q 78 -resize 1000 0 "$f" -o "$OUT/pipeline/$n.webp"; done
 echo "media ready:"; ls -1 "$OUT"

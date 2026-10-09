@@ -30,13 +30,25 @@
     "aria": "Automated YouTube pipeline: topic, script, voice, frames, edit, captions, upload, YouTube, analytics, comments, then back to topic",
     "title": "…to pipelines.",
     "flow": "The Bias Gap · automated YouTube channel",
-    "hover": "Hover a step to see it run",
+    "hover": "Hover a step for the details",
     "loop": "insights feed the next topic",
     "aa": "A ScriptUI panel for After Effects. One click adds entrances, exits, elastic scale, fades and subtle camera moves to any layer. Built with expressions, so animations adapt when you trim. Also sequences, precomposes and copies the current frame.",
     "srt": "Load a voiceover transcript (.srt) and a cut sheet, and it places every image layer where its line is spoken. An hour of manual timing becomes one click.",
     "meta": ".jsx · AE 2024+ · free",
     "download": "Download",
-    "steps": { "topic": "TOPIC", "script": "SCRIPT", "voice": "VOICE", "frames": "FRAMES", "edit": "EDIT", "captions": "CAPTIONS", "upload": "UPLOAD", "youtube": "YOUTUBE", "analytics": "ANALYTICS", "comments": "COMMENTS" }
+    "steps": { "topic": "TOPIC", "script": "SCRIPT", "voice": "VOICE", "frames": "FRAMES", "edit": "EDIT", "captions": "CAPTIONS", "upload": "UPLOAD", "youtube": "YOUTUBE", "analytics": "ANALYTICS", "comments": "COMMENTS" },
+    "desc": {
+      "topic": "Pick a bias from the backlog, ranked by what performs",
+      "script": "Write the short script in markdown",
+      "voice": "Generate the voiceover with a cloned voice",
+      "frames": "Generate the shots in Google Flow",
+      "edit": "Assemble cuts on spoken words",
+      "captions": "Burn in word-by-word captions",
+      "upload": "Upload with title, description and schedule",
+      "youtube": "Publish to the channel",
+      "analytics": "Pull views and retention",
+      "comments": "Pin a comment automatically"
+    }
   },
   "automation": { "title": "Automation", "intro": "Plugins I built for After Effects, made to measure for recurring projects. They take the repetitive steps out of the workflow, so more time goes into the parts that need a human eye.", "tutAa": "Tutorial: Animation Automation", "tutSrt": "Tutorial: Sequence from SRT", "play": "Play tutorial" },
   "toolbox": { "title": "Toolbox" },
