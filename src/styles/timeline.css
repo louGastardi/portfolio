@@ -13,7 +13,7 @@
 .tl__card img.tl__img--cam { object-position: 50% 25%; }
 .tl__card img.tl__img--lesson { object-position: 50% 45%; }
 .tl__card img.tl__img--top { object-position: 50% 0; }
-.tl__card p { padding: 8px 10px 10px; font-size: 12.5px; line-height: 1.35; }
+.tl__card p { padding: 8px 10px 10px; font-size: 12px; line-height: 1.32; }
 .tl__card b { display: block; font-size: 28px; }
 .tl__ruler { position: relative; z-index: 3; margin: 0 var(--gutter); height: 26px; border: var(--border); border-bottom: 0; background: repeating-linear-gradient(90deg, var(--ink) 0 1.5px, transparent 1.5px 40px) bottom / 40px 8px repeat-x; }
 /* Height set in JS to ruler + layers. Ruler z-index keeps it above the cards and the layer stack. */
