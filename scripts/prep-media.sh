@@ -14,43 +14,41 @@ img edubites_agentic_desktop.jpg 1200 75
 img edubites_agentic_mobile.jpg 420 75
 img rpg_game.png 800
 img encryptor.png 800
-# Old portfolio photos are circle-masked squares. Cut the largest 4:5 rectangle that still fits
-# inside the circle around the given center (fractions of the side), so the hands, the puppet
-# and the camera stay in frame on the tall timeline cards. Exported at 640px wide.
-career() { # src name cx cy
-  python3 - "$SRC/curriculum_old/$1" "$SRC/curriculum_old/${1%.*}_45.jpg" "$3" "$4" <<'PY'
+# Old portfolio photos (2010, 2014) are circle-masked squares. The whole circle is kept so the
+# face, hands, puppet, set and camera all show: it is scaled to the card width and centered on a
+# 4:5 canvas, and the space around it is a blurred, darkened cover of the same photo. The circle
+# edge is feathered into that backdrop so there are no hard transparent corners. Exported 640px wide.
+careerfit() { # src name
+  python3 - "$SRC/curriculum_old/$1" "$SRC/curriculum_old/${1%.*}_45.jpg" <<'PY'
 import sys
-from PIL import Image
-src, out, cx, cy = sys.argv[1], sys.argv[2], float(sys.argv[3]), float(sys.argv[4])
-im = Image.open(src).convert('RGB'); n = im.width
-fits = lambda w: all((x - .5) ** 2 + (y - .5) ** 2 <= .25 for x in (cx - w / 2, cx + w / 2) for y in (cy - w * .625, cy + w * .625))
-lo, hi = 0.0, 1.0
-for _ in range(40):
-    mid = (lo + hi) / 2
-    lo, hi = (mid, hi) if fits(mid) else (lo, mid)
-w = lo
-im.crop(tuple(round(v * n) for v in (cx - w / 2, cy - w * .625, cx + w / 2, cy + w * .625))).save(out, quality=92)
+from PIL import Image, ImageDraw, ImageEnhance, ImageFilter
+src, out = sys.argv[1], sys.argv[2]
+W, H = 1280, 1600
+im = Image.open(src).convert('RGBA'); n = im.width
+# Trim the anti-aliased rim of the circle
+t = round(n * .015); im = im.crop((t, t, n - t, n - t)); n = im.width
+# Backdrop: the square inscribed in the circle (no transparent pixels) scaled to cover 4:5
+k = round(n * (1 - 2 ** -.5) / 2)
+inner = im.crop((k, k, n - k, n - k)).convert('RGB')
+s = max(W / inner.width, H / inner.height)
+bg = inner.resize((round(inner.width * s), round(inner.height * s)), Image.LANCZOS)
+bg = bg.crop(((bg.width - W) // 2, (bg.height - H) // 2, (bg.width - W) // 2 + W, (bg.height - H) // 2 + H))
+bg = ImageEnhance.Brightness(bg.filter(ImageFilter.GaussianBlur(40))).enhance(.7)
+# Foreground: the full circle at canvas width. The mask is drawn and blurred on the whole canvas
+# so the feather fades out evenly on every side, top and bottom included.
+fg = im.resize((W, W), Image.LANCZOS)
+y = (H - W) // 2
+mask = Image.new('L', (W * 2, H * 2), 0)
+ImageDraw.Draw(mask).ellipse((0, y * 2, W * 2, (y + W) * 2), fill=255)
+mask = mask.resize((W, H), Image.LANCZOS).filter(ImageFilter.GaussianBlur(28))
+layer = bg.copy(); layer.paste(fg.convert('RGB'), (0, y), fg.getchannel('A'))
+bg = Image.composite(layer, bg, mask)
+bg.save(out, quality=92)
 PY
   cwebp -quiet -q 80 -resize 640 0 "$SRC/curriculum_old/${1%.*}_45.jpg" -o "$OUT/$2.webp"
 }
-# The 2014 camera photo is framed wider than the circle allows, so the whole camera body and lens
-# read. The few transparent corners outside the circle are filled with OpenCV inpainting.
-careerwide() { # src name left top width (fractions of the side, height = width * 1.25)
-  python3 - "$SRC/curriculum_old/$1" "$SRC/curriculum_old/${1%.*}_45.png" "$3" "$4" "$5" <<'PY'
-import sys, cv2, numpy as np
-from PIL import Image
-src, out, x0, y0, w = sys.argv[1], sys.argv[2], *map(float, sys.argv[3:])
-im = np.array(Image.open(src).convert('RGBA')); n = im.shape[0]
-x, y, cw, ch = round(x0 * n), round(y0 * n), round(w * n), round(w * 1.25 * n)
-c = im[y:y + ch, x:x + cw]
-bgr = cv2.resize(cv2.cvtColor(np.ascontiguousarray(c[..., :3]), cv2.COLOR_RGB2BGR), (1280, 1600), interpolation=cv2.INTER_AREA)
-hole = cv2.resize(cv2.dilate((c[..., 3] < 250).astype(np.uint8) * 255, np.ones((9, 9), np.uint8)), (1280, 1600), interpolation=cv2.INTER_NEAREST)
-cv2.imwrite(out, cv2.inpaint(bgr, hole, 40, cv2.INPAINT_TELEA))
-PY
-  cwebp -quiet -q 80 -resize 640 0 "$SRC/curriculum_old/${1%.*}_45.png" -o "$OUT/$2.webp"
-}
-careerwide foto_01.png career-camera 0.05 0.18 0.60
-career foto_02.png career-stopmotion 0.5 0.5
+careerfit foto_01.png career-camera
+careerfit foto_02.png career-stopmotion
 # Timeline 2022, 2024, 2026: 4:5 crops of the Procrastination game in play, an eduBITES lesson
 # opener (rendered headless at 480x600, 2x) and the Bias Gap frames print (Short 58)
 crop45() { # src name left top right bottom
