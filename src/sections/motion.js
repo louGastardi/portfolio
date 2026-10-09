@@ -1,17 +1,63 @@
-// Hover plays a loop. Click opens the YouTube video in a lightbox.
+// Bento tiles are looping previews that play like GIFs while on screen. Click opens the
+// YouTube video in a lightbox. Reduced motion: nothing plays, the posters stay.
 export function initMotion({ reduced }) {
-  if (!reduced) {
-    document.querySelectorAll('.bento video').forEach(v => {
-      const item = v.closest('.bento__item')
-      const play = () => v.play().catch(() => {})
-      const stop = () => v.pause()
-      // Mouse only: a tap opens the lightbox, so touch would download the loop for nothing
-      item.addEventListener('pointerenter', e => { if (e.pointerType === 'mouse') play() })
-      item.addEventListener('pointerleave', stop)
-      item.addEventListener('focus', () => { if (item.matches(':focus-visible')) play() })
-      item.addEventListener('blur', stop)
-    })
+  const bento = document.querySelector('.bento')
+  if (bento) {
+    const watch = reduced ? () => {} : autoplayWhileVisible()
+    bento.querySelectorAll('.bento video').forEach(watch)
+    // Reel slots switch to their clip once media/reel-N.mp4 exists, then play like the rest
+    bento.querySelectorAll('[data-slot]').forEach(item => fillSlot(item).then(v => v && watch(v)))
   }
+  initLightbox()
+}
+
+// One observer for every tile: play when it scrolls in, pause when it leaves
+function autoplayWhileVisible() {
+  if (!('IntersectionObserver' in window)) return () => {}
+  const io = new IntersectionObserver(entries => entries.forEach(({ target, isIntersecting }) => {
+    if (isIntersecting) target.play()?.catch(() => {})
+    else target.pause()
+  }), { rootMargin: '100px 0px' })
+  return video => io.observe(video)
+}
+
+// Looks for media/<slot>.mp4 (and .webm, -poster.jpg). Missing file: the tile keeps its current media.
+export async function fillSlot(item) {
+  const name = item.dataset.slot
+  const base = new URL(`./media/${name}`, document.baseURI).href
+  try {
+    const res = await fetch(`${base}.mp4`, { method: 'HEAD' })
+    // A dev server can answer unknown paths with index.html, so check it really is a video
+    if (!res.ok || !(res.headers.get('content-type') || '').startsWith('video/')) return null
+  } catch {
+    return null
+  }
+  const old = item.querySelector('img, video')
+  if (!old) return null
+  const video = document.createElement('video')
+  video.muted = true
+  video.loop = true
+  video.playsInline = true
+  video.preload = 'none'
+  video.setAttribute('aria-hidden', 'true')
+  // The current still (or loop poster) stays as the poster until a reel-N-poster.jpg is added
+  video.poster = old.tagName === 'IMG' ? old.currentSrc || old.src : old.poster
+  const fallbackPoster = video.poster
+  const poster = new Image()
+  poster.onload = () => { video.poster = poster.src }
+  poster.onerror = () => { video.poster = fallbackPoster }
+  poster.src = `${base}-poster.jpg`
+  for (const [ext, type] of [['webm', 'video/webm'], ['mp4', 'video/mp4']]) {
+    const source = document.createElement('source')
+    source.src = `${base}.${ext}`
+    source.type = type
+    video.append(source)
+  }
+  old.replaceWith(video)
+  return video
+}
+
+function initLightbox() {
   const box = document.querySelector('.lightbox')
   if (!box) return
   const frame = box.querySelector('.lightbox__frame')
