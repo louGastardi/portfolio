@@ -40,4 +40,11 @@ describe('i18n', () => {
     expect(document.querySelector('a').textContent).toBe('Über mich')
     expect(document.documentElement.lang).toBe('de')
   })
+
+  it('applies translated aria-labels to elements with data-i18n-aria', () => {
+    document.body.innerHTML = '<svg data-i18n-aria="nav.about" aria-label="x"></svg>'
+    i18n.setLang('de')
+    i18n.apply(document.body)
+    expect(document.querySelector('svg').getAttribute('aria-label')).toBe('Über mich')
+  })
 })

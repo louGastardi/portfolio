@@ -62,7 +62,10 @@ export function initPipelines({ reduced }) {
   // Clip shown on hover. All steps use the Halo loop until per-step clips exist.
   const clip = tipVideo.canPlayType('video/webm') ? './media/biasgap-halo.webm' : './media/biasgap-halo.mp4'
 
+  // The tip is hidden by CSS in the one-column layout, so skip loading the clip there
+  let stacked = false
   const showTip = (node, step) => {
+    if (stacked) return
     const box = node.getBoundingClientRect()
     const host = graph.getBoundingClientRect()
     tipCaption.textContent = step.label.toLowerCase()
@@ -110,7 +113,8 @@ export function initPipelines({ reduced }) {
   // ScrollTrigger.refresh (see refreshOnLayoutChange) measures it below the pin spacer.
   const mm = gsap.matchMedia()
   mm.add({ mobile: '(max-width: 760px)', desktop: '(min-width: 761px)' }, ctx => {
-    build(ctx.conditions.mobile ? LAYOUTS.mobile : LAYOUTS.desktop)
+    stacked = ctx.conditions.mobile
+    build(stacked ? LAYOUTS.mobile : LAYOUTS.desktop)
     hideTip()
     if (reduced) { place(1); return }
     place(0)

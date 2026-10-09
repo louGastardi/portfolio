@@ -15,6 +15,7 @@ export function createI18n(dicts, initial = 'en') {
     apply(root = document) {
       root.querySelectorAll('[data-i18n]').forEach(el => { el.textContent = this.t(el.dataset.i18n) })
       root.querySelectorAll('[data-i18n-html]').forEach(el => { el.innerHTML = this.t(el.dataset.i18nHtml) })
+      root.querySelectorAll('[data-i18n-aria]').forEach(el => { el.setAttribute('aria-label', this.t(el.dataset.i18nAria)) })
       document.documentElement.lang = lang
     }
   }

@@ -25,6 +25,7 @@
     "visit": "Ansehen"
   },
   "pipelines": {
+    "aria": "Automatisierte YouTube-Pipeline: Thema, Skript, Stimme, Frames, Schnitt, Untertitel, Upload, YouTube, Analytics, Kommentare, dann zurück zum Thema",
     "title": "…zu Pipelines.",
     "flow": "The Bias Gap · automatisierter YouTube-Kanal",
     "hover": "Über einen Schritt fahren, um ihn laufen zu sehen",
