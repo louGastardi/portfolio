@@ -10,7 +10,7 @@
    crop moves to the part that matters in each picture. */
 .tl__card img { width: 100%; height: auto; aspect-ratio: 4 / 5; max-height: 31vh; object-fit: cover; border-bottom: var(--border); }
 .tl__card img.tl__img--sm { object-position: 50% 60%; }
-.tl__card img.tl__img--cam { object-position: 50% 25%; }
+.tl__card img.tl__img--cam { object-position: 50% 60%; }
 .tl__card img.tl__img--lesson { object-position: 50% 45%; }
 .tl__card img.tl__img--top { object-position: 50% 0; }
 .tl__card p { padding: 8px 10px 10px; font-size: 12px; line-height: 1.32; }

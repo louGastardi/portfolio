@@ -33,7 +33,23 @@ im.crop(tuple(round(v * n) for v in (cx - w / 2, cy - w * .625, cx + w / 2, cy +
 PY
   cwebp -quiet -q 80 -resize 640 0 "$SRC/curriculum_old/${1%.*}_45.jpg" -o "$OUT/$2.webp"
 }
-career foto_01.png career-camera 0.45 0.45
+# The 2014 camera photo is framed wider than the circle allows, so the whole camera body and lens
+# read. The few transparent corners outside the circle are filled with OpenCV inpainting.
+careerwide() { # src name left top width (fractions of the side, height = width * 1.25)
+  python3 - "$SRC/curriculum_old/$1" "$SRC/curriculum_old/${1%.*}_45.png" "$3" "$4" "$5" <<'PY'
+import sys, cv2, numpy as np
+from PIL import Image
+src, out, x0, y0, w = sys.argv[1], sys.argv[2], *map(float, sys.argv[3:])
+im = np.array(Image.open(src).convert('RGBA')); n = im.shape[0]
+x, y, cw, ch = round(x0 * n), round(y0 * n), round(w * n), round(w * 1.25 * n)
+c = im[y:y + ch, x:x + cw]
+bgr = cv2.resize(cv2.cvtColor(np.ascontiguousarray(c[..., :3]), cv2.COLOR_RGB2BGR), (1280, 1600), interpolation=cv2.INTER_AREA)
+hole = cv2.resize(cv2.dilate((c[..., 3] < 250).astype(np.uint8) * 255, np.ones((9, 9), np.uint8)), (1280, 1600), interpolation=cv2.INTER_NEAREST)
+cv2.imwrite(out, cv2.inpaint(bgr, hole, 40, cv2.INPAINT_TELEA))
+PY
+  cwebp -quiet -q 80 -resize 640 0 "$SRC/curriculum_old/${1%.*}_45.png" -o "$OUT/$2.webp"
+}
+careerwide foto_01.png career-camera 0.05 0.18 0.60
 career foto_02.png career-stopmotion 0.5 0.5
 # Timeline 2022, 2024, 2026: 4:5 crops of the Procrastination game in play, an eduBITES lesson
 # opener (rendered headless at 480x600, 2x) and the Bias Gap frames print (Short 58)
