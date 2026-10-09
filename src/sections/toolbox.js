@@ -61,6 +61,12 @@ function simulate(Matter, pile, els) {
   const sizes = els.map(el => ({ w: el.offsetWidth, h: el.offsetHeight }))
   pile.classList.add('is-physics')
   const W = pile.clientWidth
+  // A narrow pile cannot hold every box at the CSS height, the overflow would stack above the clip.
+  // Grow the pile so the settled heap (loosely packed, about half air) always fits.
+  const area = sizes.reduce((sum, s) => sum + s.w * s.h, 0)
+  const need = Math.ceil(area * 1.9 / (W - INSET * 2)) + 40
+  pile.style.height = ''
+  if (need > pile.clientHeight) pile.style.height = `${need}px`
   const H = pile.clientHeight
   const floor = H - INSET
   const right = W - INSET
@@ -97,6 +103,7 @@ function simulate(Matter, pile, els) {
   // A fast throw can tunnel through a wall, so anything that leaves the pile drops back in at the top
   const keepInside = () => {
     bodies.forEach((b, i) => {
+      if (b.isSleeping) return
       const { w } = sizes[i]
       const out = b.position.x < -w || b.position.x > right + w || b.position.y > floor + 40
       if (!out) return
@@ -107,13 +114,15 @@ function simulate(Matter, pile, els) {
     })
   }
 
-  const draw = () => {
+  // Sleeping boxes have not moved, skip them so a settled pile does no DOM writes
+  const draw = (all = false) => {
     bodies.forEach((b, i) => {
+      if (b.isSleeping && !all) return
       els[i].style.transform = `translate(${b.position.x - sizes[i].w / 2}px, ${b.position.y - sizes[i].h / 2}px) rotate(${b.angle}rad)`
     })
   }
   Events.on(engine, 'afterUpdate', () => { keepInside(); draw() })
-  draw()
+  draw(true)
 
   const runner = Runner.create()
   Runner.run(runner, engine)
@@ -133,6 +142,7 @@ function simulate(Matter, pile, els) {
     window.removeEventListener('mouseup', mouse.mouseup)
     Engine.clear(engine)
     pile.classList.remove('is-physics')
+    pile.style.height = ''
     els.forEach(el => { el.style.transform = '' })
   }
 }

@@ -3,7 +3,7 @@
 .contact__mail { display: inline-block; align-self: flex-start; font-size: clamp(22px, 3.4vw, 38px); margin: 26px 0 36px; border-bottom: 3px solid var(--lime); text-decoration: none; overflow-wrap: anywhere; }
 .contact__btns { display: flex; flex-wrap: wrap; gap: 20px; }
 .contact__btn { background: #fff; color: var(--ink); border: 2px solid #fff; box-shadow: 6px 6px 0 var(--lime); padding: 14px 22px; font: 700 18px var(--font-body); text-decoration: none; }
-.contact__btn--lime { background: var(--lime); }
+.contact__btn--lime { background: var(--lime); border-color: var(--lime); }
 .contact__btn:hover { translate: -2px -2px; box-shadow: 8px 8px 0 var(--lime); }
 .contact__btn:focus-visible, .contact__mail:focus-visible { outline: 3px solid var(--lime); outline-offset: 4px; }
 .contact__btn--icon { display: flex; align-items: center; justify-content: center; width: 56px; padding: 0; }
