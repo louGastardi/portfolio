@@ -43,8 +43,9 @@ export function initCrystal(canvas, { reduced = false } = {}) {
   }
 
   window.addEventListener('pointermove', e => {
-    target.y = (e.clientX / window.innerWidth - 0.5) * 1.6
-    target.x = (e.clientY / window.innerHeight - 0.5) * 1.2
+    // Wide range so the crystal clearly answers the mouse, the easing in tick keeps it smooth
+    target.y = (e.clientX / window.innerWidth - 0.5) * 3.2
+    target.x = (e.clientY / window.innerHeight - 0.5) * 2.4
   })
 
   let raf = 0

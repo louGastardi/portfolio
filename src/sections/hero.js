@@ -1,4 +1,4 @@
-// Cards drift with the mouse, deeper cards move more.
+// The cards stay put, only the crystal follows the mouse (see crystal.js).
 export function initHero({ reduced }) {
   loadCrystal(document.querySelector('.hero__crystal'), { reduced })
   if (reduced) {
@@ -8,24 +8,7 @@ export function initHero({ reduced }) {
       v.pause()
       v.currentTime = 0
     })
-    return
   }
-  const cards = [...document.querySelectorAll('.hero__card')]
-  let dx = 0
-  let dy = 0
-  let queued = false
-  const write = () => {
-    queued = false
-    cards.forEach(c => {
-      const d = Number(c.dataset.depth)
-      c.style.translate = `${dx * d}px ${dy * d}px`
-    })
-  }
-  window.addEventListener('pointermove', e => {
-    dx = e.clientX / window.innerWidth - 0.5
-    dy = e.clientY / window.innerHeight - 0.5
-    if (!queued) { queued = true; requestAnimationFrame(write) }
-  })
 }
 
 // three.js is the heaviest dependency, so the crystal loads in its own chunk:

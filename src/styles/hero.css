@@ -5,8 +5,9 @@
 .hero__name { position: absolute; left: -1.2vw; top: max(16px, calc(var(--mid) - var(--fs) * .9)); font-size: var(--fs); }
 .hero__name span { display: block; }
 .hero__l2 { margin-left: 8vw; }
-.hero__crystal { position: absolute; left: 42%; top: max(26px, calc(var(--mid) - var(--fs) * .86)); width: min(26vw, 280px); height: min(26vw, 280px); }
-.hero__card { position: absolute; overflow: hidden; will-change: translate; }
+/* Crystal sits up and right of the name, in the gap between LOU and the first card */
+.hero__crystal { position: absolute; left: 53%; top: max(8px, calc(var(--mid) - var(--fs) * 1.22)); width: min(26vw, 280px); height: min(26vw, 280px); }
+.hero__card { position: absolute; overflow: hidden; }
 .hero__card img, .hero__card video { width: 100%; height: 100%; object-fit: cover; object-position: top; }
 .hero__card--1 { right: 6%; top: calc(var(--mid) - var(--fs) * .79); width: 230px; height: 150px; rotate: 6deg; }
 .hero__card--2 { right: 22%; top: var(--mid); width: 210px; height: 135px; rotate: -8deg; }
