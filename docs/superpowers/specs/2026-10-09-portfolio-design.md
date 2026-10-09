@@ -20,7 +20,7 @@ Primary use: send with job applications (first target: HelloFresh Senior Motion 
 
 ## 3. Page structure
 
-Fixed top bar: `LG` monogram, section links (About, Timeline, Motion, Web, Pipelines, Contact), EN/DE toggle.
+Fixed top bar: `LG` monogram, section links (About, Timeline, Motion, Web, Pipelines, Automation, Contact), EN/DE toggle.
 
 No small "eyebrow" labels above section titles.
 
@@ -65,7 +65,10 @@ Lime band with a running list: Motion design ◆ After Effects ◆ Cinema 4D ◆
 
 ### 05 Pipelines ("…to pipelines.")
 - Node graph of The Bias Gap automated YouTube channel: Topic → Script → Voice → Frames → Edit → Captions → Upload → YouTube. A green dot travels the path on scroll. Hovering a node shows a short clip of that step.
-- Downloadable After Effects scripts, one card each:
+
+### 05b Automation
+- Black slab after Pipelines. Title "AUTOMATION" and a short intro: plugins built for After Effects, made to measure for recurring projects, to speed up the workflow.
+- Downloadable plugins, one card each:
   - Animation Automation (ScriptUI panel)
   - Sequence from SRT
   - Each card: tutorial video box on top (screen recording style with a moving cursor, made in Remotion), name, short description, ".jsx · AE 2024+ · free", Download button.
@@ -80,7 +83,7 @@ Lime band with a running list: Motion design ◆ After Effects ◆ Cinema 4D ◆
 ## 4. Tech
 
 - Vite + vanilla JavaScript, GSAP + ScrollTrigger for scroll animation, Three.js for the crystal, a small physics lib (Matter.js) for the toolbox.
-- Single page `index.html`, one CSS file with tokens, one JS module per section (`hero.js`, `timeline.js`, `motion.js`, `web.js`, `pipelines.js`, `toolbox.js`), `i18n.js` with `en.json` and `de.json`.
+- Single page `index.html`, one CSS file with tokens, one JS module per section (`hero.js`, `timeline.js`, `motion.js`, `web.js`, `pipelines.js`, `toolbox.js` (automation is markup and CSS only)), `i18n.js` with `en.json` and `de.json`.
 - Media in `public/media/`, compressed (loops as short H.264 mp4 + webm, images as webp).
 - Respect `prefers-reduced-motion`: no pinning, no physics, static crystal.
 - Mobile: same sections stacked, timeline becomes vertical, no physics (boxes just listed), crystal smaller.
