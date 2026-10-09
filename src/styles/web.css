@@ -16,11 +16,12 @@ main > section.web { display: grid; grid-template-columns: minmax(300px, 500px) 
 .web__devices { position: relative; min-height: 440px; isolation: isolate; width: 100%; }
 .web__bg { position: absolute; left: 0; right: 120px; top: 70px; bottom: -20px; background: var(--lime); z-index: -1; }
 .web__laptop { position: absolute; left: 40px; top: 30px; width: min(520px, 80%); }
-/* --view is the visible screen height, so the scroll stops at the bottom of the shot */
-.web__screen { --view: 296px; height: 320px; border: 10px solid var(--ink); border-bottom-width: 14px; background: #fff; overflow: hidden; }
+/* --view is the visible screen height, so the scroll stops at the bottom of the shot.
+   --dur scales with the shot length so both devices scroll at a calm pace. */
+.web__screen { --view: 296px; --dur: 14s; height: 320px; border: 10px solid var(--ink); border-bottom-width: 14px; background: #fff; overflow: hidden; }
 .web__base { height: 16px; background: var(--ink); margin: 0 -40px; border-radius: 0 0 10px 10px; }
-.web__phone { --view: 284px; position: absolute; right: 10px; top: 120px; width: 150px; height: 300px; border: 8px solid var(--ink); border-radius: 22px; background: #fff; overflow: hidden; box-shadow: var(--shadow); }
-.web__shot { width: 100%; max-width: none; animation: shot-scroll 10s ease-in-out infinite alternate; }
+.web__phone { --view: 284px; --dur: 22s; position: absolute; right: 10px; top: 120px; width: 150px; height: 300px; border: 8px solid var(--ink); border-radius: 22px; background: #fff; overflow: hidden; box-shadow: var(--shadow); }
+.web__shot { width: 100%; max-width: none; animation: shot-scroll var(--dur, 10s) ease-in-out infinite alternate; }
 .web__devices:hover .web__shot, .web__devices.is-paused .web__shot { animation-play-state: paused; }
 @keyframes shot-scroll { to { transform: translateY(calc(-100% + var(--view))); } }
 @media (prefers-reduced-motion: reduce) { .web__shot { animation: none; } }

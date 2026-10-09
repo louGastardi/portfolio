@@ -10,8 +10,8 @@ img() { cwebp -quiet -q "${3:-80}" -resize "$2" 0 "$SRC/$1" -o "$OUT/${1%.*}.web
 # About photo: crop the source portrait (less headspace), then export as lou_portrait.webp
 python3 -c "from PIL import Image; Image.open('$SRC/lou_portrait.jpg').crop((140,215,796,1050)).save('$SRC/lou_portrait_about.jpg', quality=92)"
 cwebp -quiet -q 82 -resize 900 0 "$SRC/lou_portrait_about.jpg" -o "$OUT/lou_portrait.webp"
-img edubites_ai_skills_desktop.jpg 1200 75
-img edubites_ai_skills_mobile.jpg 420 75
+img edubites_agentic_desktop.jpg 1200 75
+img edubites_agentic_mobile.jpg 420 75
 img rpg_game.png 800
 img eraserboy_frame.jpg 1200
 img eraserboy_thumb.jpg 1200
