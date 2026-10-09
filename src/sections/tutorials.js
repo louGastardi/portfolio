@@ -8,8 +8,14 @@ export function initTutorials({ reduced }) {
   // In reduced-motion mode a clip only runs after the viewer pressed play
   const wanted = video => !reduced || video.dataset.userPlay === '1'
 
+  const shouldRun = video => visible.get(video) && wanted(video)
+  // play() can reject while the clip is still loading (Safari does this with preload="none"):
+  // try again once the browser can play it, instead of leaving the poster up for good
+  const play = video => video.play()?.catch(() => {
+    video.addEventListener('canplay', () => { if (shouldRun(video)) video.play()?.catch(() => {}) }, { once: true })
+  })
   const sync = video => {
-    if (visible.get(video) && wanted(video)) video.play().catch(() => {})
+    if (shouldRun(video)) play(video)
     else video.pause()
   }
 
@@ -37,7 +43,7 @@ export function initTutorials({ reduced }) {
         const start = video.dataset.userPlay !== '1'
         video.dataset.userPlay = start ? '1' : '0'
         setState(start)
-        if (start) video.play().catch(() => {})
+        if (start) play(video)
         else video.pause()
       })
     }

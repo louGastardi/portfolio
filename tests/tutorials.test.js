@@ -43,4 +43,25 @@ describe('tutorial videos', () => {
     expect(video.pause).toHaveBeenCalled()
     expect(button.getAttribute('aria-pressed')).toBe('false')
   })
+
+  it('retries when play() is rejected while the clip is still loading', async () => {
+    const { video } = setup()
+    video.play = vi.fn().mockRejectedValueOnce(new Error('AbortError')).mockResolvedValue()
+    initTutorials({ reduced: false })
+    observed.fire(true)
+    await Promise.resolve(); await Promise.resolve()
+    video.dispatchEvent(new Event('canplay'))
+    expect(video.play).toHaveBeenCalledTimes(2)
+  })
+
+  it('does not retry once the card has left the screen', async () => {
+    const { video } = setup()
+    video.play = vi.fn().mockRejectedValueOnce(new Error('AbortError')).mockResolvedValue()
+    initTutorials({ reduced: false })
+    observed.fire(true)
+    await Promise.resolve(); await Promise.resolve()
+    observed.fire(false)
+    video.dispatchEvent(new Event('canplay'))
+    expect(video.play).toHaveBeenCalledTimes(1)
+  })
 })
