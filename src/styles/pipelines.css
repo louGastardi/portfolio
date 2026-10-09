@@ -37,7 +37,7 @@
    The active step still lights up as the loop runs. */
 @media (max-width: 760px) {
   .pipe { padding: 60px var(--gutter); }
-  /* One line on phones, a wrapped ellipsis collides with the tight display line height */
+  /* One line on phones */
   .pipe__title { font-size: clamp(40px, 13.5vw, 64px); }
   .pipe__body { display: block; margin-top: 24px; }
   .pipe__graph { display: none; }

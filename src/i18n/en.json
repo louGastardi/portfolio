@@ -10,7 +10,7 @@
     "speaks": "Speaks", "speaksValue": "PT · EN · DE · ES"
   },
   "timeline": {
-    "title": "From keyframes…",
+    "title": "My timeline",
     "y2010": "Media Arts studies. Stop motion was my first love and showed me crafts I didn't know I had.",
     "y2014": "Motion designer and video producer. Projects from shooting to finishing, with 2D and 3D animation.",
     "y2022": "Got curious about what happens behind the screen and started coding. First small web projects, then full-stack apps and a game. Code became another way to animate.",
@@ -32,7 +32,7 @@
   },
   "pipelines": {
     "aria": "Automated YouTube pipeline: topic, script, voice, frames, edit, captions, upload, YouTube, analytics, comments, then back to topic",
-    "title": "…to pipelines.",
+    "title": "Pipelines",
     "flow": "The Bias Gap · automated YouTube channel",
     "caseLabel": "Case study",
     "intro": "The Bias Gap is a side project. I wanted to see how far one person could take a YouTube channel, so I built the whole pipeline with free tools, from picking a topic to pinning comments. A self-run pipeline.",
