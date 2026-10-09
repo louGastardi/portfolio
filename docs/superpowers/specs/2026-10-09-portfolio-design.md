@@ -17,6 +17,7 @@ Primary use: send with job applications (first target: HelloFresh Senior Motion 
 - Cards and boxes: square corners, 2px ink border, solid lime offset shadow (no rounded corners, no textures, no handwriting, no stamps).
 - Direction: "editorial collage", top part of option C from brainstorming. Big type that bleeds off the screen, tilted cards, high contrast black slabs between white sections.
 - Copy rules: English and German. No em dashes, no semicolons, few adjectives.
+- Layout: every section fills at least one full screen (100vh), content centered vertically.
 
 ## 3. Page structure
 
@@ -48,7 +49,7 @@ Lime band with a running list: Motion design ◆ After Effects ◆ Cinema 4D ◆
   - 2026 Creative Technologist, pipelines (mini node diagram)
 
 ### 03 Motion
-- Black cover slab with giant "MOTION" (the T in lime).
+- One full-screen black section: giant "MOTION" (the T in lime) with the bento grid below it.
 - Bento grid of loops, different sizes:
   - Showreel: YouTube embed `VSI67Y0nnyo` (placeholder reel, will be swapped)
   - Mundo Curioso capybara loop
@@ -56,15 +57,15 @@ Lime band with a running list: Motion design ◆ After Effects ◆ Cinema 4D ◆
   - Caju character still
   - Eraserboy stop motion teaser (YouTube `UStyAQmSXkM`, frame as poster)
   - 2 The Bias Gap covers
-  - Lime "▶ Full reel" tile
+  - The Bias Gap Diderot effect loop (last tile)
 - Hover plays a loop, click opens the full video.
 
 ### 04 Web ("Built for the web")
 - eduBITES AI Skill Assessment (`edubites.com/ai_skills/`) shown in a laptop and a phone on a lime block. Real full-page screenshots auto-scroll inside the screens.
-- "Learning by building" row: Procrastination RPG (`lougastardi.github.io/Procrastination-RPG-Game/`) and Message Decrypter (`lougastardi.github.io/Codificador-de-texto/`), each a small card with a real screenshot and a link.
+- Small row: Procrastination RPG (`lougastardi.github.io/Procrastination-RPG-Game/`) and Message Decrypter (`lougastardi.github.io/Codificador-de-texto/`), each a small card with a real screenshot and a link.
 
 ### 05 Pipelines ("…to pipelines.")
-- Node graph of The Bias Gap automated YouTube channel: Topic → Script → Voice → Frames → Edit → Captions → Upload → YouTube. A green dot travels the path on scroll. Hovering a node shows a short clip of that step.
+- Node graph of The Bias Gap automated YouTube channel: Topic → Script → Voice → Frames → Edit → Captions → Upload → YouTube → Performance analytics → Comment management. A dashed line loops from the last step back to Topic ("insights feed the next topic"). A green dot travels the path on scroll. Hovering a node shows a short clip of that step.
 
 ### 05b Automation
 - Black slab after Pipelines. Title "AUTOMATION" and a short intro: plugins built for After Effects, made to measure for recurring projects, to speed up the workflow.

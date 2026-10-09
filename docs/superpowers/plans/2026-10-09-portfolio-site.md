@@ -177,6 +177,8 @@ body { font-family: var(--font-body); color: var(--ink); background: var(--paper
 img, video { display: block; max-width: 100%; }
 a { color: inherit; }
 section { position: relative; }
+/* Every section fills the screen, content centered vertically */
+main > section { min-height: 100vh; min-height: 100svh; display: flex; flex-direction: column; justify-content: center; }
 .disp { font-family: var(--font-display); text-transform: uppercase; line-height: .86; letter-spacing: .5px; font-weight: 400; }
 .mono { font-family: var(--font-mono); font-size: 11px; letter-spacing: 2px; text-transform: uppercase; }
 .card { border: var(--border); box-shadow: var(--shadow); background: var(--paper); }
@@ -336,7 +338,7 @@ Expected: 5 passed.
   "about": {
     "title": "About me:",
     "bio": "I animate the parts that need a human eye, and build the systems that handle the rest. I started with paper and a camera, making stop motion. Now I connect motion, code and AI.",
-    "name": "Name", "based": "Based in", "basedValue": "Berlin, Germany",
+    "based": "Based in", "basedValue": "Berlin, Germany",
     "doing": "Doing", "doingValue": "Motion · Creative tech · AI pipelines",
     "speaks": "Speaks", "speaksValue": "PT · EN · DE · ES"
   },
@@ -348,11 +350,9 @@ Expected: 5 passed.
     "y2024": "eduBITES. Courses, motion and web.",
     "y2026": "Creative Technologist. Pipelines."
   },
-  "motion": { "fullReel": "Full reel" },
   "web": {
     "title": "Built for the web",
     "edubites": "eduBITES · AI Skill Assessment. Design, code and upkeep.",
-    "learning": "Learning by building",
     "rpg": "JS · OOP game",
     "decrypter": "HTML · CSS · JS",
     "visit": "Visit"
@@ -361,6 +361,7 @@ Expected: 5 passed.
     "title": "…to pipelines.",
     "flow": "The Bias Gap · automated YouTube channel",
     "hover": "Hover a step to see it run",
+    "loop": "insights feed the next topic",
     "aa": "A ScriptUI panel for After Effects. One click adds entrances, exits, elastic scale, fades and subtle camera moves to any layer. Built with expressions, so animations adapt when you trim. Also sequences, precomposes and copies the current frame.",
     "srt": "Load a voiceover transcript (.srt) and a cut sheet, and it places every image layer where its line is spoken. An hour of manual timing becomes one click.",
     "meta": ".jsx · AE 2024+ · free",
@@ -382,7 +383,7 @@ Expected: 5 passed.
   "about": {
     "title": "Über mich:",
     "bio": "Ich animiere die Teile, die ein menschliches Auge brauchen, und baue Systeme für den Rest. Angefangen habe ich mit Papier und einer Kamera, mit Stop Motion. Heute verbinde ich Motion, Code und KI.",
-    "name": "Name", "based": "Wohnort", "basedValue": "Berlin",
+    "based": "Wohnort", "basedValue": "Berlin",
     "doing": "Fokus", "doingValue": "Motion · Creative Tech · KI-Pipelines",
     "speaks": "Sprachen", "speaksValue": "PT · EN · DE · ES"
   },
@@ -394,11 +395,9 @@ Expected: 5 passed.
     "y2024": "eduBITES. Kurse, Motion und Web.",
     "y2026": "Creative Technologist. Pipelines."
   },
-  "motion": { "fullReel": "Ganzes Reel" },
   "web": {
     "title": "Gebaut fürs Web",
     "edubites": "eduBITES · AI Skill Assessment. Design, Code und Betreuung.",
-    "learning": "Lernen durch Bauen",
     "rpg": "JS · OOP-Spiel",
     "decrypter": "HTML · CSS · JS",
     "visit": "Ansehen"
@@ -407,6 +406,7 @@ Expected: 5 passed.
     "title": "…zu Pipelines.",
     "flow": "The Bias Gap · automatisierter YouTube-Kanal",
     "hover": "Über einen Schritt fahren, um ihn laufen zu sehen",
+    "loop": "Erkenntnisse speisen das nächste Thema",
     "aa": "Ein ScriptUI-Panel für After Effects. Ein Klick fügt jeder Ebene Ein- und Ausgänge, elastische Skalierung, Fades und leichte Kamerabewegungen hinzu. Mit Expressions gebaut, die Animationen passen sich beim Trimmen an. Sequenziert, precomposed und kopiert außerdem den aktuellen Frame.",
     "srt": "Lädt ein Voiceover-Transkript (.srt) und ein Cut Sheet und setzt jede Bildebene genau dorthin, wo ihr Satz gesprochen wird. Aus einer Stunde Timing wird ein Klick.",
     "meta": ".jsx · AE 2024+ · kostenlos",
@@ -502,13 +502,14 @@ loop() { # name src
 }
 loop curioso-capybara curioso_loop_capivara.mp4
 loop biasgap-halo biasgap_loop_halo.mp4
+loop biasgap-diderot biasgap_loop_diderot.mp4
 echo "media ready:"; ls -1 "$OUT"
 ```
 
 - [ ] **Step 2: Run it**
 
 Run: `brew list webp >/dev/null 2>&1 || brew install webp; chmod +x scripts/prep-media.sh && ./scripts/prep-media.sh`
-Expected: lists 12 `.webp`, 2 `.mp4`, 2 `.webm`, 2 `-poster.jpg`.
+Expected: lists 12 `.webp`, 3 `.mp4`, 3 `.webm`, 3 `-poster.jpg`.
 
 - [ ] **Step 3: Check total size**
 
@@ -696,7 +697,6 @@ git commit -m "feat: hero with 3D keyframe crystal"
     <h2 class="about__title disp"><span data-i18n="about.title">About me:</span></h2>
     <p class="about__bio" data-i18n="about.bio"></p>
     <dl class="about__facts">
-      <div><dt class="mono" data-i18n="about.name">Name</dt><dd>Lou Gastardi</dd></div>
       <div><dt class="mono" data-i18n="about.based">Based in</dt><dd data-i18n="about.basedValue"></dd></div>
       <div><dt class="mono" data-i18n="about.doing">Doing</dt><dd data-i18n="about.doingValue"></dd></div>
       <div><dt class="mono" data-i18n="about.speaks">Speaks</dt><dd data-i18n="about.speaksValue"></dd></div>
@@ -719,7 +719,8 @@ git commit -m "feat: hero with 3D keyframe crystal"
 - [ ] **Step 3: `src/styles/about.css`**
 
 ```css
-.about { display: grid; grid-template-columns: 1fr minmax(320px, 470px); min-height: 520px; }
+main > section.about { display: grid; grid-template-columns: 1fr minmax(320px, 470px); align-items: stretch; }
+.about__l { align-self: center; }
 .about__l { padding: 60px var(--gutter); }
 .about__title { font-size: clamp(64px, 10vw, 110px); }
 .about__title span { box-shadow: inset 0 -14px 0 var(--lime); }
@@ -948,7 +949,7 @@ git commit -m "feat: pinned After Effects style career timeline"
 - [ ] **Step 1: Markup after the timeline**
 
 ```html
-<section class="slab" id="motion"><h2 class="slab__title disp">Mo<span class="lime">t</span>ion</h2></section>
+<section class="slab" id="motion"><h2 class="slab__title disp">Mo<span class="lime">t</span>ion</h2>
 <div class="bento">
   <div class="bento__item bento__item--a"><iframe src="https://www.youtube-nocookie.com/embed/VSI67Y0nnyo?rel=0" title="Showreel" loading="lazy" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe></div>
   <button class="bento__item bento__item--b" data-yt="VSI67Y0nnyo"><video src="./media/curioso-capybara.mp4" poster="./media/curioso-capybara-poster.jpg" muted loop playsinline></video><span class="mono">Mundo Curioso · capybara</span></button>
@@ -957,17 +958,18 @@ git commit -m "feat: pinned After Effects style career timeline"
   <div class="bento__item bento__item--e"><img src="./media/biasgap_cover_28.webp" alt=""><span class="mono">The Bias Gap</span></div>
   <button class="bento__item bento__item--f" data-yt="UStyAQmSXkM"><img src="./media/eraserboy_frame.webp" alt="Eraserboy stop motion"><span class="mono">Eraserboy · stop motion</span></button>
   <div class="bento__item bento__item--g"><img src="./media/biasgap_cover_24.webp" alt=""><span class="mono">The Bias Gap</span></div>
-  <button class="bento__reel disp" data-yt="VSI67Y0nnyo">▶ <span data-i18n="motion.fullReel">Full reel</span></button>
+  <button class="bento__item bento__item--h" data-yt="VSI67Y0nnyo"><video src="./media/biasgap-diderot.mp4" poster="./media/biasgap-diderot-poster.jpg" muted loop playsinline></video><span class="mono">The Bias Gap · Diderot effect</span></button>
 </div>
+</section>
 <dialog class="lightbox"><button class="lightbox__close" aria-label="Close">×</button><div class="lightbox__frame"></div></dialog>
 ```
 
 - [ ] **Step 2: `src/styles/motion.css`**
 
 ```css
-.slab { background: var(--ink); color: #fff; padding: 70px var(--gutter) 20px; overflow: hidden; }
-.slab__title { font-size: clamp(120px, 24vw, 260px); letter-spacing: 2px; }
-.bento { display: grid; grid-template-columns: repeat(6, 1fr); grid-auto-rows: 120px; gap: 16px; padding: 30px var(--gutter) 60px; background: var(--ink); }
+.slab { background: var(--ink); color: #fff; padding: 60px var(--gutter); overflow: hidden; }
+.slab__title { font-size: clamp(110px, 16vw, 200px); letter-spacing: 2px; }
+.bento { display: grid; grid-template-columns: repeat(6, 1fr); grid-auto-rows: 14vh; gap: 16px; padding-top: 30px; }
 .bento__item { position: relative; overflow: hidden; border: 2px solid #fff; background: #333; padding: 0; cursor: pointer; }
 .bento__item img, .bento__item video, .bento__item iframe { width: 100%; height: 100%; object-fit: cover; border: 0; }
 .bento__item span { position: absolute; left: 8px; bottom: 7px; color: #fff; background: rgba(35,35,35,.85); padding: 2px 5px; }
@@ -975,8 +977,7 @@ git commit -m "feat: pinned After Effects style career timeline"
 .bento__item--b { grid-column: span 3; }
 .bento__item--c { grid-column: span 2; grid-row: span 2; }
 .bento__item--d { grid-column: span 1; }
-.bento__item--e, .bento__item--f, .bento__item--g { grid-column: span 2; }
-.bento__reel { grid-column: span 2; background: var(--lime); border: 2px solid #fff; font-size: 30px; cursor: pointer; }
+.bento__item--e, .bento__item--f, .bento__item--g, .bento__item--h { grid-column: span 2; }
 .lightbox { margin: auto; width: min(92vw, 1100px); border: var(--border); box-shadow: var(--shadow); padding: 0; background: #000; }
 .lightbox::backdrop { background: rgba(0,0,0,.8); }
 .lightbox__frame { aspect-ratio: 16 / 9; }
@@ -1021,7 +1022,7 @@ initMotion()
 
 - [ ] **Step 5: Verify in browser**
 
-Expected: black slab "MOTION" with lime T, bento grid matching the mockup, reel plays inline, hovering capybara and Halo tiles plays them, clicking Eraserboy opens the Eraserboy teaser in the lightbox, Esc or × closes and stops it.
+Expected: one full-screen black section with "MOTION" (lime T) and the bento below it, reel plays inline, Diderot tile in the last slot, hovering capybara and Halo tiles plays them, clicking Eraserboy opens the Eraserboy teaser in the lightbox, Esc or × closes and stops it.
 
 - [ ] **Step 6: Commit**
 
@@ -1049,7 +1050,6 @@ git commit -m "feat: motion slab, bento and video lightbox"
       <a class="web__mini card" href="https://lougastardi.github.io/Procrastination-RPG-Game/" target="_blank" rel="noopener"><img src="./media/rpg_game.webp" alt="Procrastination game"><b>Procrastination</b><span data-i18n="web.rpg"></span> ↗</a>
       <a class="web__mini card" href="https://lougastardi.github.io/Codificador-de-texto/" target="_blank" rel="noopener"><img src="./media/encryptor.webp" alt="Message Decrypter"><b>Message Decrypter</b><span data-i18n="web.decrypter"></span> ↗</a>
     </div>
-    <p class="mono" data-i18n="web.learning">Learning by building</p>
   </div>
   <div class="web__devices">
     <div class="web__bg"></div>
@@ -1062,7 +1062,7 @@ git commit -m "feat: motion slab, bento and video lightbox"
 - [ ] **Step 2: `src/styles/web.css`**
 
 ```css
-.web { display: grid; grid-template-columns: minmax(280px, 360px) 1fr; gap: 40px; padding: 70px var(--gutter) 90px; }
+main > section.web { display: grid; grid-template-columns: minmax(280px, 360px) 1fr; gap: 40px; align-content: center; padding: 70px var(--gutter); }
 .web__title { font-size: clamp(72px, 10vw, 120px); }
 .web__lead { font-size: 17px; line-height: 1.45; margin-top: 20px; }
 .web__learn { display: flex; gap: 18px; margin: 28px 0 10px; }
@@ -1119,9 +1119,11 @@ git commit -m "feat: web section with device mockups"
   <h2 class="pipe__title disp" data-i18n="pipelines.title">…to pipelines.</h2>
   <p class="mono pipe__flow" data-i18n="pipelines.flow"></p>
   <div class="pipe__graph">
-    <svg viewBox="0 0 1000 330" role="img" aria-label="Automated YouTube pipeline">
-      <path class="pipe__wire" id="pipe-path" d="M50 67 H 880 V 247 H 87"/>
-      <circle class="pipe__dot" r="8" cx="50" cy="67"/>
+    <svg viewBox="0 0 1000 480" role="img" aria-label="Automated YouTube pipeline">
+      <path class="pipe__wire" id="pipe-path" d="M120 67 H 900 V 247 H 120 V 427 H 560"/>
+      <path class="pipe__wire pipe__wire--loop" d="M610 427 H 960 V 10 H 120 V 45"/>
+      <text class="pipe__loop-label" x="700" y="462" data-i18n="pipelines.loop">insights feed the next topic</text>
+      <circle class="pipe__dot" r="8" cx="120" cy="67"/>
       <g class="pipe__nodes"></g>
     </svg>
     <figure class="pipe__tip card" hidden><video muted loop playsinline></video><figcaption class="mono"></figcaption></figure>
@@ -1141,6 +1143,8 @@ git commit -m "feat: web section with device mockups"
 .pipe__graph svg { width: 100%; height: auto; margin-top: 14px; overflow: visible; }
 .pipe__wire { stroke: var(--ink); stroke-width: 2; fill: none; }
 .pipe__dot { fill: var(--green); }
+.pipe__wire--loop { stroke: var(--green); stroke-dasharray: 6 6; }
+.pipe__loop-label { font: 600 10px var(--font-mono); letter-spacing: 1px; fill: var(--green); }
 .pipe__node { cursor: pointer; }
 .pipe__node .sh { fill: var(--lime); }
 .pipe__node .bx { fill: #fff; stroke: var(--ink); stroke-width: 2; }
@@ -1163,16 +1167,19 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 gsap.registerPlugin(ScrollTrigger)
 
-// Node positions follow the path in index.html (top row left to right, bottom row right to left).
+// Node positions follow the path in index.html: row 1 left to right, row 2 right to left,
+// row 3 (performance analytics, comment management) left to right. A dashed line loops back to TOPIC.
 const NODES = [
-  { id: 'topic', label: 'TOPIC', x: 0, y: 45 },
-  { id: 'script', label: 'SCRIPT', x: 230, y: 45 },
-  { id: 'voice', label: 'VOICE', x: 470, y: 45 },
-  { id: 'frames', label: 'FRAMES', x: 710, y: 45 },
-  { id: 'edit', label: 'EDIT', x: 710, y: 225 },
-  { id: 'captions', label: 'CAPTIONS', x: 470, y: 225 },
-  { id: 'upload', label: 'UPLOAD', x: 230, y: 225 },
-  { id: 'youtube', label: 'YOUTUBE', x: 40, y: 225, dark: true }
+  { id: 'topic', label: 'TOPIC', x: 70, y: 45 },
+  { id: 'script', label: 'SCRIPT', x: 290, y: 45 },
+  { id: 'voice', label: 'VOICE', x: 510, y: 45 },
+  { id: 'frames', label: 'FRAMES', x: 730, y: 45 },
+  { id: 'edit', label: 'EDIT', x: 730, y: 225 },
+  { id: 'captions', label: 'CAPTIONS', x: 510, y: 225 },
+  { id: 'upload', label: 'UPLOAD', x: 290, y: 225 },
+  { id: 'youtube', label: 'YOUTUBE', x: 70, y: 225, dark: true },
+  { id: 'analytics', label: 'ANALYTICS', x: 290, y: 405 },
+  { id: 'comments', label: 'COMMENTS', x: 510, y: 405 }
 ]
 // Clip shown on hover. All point to the Halo loop until per-step clips exist.
 const CLIP = './media/biasgap-halo.mp4'
@@ -1221,7 +1228,7 @@ initPipelines({ reduced })
 
 - [ ] **Step 5: Verify in browser**
 
-Expected: 8 nodes with lime shadows, the green dot travels the path as you scroll, hovering a node shows the clip card under it.
+Expected: 10 nodes with lime shadows (incl. ANALYTICS and COMMENTS on a third row), a dashed green line loops from COMMENTS back to TOPIC, the green dot travels the path as you scroll, hovering a node shows the clip card under it.
 
 - [ ] **Step 6: Commit**
 
@@ -1362,7 +1369,7 @@ git commit -m "feat: automation section with custom AE plugins"
 - [ ] **Step 2: `src/styles/toolbox.css`**
 
 ```css
-.tools { background: var(--soft); border-top: var(--border); padding: 60px var(--gutter) 70px; display: grid; grid-template-columns: 330px 1fr; gap: 30px; }
+main > section.tools { background: var(--soft); border-top: var(--border); padding: 60px var(--gutter); display: grid; grid-template-columns: 330px 1fr; gap: 30px; align-content: center; }
 .tools__title { font-size: clamp(64px, 9vw, 100px); }
 .tools__pile { position: relative; height: 340px; display: flex; flex-wrap: wrap; gap: 10px; align-content: flex-start; }
 .tools__pile b { background: #fff; border: var(--border); box-shadow: var(--shadow-sm); padding: 7px 13px; font: 500 17px var(--font-body); user-select: none; }
@@ -1520,7 +1527,7 @@ Expected: no marquee motion, no pin on timeline (all cards lit), crystal static 
 - [ ] **Step 2: Mobile**
 
 Viewport 375×812.
-Expected: no horizontal scroll (`document.documentElement.scrollWidth === 375` in console), all sections stacked, nav links hidden, EN/DE visible.
+Expected: every section at least one screen tall, no horizontal scroll (`document.documentElement.scrollWidth === 375` in console), all sections stacked, nav links hidden, EN/DE visible.
 
 - [ ] **Step 3: Copy check**
 
