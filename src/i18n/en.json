@@ -4,21 +4,21 @@
   "marquee": ["Motion design", "3D animation", "Frame-by-frame animation", "Stop motion", "Vector illustration", "Compositing", "Color grading", "Editing", "Audio mastering", "Camera operation", "AI video", "Image generation", "Automation", "Pipelines", "Web design"],
   "about": {
     "title": "About me",
-    "bio": "I studied Media Arts at the Bauhaus-Universität Weimar, where I fell in love with stop motion, and spent eight years animating for brands at Camera Medica. Along the way I got curious about what happens behind the screen, so I learned to code. Today I design and animate learning content at eduBITES and build the tools and AI pipelines that let a small team make more without losing the craft.",
+    "bio": "I'm from Brazil and moved to Germany more than 20 years ago. Animation has always been my biggest passion, and I keep looking for new ways to mix and compose different styles. When I'm not animating, I'm usually cooking or making music.",
     "based": "Based in", "basedValue": "Berlin, Germany",
     "doing": "Doing", "doingValue": "Motion · Creative tech · AI pipelines",
     "speaks": "Speaks", "speaksValue": "PT · EN · DE · ES"
   },
   "timeline": {
     "title": "From keyframes…",
-    "y2010": "Media Arts at Bauhaus Weimar. Paper, clay and a camera. Stop motion was my first love.",
-    "y2014": "Camera Medica. Started as video specialist, stayed eight years as motion designer. Hundreds of client projects.",
-    "y2022": "Curious about what happens behind the screen. Learned to code with Oracle ONE and Ironhack.",
-    "y2024": "eduBITES. Scripts, animation, interactive lessons and the company website.",
-    "y2026": "Creative Technologist. Building the pipelines that connect motion, code and AI."
+    "y2010": "Media Arts studies. Stop motion was my first love and showed me crafts I didn't know I had.",
+    "y2014": "Motion designer. Eight years and hundreds of client projects, from explainers to 3D.",
+    "y2022": "Got more and more curious about programming.",
+    "y2024": "Beyond animation, I started creating courses, interactive lessons and multimedia experiences.",
+    "y2026": "Creative Technologist. Building pipelines and scripts that connect motion, code and AI."
   },
   "motion": {
-    "intro": "Animation is where I started and what I keep coming back to. I like trying different ways of making things move, from paper and clay to keyframes, 3D and AI, and mixing them to see what comes out.",
+    "intro": "Animation is where I started and what I keep coming back to. I like trying different ways of making things move, from manual craft to keyframes, 3D and AI, and mixing them to see what comes out.",
     "stopMotion": "Stop motion", "afterEffects": "After Effects", "penguin": "AI animation", "character": "Character animation", "compositing": "Compositing", "shorts": "YouTube Shorts", "motionGraphics": "Motion graphics", "explainer": "2D/3D explainer", "fx": "FX / particles", "frameByFrame": "Frame-by-frame"
   },
   "web": {
@@ -35,7 +35,7 @@
     "title": "…to pipelines.",
     "flow": "The Bias Gap · automated YouTube channel",
     "caseLabel": "Case study",
-    "intro": "The Bias Gap is a side project. I wanted to see how far one person could take a YouTube channel, so I built the whole pipeline with free tools, from picking a topic to pinning comments. It runs the channel for me, and I only step in to approve each video.",
+    "intro": "The Bias Gap is a side project. I wanted to see how far one person could take a YouTube channel, so I built the whole pipeline with free tools, from picking a topic to pinning comments. A self-run pipeline.",
     "loop": "insights feed the next topic",
     "aa": "A ScriptUI panel for After Effects. One click adds entrances, exits, elastic scale, fades and subtle camera moves to any layer. Built with expressions, so animations adapt when you trim. Also sequences, precomposes and copies the current frame.",
     "srt": "Load a voiceover transcript (.srt) and a cut sheet, and it places every image layer where its line is spoken. An hour of manual timing becomes one click.",
@@ -46,7 +46,7 @@
       "topic": "Pick a bias from the backlog, ranked by what performs",
       "script": "Write the short script in markdown",
       "voice": "Generate the voiceover with a cloned voice",
-      "frames": "Generate the shots in Google Flow",
+      "frames": "Generate the shots",
       "edit": "Assemble cuts on spoken words",
       "captions": "Burn in word-by-word captions",
       "upload": "Upload with title, description and schedule",
@@ -56,7 +56,7 @@
     }
   },
   "automation": { "title": "Automation", "intro": "Plugins I built for After Effects, made to measure for recurring projects. They take the repetitive steps out of the workflow, so more time goes into the parts that need a human eye.", "tutAa": "Tutorial: Animation Automation", "tutSrt": "Tutorial: Sequence from SRT", "play": "Play tutorial" },
-  "toolbox": { "title": "Toolbox", "intro": "The tools I use most, day to day." },
+  "toolbox": { "title": "Toolbox", "intro": "What I open every day to animate, edit, generate and build." },
   "contact": { "title": "Let's make things", "move": "move.", "cvEn": "CV · English", "cvDe": "Lebenslauf · Deutsch", "reel": "Showreel" },
   "a11y": { "top": "Lou Gastardi, back to top", "sections": "Sections", "language": "Language", "player": "Video player", "close": "Close" }
 }
