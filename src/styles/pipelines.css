@@ -2,10 +2,12 @@
 .pipe__title { font-size: var(--title); }
 .pipe__flow { margin-top: 26px; }
 /* Graph left, framed print card right */
-.pipe__body { display: grid; grid-template-columns: minmax(0, 1fr) minmax(300px, 400px); gap: 48px; align-items: center; margin-top: 14px; }
-.pipe__graph { position: relative; min-width: 0; }
+/* The graph keeps its drawn width (height capped), so the card stays next to it on wide screens */
+.pipe__body { --graph-h: min(470px, 58vh); display: flex; gap: 48px; align-items: center; margin-top: 14px; }
+.pipe__graph { position: relative; flex: 0 1 calc(var(--graph-h) * 1000 / 480); min-width: 0; }
+.pipe__steps { flex: 0 0 400px; }
 /* Height capped so title plus graph fit one desktop screen, the drawing centers in the box */
-.pipe__graph svg { display: block; width: 100%; height: auto; max-height: min(470px, 58vh); overflow: visible; }
+.pipe__graph svg { display: block; width: 100%; height: auto; max-height: var(--graph-h); overflow: visible; }
 .pipe__wire { stroke: var(--ink); stroke-width: 2; fill: none; }
 .pipe__dot { fill: var(--green); }
 .pipe__wire--loop { stroke: var(--green); stroke-dasharray: 6 6; }
@@ -29,7 +31,8 @@
 .pipe__step p { margin-top: 8px; font-size: 16px; line-height: 1.4; }
 .pipe__hint { margin-top: 18px; color: #6b6b6b; }
 @media (max-width: 1100px) {
-  .pipe__body { grid-template-columns: minmax(0, 1fr) 300px; gap: 32px; }
+  .pipe__body { gap: 32px; }
+  .pipe__steps { flex-basis: 300px; }
 }
 /* Phones: the graph is too small to read, the steps become a list with a small print each.
    The active step still lights up as the loop runs. */
@@ -37,7 +40,7 @@
   .pipe { padding: 60px var(--gutter); }
   /* One line on phones, a wrapped ellipsis collides with the tight display line height */
   .pipe__title { font-size: clamp(40px, 13.5vw, 64px); }
-  .pipe__body { grid-template-columns: 1fr; margin-top: 24px; }
+  .pipe__body { display: block; margin-top: 24px; }
   .pipe__graph { display: none; }
   .pipe__steps { gap: 10px; border: 0; box-shadow: none; background: none; }
   .pipe__step { grid-area: auto; opacity: 1; display: grid; grid-template-columns: 112px 1fr; align-items: center; border: var(--border); background: #fff; transition: box-shadow .3s; }

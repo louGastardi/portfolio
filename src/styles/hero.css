@@ -2,7 +2,7 @@
 .hero { display: grid; grid-template-columns: 1fr 1fr; height: calc(100vh - var(--nav-h)); height: calc(100svh - var(--nav-h)); min-height: 520px; overflow: hidden; }
 .hero__l { display: flex; flex-direction: column; justify-content: center; padding: 40px var(--gutter); min-width: 0; }
 /* Sized so GASTARDI fills the white half without touching the black one */
-.hero__name { font-size: min(10.4vw, 30vh); }
+.hero__name { font-size: min(11.4vw, 30vh); }
 .hero__name span { display: block; }
 .hero__role { margin-top: 28px; font-size: 13px; }
 .hero__r { position: relative; background: var(--ink); }
