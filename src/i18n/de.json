@@ -1,7 +1,7 @@
 {
   "nav": { "about": "Über mich", "timeline": "Werdegang", "motion": "Motion", "web": "Web", "pipelines": "Pipelines", "automation": "Automatisierung", "contact": "Kontakt" },
   "hero": { "role": "Motion Designerin / Creative Technologist" },
-  "marquee": ["Motion Design", "After Effects", "Cinema 4D", "Premiere Pro", "KI-Video", "Bildgenerierung", "Automatisierung", "Pipelines", "Remotion", "Compositing", "Color Grading", "Stop Motion", "Frame-by-Frame-Animation", "Web", "React", "Figma"],
+  "marquee": ["Motion Design", "3D-Animation", "Frame-by-Frame-Animation", "Stop Motion", "Vektorillustration", "Compositing", "Color Grading", "Schnitt", "Audio-Mastering", "Kameraführung", "KI-Video", "Bildgenerierung", "Automatisierung", "Pipelines", "Webdesign"],
   "about": {
     "title": "Über mich",
     "bio": "Ich animiere die Teile, die ein menschliches Auge brauchen, und baue Systeme für den Rest. Angefangen habe ich mit Papier und einer Kamera, mit Stop Motion. Heute verbinde ich Motion, Code und KI.",
@@ -39,10 +39,7 @@
     "steps": { "topic": "THEMA", "script": "SKRIPT", "voice": "STIMME", "frames": "FRAMES", "edit": "SCHNITT", "captions": "UNTERTITEL", "upload": "UPLOAD", "youtube": "YOUTUBE", "analytics": "ANALYTICS", "comments": "KOMMENTARE" }
   },
   "automation": { "title": "Automatisierung", "intro": "Plugins für After Effects, maßgeschneidert für wiederkehrende Projekte. Sie nehmen die repetitiven Schritte aus dem Workflow, damit mehr Zeit für die Teile bleibt, die ein menschliches Auge brauchen.", "tutAa": "Tutorial: Animation Automation", "tutSrt": "Tutorial: Sequence from SRT", "play": "Tutorial abspielen" },
-  "toolbox": {
-    "title": "Werkzeuge",
-    "items": { "stopMotion": "Stop-Motion", "frameByFrame": "Frame-by-Frame-Animation", "imageGen": "Bildgenerierung", "videoGen": "Videogenerierung", "aiVoice": "KI-Voiceover", "vibeCoding": "Vibe Coding", "workflow": "Workflow-Automatisierung", "editing": "Schnitt", "grading": "Color Grading", "audio": "Audio-Mastering", "camera": "Kameraführung", "responsive": "Responsive Design" }
-  },
+  "toolbox": { "title": "Werkzeuge" },
   "contact": { "title": "Bringen wir Dinge in", "move": "Bewegung.", "cvEn": "CV · English", "cvDe": "Lebenslauf · Deutsch", "reel": "Showreel" },
   "a11y": { "top": "Lou Gastardi, zurück nach oben", "sections": "Bereiche", "language": "Sprache", "player": "Videoplayer", "close": "Schließen" }
 }
