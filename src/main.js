@@ -1,1 +1,3 @@
-console.log('portfolio boot')
+import './styles/tokens.css'
+import './styles/base.css'
+import './styles/nav.css'

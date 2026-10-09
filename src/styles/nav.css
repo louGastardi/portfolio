@@ -1,0 +1,9 @@
+.nav { position: sticky; top: 0; z-index: 50; display: flex; align-items: center; justify-content: space-between; padding: 14px var(--gutter); background: var(--paper); border-bottom: var(--border); }
+.nav__logo { font: 700 20px var(--font-body); text-decoration: none; }
+.nav__logo span { background: var(--lime); padding: 0 4px; }
+.nav__links { display: flex; gap: 22px; }
+.nav__links a { text-decoration: none; }
+.nav__links a:hover { color: var(--green); }
+.nav__lang button { font: inherit; background: none; border: 0; padding: 3px 6px; cursor: pointer; }
+.nav__lang button[aria-pressed="true"] { background: var(--ink); color: #fff; }
+@media (max-width: 760px) { .nav__links { display: none; } }

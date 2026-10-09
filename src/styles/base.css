@@ -1,0 +1,13 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--font-body); color: var(--ink); background: var(--paper); overflow-x: hidden; }
+img, video { display: block; max-width: 100%; }
+a { color: inherit; }
+section { position: relative; }
+/* Every section fills the screen, content centered vertically */
+main > section { min-height: 100vh; min-height: 100svh; display: flex; flex-direction: column; justify-content: center; }
+.disp { font-family: var(--font-display); text-transform: uppercase; line-height: .86; letter-spacing: .5px; font-weight: 400; }
+.mono { font-family: var(--font-mono); font-size: 11px; letter-spacing: 2px; text-transform: uppercase; }
+.card { border: var(--border); box-shadow: var(--shadow); background: var(--paper); }
+.lime { color: var(--lime); }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
