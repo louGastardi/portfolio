@@ -36,14 +36,14 @@ PY
 career foto_01.png career-camera 0.45 0.45
 career foto_02.png career-stopmotion 0.5 0.5
 # Timeline 2022, 2024, 2026: 4:5 crops of the Procrastination game in play, an eduBITES lesson
-# opener (rendered headless at 480x600, 2x) and the Bias Gap frames print
+# opener (rendered headless at 480x600, 2x) and the Bias Gap frames print (Short 58)
 crop45() { # src name left top right bottom
   python3 -c "from PIL import Image; Image.open('$SRC/$1').convert('RGB').crop(($3,$4,$5,$6)).save('/tmp/crop45.png')"
   cwebp -quiet -q 80 -resize 640 0 /tmp/crop45.png -o "$OUT/$2.webp"
 }
 crop45 round6/rpg_game_play.png career-code 565 105 1021 675
 crop45 round6/edubites_lesson_beurteilen.png career-edubites 0 0 960 1200
-crop45 round4/pipeline/frames.png career-pipeline 6 0 594 735
+crop45 round7/pipeline/frames.png career-pipeline 6 0 594 735
 
 loop() { # name src
   ffmpeg -v error -y -i "$SRC/$2" -an -c:v libx264 -crf 26 -preset slow -pix_fmt yuv420p -movflags +faststart "$OUT/$1.mp4"
@@ -60,7 +60,7 @@ for n in stopmotion aftereffects character compositing motiongraphics explainer 
   cp "$SRC/round4/v2/$n.webm" "$OUT/anim-$n.webm"
   cp "$SRC/round4/v2/$n.jpg" "$OUT/anim-$n-poster.jpg"
 done
-# Pipeline prints, one per step (see assets/round4/pipeline.md)
+# Pipeline prints, one per step, from published Short 58 (see assets/round7/pipeline.md)
 mkdir -p "$OUT/pipeline"
-for f in "$SRC"/round4/pipeline/*.png; do n=$(basename "$f" .png); cwebp -quiet -q 78 -resize 1000 0 "$f" -o "$OUT/pipeline/$n.webp"; done
+for f in "$SRC"/round7/pipeline/*.png; do n=$(basename "$f" .png); cwebp -quiet -q 78 -resize 1000 0 "$f" -o "$OUT/pipeline/$n.webp"; done
 echo "media ready:"; ls -1 "$OUT"
