@@ -1,7 +1,7 @@
 {
   "nav": { "about": "Über mich", "timeline": "Werdegang", "motion": "Motion", "web": "Web", "pipelines": "Pipelines", "contact": "Kontakt" },
   "hero": { "role": "Motion Designerin / Creative Technologist · Berlin" },
-  "marquee": ["Motion Design", "After Effects", "Cinema 4D", "KI-Video", "Automatisierung", "Web", "Stop Motion"],
+  "marquee": ["Motion Design", "After Effects", "Cinema 4D", "Premiere Pro", "KI-Video", "Bildgenerierung", "Automatisierung", "Pipelines", "Remotion", "Compositing", "Color Grading", "Stop Motion", "Web", "React", "Figma"],
   "about": {
     "title": "Über mich:",
     "bio": "Ich animiere die Teile, die ein menschliches Auge brauchen, und baue Systeme für den Rest. Angefangen habe ich mit Papier und einer Kamera, mit Stop Motion. Heute verbinde ich Motion, Code und KI.",

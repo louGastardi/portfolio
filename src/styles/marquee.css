@@ -1,5 +1,7 @@
 .marquee { background: var(--lime); border-block: var(--border); overflow: hidden; white-space: nowrap; padding: 12px 0; }
-.marquee__run { display: inline-block; font-size: 26px; animation: marquee 22s linear infinite; }
+.marquee__run { display: flex; width: max-content; font-size: 26px; animation: marquee var(--marquee-dur, 40s) linear infinite; will-change: transform; }
+.marquee__half, .marquee__set { display: flex; flex: none; }
 .marquee__run em { font-style: normal; margin: 0 22px; }
+.marquee__run i { font-style: normal; }
 @keyframes marquee { to { transform: translateX(-50%); } }
 @media (prefers-reduced-motion: reduce) { .marquee__run { animation: none; } }

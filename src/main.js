@@ -10,6 +10,7 @@ import { createI18n } from './i18n/i18n.js'
 import { reducedMotion } from './lib/prefs.js'
 import { initNav } from './sections/nav.js'
 import { initHero } from './sections/hero.js'
+import { initMarquee } from './sections/marquee.js'
 
 const i18n = createI18n({ en, de }, 'en')
 initNav(i18n)
@@ -17,10 +18,4 @@ initNav(i18n)
 const reduced = reducedMotion()
 initHero({ reduced })
 
-const fillMarquee = () => {
-  const items = (i18n.lang === 'de' ? de : en).marquee
-  const run = items.map(w => `<em>${w}</em>◆`).join('')
-  document.querySelector('.marquee__run').innerHTML = run + run
-}
-fillMarquee()
-document.addEventListener('langchange', fillMarquee)
+initMarquee(document.querySelector('.marquee__run'), () => (i18n.lang === 'de' ? de : en).marquee)
