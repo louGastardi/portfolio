@@ -547,15 +547,12 @@ export const isMobile = () => window.matchMedia('(max-width: 760px)').matches
   <canvas class="hero__crystal" aria-hidden="true"></canvas>
   <figure class="hero__card hero__card--1 card" data-depth="18">
     <video src="./media/curioso-penguin.mp4" poster="./media/curioso-penguin-poster.jpg" muted loop playsinline autoplay></video>
-    <figcaption class="mono">Mundo Curioso</figcaption>
   </figure>
   <figure class="hero__card hero__card--2 card" data-depth="10">
     <img src="./media/edubites_ai_skills_desktop.webp" alt="eduBITES AI Skill Assessment">
-    <figcaption class="mono">eduBITES</figcaption>
   </figure>
   <figure class="hero__card hero__card--3 card" data-depth="24">
     <img src="./media/biasgap_cover_54.webp" alt="The Bias Gap Short cover">
-    <figcaption class="mono">The Bias Gap</figcaption>
   </figure>
   <p class="hero__role mono" data-i18n="hero.role">Motion Designer / Creative Technologist · Berlin</p>
 </section>
@@ -573,7 +570,6 @@ Note: paths start with `./media/` because Vite copies `public/` to the site root
 .hero__crystal { position: absolute; left: 42%; top: 6%; width: min(26vw, 280px); height: min(26vw, 280px); }
 .hero__card { position: absolute; overflow: hidden; will-change: transform; }
 .hero__card img, .hero__card video { width: 100%; height: 100%; object-fit: cover; object-position: top; }
-.hero__card figcaption { position: absolute; left: 8px; bottom: 7px; background: var(--ink); color: #fff; padding: 2px 5px; }
 .hero__card--1 { right: 6%; top: 9%; width: 230px; height: 150px; rotate: 6deg; }
 .hero__card--2 { right: 22%; top: 40%; width: 210px; height: 135px; rotate: -8deg; }
 .hero__card--3 { right: 4%; top: 46%; width: 170px; height: 225px; rotate: 3deg; }
