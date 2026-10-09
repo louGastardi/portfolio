@@ -1,0 +1,32 @@
+main > section.web { display: grid; grid-template-columns: minmax(280px, 360px) minmax(0, 680px); justify-content: center; gap: 40px; align-content: center; align-items: center; padding: 70px var(--gutter); }
+.web__title { font-size: clamp(72px, 10vw, 120px); }
+.web__lead { font-size: 17px; line-height: 1.45; margin-top: 20px; }
+.web__lead a { text-decoration-color: var(--lime); text-decoration-thickness: 2px; text-underline-offset: 3px; }
+.web__learn { display: flex; gap: 18px; margin: 28px 0 10px; }
+.web__mini { width: 170px; text-decoration: none; font-size: 12px; padding-bottom: 6px; transition: transform .2s; }
+.web__mini:hover, .web__mini:focus-visible { transform: translate(-2px, -2px); }
+.web__mini img { height: 90px; width: 100%; object-fit: cover; object-position: top; border-bottom: var(--border); margin-bottom: 6px; }
+.web__mini b, .web__mini span { display: block; padding: 0 8px; }
+.web__mini span::after { content: ' ↗'; }
+.web__devices { position: relative; min-height: 440px; isolation: isolate; }
+.web__bg { position: absolute; left: 0; right: 120px; top: 70px; bottom: -20px; background: var(--lime); z-index: -1; }
+.web__laptop { position: absolute; left: 40px; top: 30px; width: min(520px, 80%); }
+/* --view is the visible screen height, so the scroll stops at the bottom of the shot */
+.web__screen { --view: 296px; height: 320px; border: 10px solid var(--ink); border-bottom-width: 14px; background: #fff; overflow: hidden; }
+.web__base { height: 16px; background: var(--ink); margin: 0 -40px; border-radius: 0 0 10px 10px; }
+.web__phone { --view: 284px; position: absolute; right: 10px; top: 120px; width: 150px; height: 300px; border: 8px solid var(--ink); border-radius: 22px; background: #fff; overflow: hidden; box-shadow: var(--shadow); }
+.web__shot { width: 100%; max-width: none; animation: shot-scroll 10s ease-in-out infinite alternate; }
+.web__devices:hover .web__shot { animation-play-state: paused; }
+@keyframes shot-scroll { to { transform: translateY(calc(-100% + var(--view))); } }
+@media (prefers-reduced-motion: reduce) { .web__shot { animation: none; } }
+@media (max-width: 760px) {
+  main > section.web { grid-template-columns: 1fr; padding: 60px var(--gutter); }
+  .web__learn { gap: 14px; }
+  .web__mini { flex: 1; width: auto; min-width: 0; }
+  .web__devices { min-height: 380px; }
+  .web__bg { right: 40px; }
+  .web__laptop { left: 0; width: 100%; }
+  .web__screen { --view: 196px; height: 220px; }
+  .web__base { margin: 0 -12px; }
+  .web__phone { --view: 224px; top: 120px; width: 120px; height: 240px; }
+}
