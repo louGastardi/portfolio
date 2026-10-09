@@ -1,14 +1,15 @@
-/* Text starts at the page gutter like every other section, the photo sits on the right gutter */
-.about__inner { width: 100%; padding: 72px var(--gutter); display: grid; grid-template-columns: minmax(0, 1fr) minmax(320px, 440px); column-gap: 64px; align-items: center; }
+/* Text starts at the page gutter like every other section. Capped columns keep the photo
+   right next to the text on wide screens instead of drifting to the right edge. */
+.about__inner { width: 100%; max-width: calc(1240px + 2 * var(--gutter)); padding: 72px var(--gutter); display: grid; grid-template-columns: minmax(0, 640px) minmax(320px, 440px); justify-content: start; column-gap: 64px; align-items: center; }
 .about__title { font-size: var(--title); line-height: 1; }
 .about__title span { display: inline-block; line-height: 1; box-shadow: inset 0 -14px 0 var(--lime); }
 .about__bio { font-size: 19px; line-height: 1.45; margin: 40px 0 30px; max-width: 560px; }
 .about__facts { max-width: 600px; }
 .about__facts div { display: grid; grid-template-columns: 120px 1fr; border-bottom: 1.5px solid var(--ink); padding: 9px 0; font-size: 18px; }
 /* Black block around the photo only, offset lime shadow like the cards */
-.about__r { background: var(--ink); padding: 20px; box-shadow: var(--shadow); justify-self: end; width: 100%; max-width: 440px; }
+.about__r { background: var(--ink); padding: 20px; box-shadow: var(--shadow); justify-self: start; width: 100%; max-width: 440px; }
 .about__photo { display: block; width: 100%; aspect-ratio: 656 / 835; object-fit: cover; object-position: center top; border: 2px solid #fff; filter: grayscale(1) contrast(1.1); }
 @media (max-width: 760px) {
   .about__inner { grid-template-columns: 1fr; row-gap: 40px; padding: 48px var(--gutter); }
-  .about__r { justify-self: start; max-width: 360px; }
+  .about__r { max-width: 360px; }
 }

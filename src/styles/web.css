@@ -1,5 +1,5 @@
-/* Text column starts at the gutter, devices sit against the right gutter, like the other sections */
-main > section.web { display: grid; grid-template-columns: minmax(300px, 520px) minmax(0, 1fr); gap: 40px; align-content: center; align-items: center; padding: 70px var(--gutter); }
+/* Text column starts at the gutter. Capped columns keep the devices next to the text on wide screens. */
+main > section.web { display: grid; grid-template-columns: minmax(300px, 500px) minmax(0, 680px); justify-content: start; gap: 40px 64px; align-content: center; align-items: center; padding: 70px var(--gutter); }
 .web__title { font-size: var(--title); }
 .web__lead { font-size: 17px; line-height: 1.45; margin-top: 20px; }
 .web__lead a { text-decoration-color: var(--lime); text-decoration-thickness: 2px; text-underline-offset: 3px; }
@@ -9,7 +9,7 @@ main > section.web { display: grid; grid-template-columns: minmax(300px, 520px) 
 .web__mini img { height: 90px; width: 100%; object-fit: cover; object-position: top; border-bottom: var(--border); margin-bottom: 6px; }
 .web__mini b, .web__mini span { display: block; padding: 0 8px; }
 .web__mini span::after { content: ' ↗' / ''; }
-.web__devices { position: relative; min-height: 440px; isolation: isolate; width: 100%; max-width: 680px; justify-self: end; }
+.web__devices { position: relative; min-height: 440px; isolation: isolate; width: 100%; }
 .web__bg { position: absolute; left: 0; right: 120px; top: 70px; bottom: -20px; background: var(--lime); z-index: -1; }
 .web__laptop { position: absolute; left: 40px; top: 30px; width: min(520px, 80%); }
 /* --view is the visible screen height, so the scroll stops at the bottom of the shot */
