@@ -13,6 +13,7 @@ cwebp -quiet -q 82 -resize 900 0 "$SRC/lou_portrait_about.jpg" -o "$OUT/lou_port
 img edubites_agentic_desktop.jpg 1200 75
 img edubites_agentic_mobile.jpg 420 75
 img rpg_game.png 800
+img encryptor.png 800
 img eraserboy_frame.jpg 1200
 img eraserboy_thumb.jpg 1200
 img curioso_caju.png 900

@@ -22,7 +22,9 @@
     "title": "Built for the web",
     "edubites": "eduBITES · Test Your Agentic Skills. Design, code and upkeep.",
     "rpgLine": "A browser game played with the arrow keys and the space bar.",
-    "rpg": "JS · OOP game"
+    "rpg": "JS · OOP game",
+    "decrypterLine": "Turns a message into code and back again.",
+    "decrypter": "HTML · CSS · JS"
   },
   "pipelines": {
     "aria": "Automated YouTube pipeline: topic, script, voice, frames, edit, captions, upload, YouTube, analytics, comments, then back to topic",

@@ -22,7 +22,9 @@
     "title": "Gebaut fürs Web",
     "edubites": "eduBITES · Test Your Agentic Skills. Design, Code und Betreuung.",
     "rpgLine": "Ein Browserspiel, gesteuert mit Pfeiltasten und Leertaste.",
-    "rpg": "JS · OOP-Spiel"
+    "rpg": "JS · OOP-Spiel",
+    "decrypterLine": "Verwandelt eine Nachricht in Code und wieder zurück.",
+    "decrypter": "HTML · CSS · JS"
   },
   "pipelines": {
     "aria": "Automatisierte YouTube-Pipeline: Thema, Skript, Stimme, Frames, Schnitt, Untertitel, Upload, YouTube, Analytics, Kommentare, dann zurück zum Thema",
