@@ -12,8 +12,8 @@ python3 -c "from PIL import Image; Image.open('$SRC/lou_portrait.jpg').crop((140
 cwebp -quiet -q 82 -resize 900 0 "$SRC/lou_portrait_about.jpg" -o "$OUT/lou_portrait.webp"
 img edubites_agentic_desktop.jpg 1200 75
 img edubites_agentic_mobile.jpg 420 75
-img rpg_game.png 800
-img encryptor.png 800
+cwebp -quiet -q 80 -resize 800 0 "$SRC/rpg_game_r11.png" -o "$OUT/rpg-game-r11.webp"
+cwebp -quiet -q 80 -resize 800 0 "$SRC/encryptor_r11.png" -o "$OUT/encryptor-r11.webp"
 # Old portfolio photos (2010, 2014) are circle-masked squares. The whole circle is kept so the
 # face, hands, puppet, set and camera all show: it is scaled to the card width and centered on a
 # 4:5 canvas, and the space around it is a blurred, darkened cover of the same photo. The circle
