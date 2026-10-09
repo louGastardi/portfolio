@@ -1,5 +1,6 @@
-/* Split hero: white half with the name, ink half with the 3D keyframe. Fills the screen below the nav. */
-.hero { display: grid; grid-template-columns: 1fr 1fr; height: calc(100vh - var(--nav-h)); height: calc(100svh - var(--nav-h)); min-height: 520px; overflow: hidden; }
+/* Split hero: white half with the name, ink half with the 3D keyframe. Fills the screen below the nav
+   minus the marquee band, so the band is fully visible on first load. */
+.hero { display: grid; grid-template-columns: 1fr 1fr; height: calc(100vh - var(--nav-h) - var(--marquee-h)); height: calc(100svh - var(--nav-h) - var(--marquee-h)); min-height: 480px; overflow: hidden; }
 .hero__l { display: flex; flex-direction: column; justify-content: center; padding: 40px var(--gutter); min-width: 0; }
 /* Sized so GASTARDI fills the white half without touching the black one */
 .hero__name { font-size: min(11.4vw, 30vh); }
@@ -14,7 +15,7 @@
 @media (prefers-reduced-motion: reduce) { .hero__crystal { transition: none; } }
 /* Mobile: name block first, black block with the keyframe below */
 @media (max-width: 760px) {
-  .hero { grid-template-columns: 1fr; grid-template-rows: auto 1fr; height: auto; min-height: calc(100svh - var(--nav-h)); }
+  .hero { grid-template-columns: 1fr; grid-template-rows: auto 1fr; height: auto; min-height: calc(100svh - var(--nav-h) - var(--marquee-h)); }
   .hero__l { padding: 40px var(--gutter) 32px; }
   .hero__name { font-size: 24vw; }
   .hero__role { margin-top: 18px; font-size: 11px; letter-spacing: 1.5px; }

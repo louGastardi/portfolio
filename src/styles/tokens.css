@@ -11,6 +11,8 @@
   --shadow: 7px 7px 0 var(--lime);
   --shadow-sm: 4px 4px 0 var(--lime);
   --nav-h: 58px;
+  /* Height of the lime marquee band under the hero (padding + 26px line + borders) */
+  --marquee-h: 50px;
   /* One size for every section title, Motion and Contact stay oversized statements */
   --title: clamp(64px, 9vw, 110px);
   --gutter: clamp(20px, 4.5vw, 50px);
