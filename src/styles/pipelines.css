@@ -1,4 +1,5 @@
-.pipe { border-top: var(--border); padding: 56px var(--gutter) 50px; }
+/* Soft background instead of a divider line: the colour change separates it from Web */
+.pipe { background: var(--soft); padding: 56px var(--gutter) 50px; }
 .pipe__title { font-size: var(--title); }
 .pipe__flow { margin-top: 26px; }
 /* Graph left, framed print card right */
