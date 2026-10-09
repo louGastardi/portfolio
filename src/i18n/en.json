@@ -34,8 +34,7 @@
     "srt": "Load a voiceover transcript (.srt) and a cut sheet, and it places every image layer where its line is spoken. An hour of manual timing becomes one click.",
     "meta": ".jsx · AE 2024+ · free",
     "download": "Download",
-    "steps": { "topic": "TOPIC", "script": "SCRIPT", "voice": "VOICE", "frames": "FRAMES", "edit": "EDIT", "captions": "CAPTIONS", "upload": "UPLOAD", "youtube": "YOUTUBE", "analytics": "ANALYTICS", "comments": "COMMENTS" },
-    "soon": "Soon"
+    "steps": { "topic": "TOPIC", "script": "SCRIPT", "voice": "VOICE", "frames": "FRAMES", "edit": "EDIT", "captions": "CAPTIONS", "upload": "UPLOAD", "youtube": "YOUTUBE", "analytics": "ANALYTICS", "comments": "COMMENTS" }
   },
   "automation": { "title": "Automation", "intro": "Plugins I built for After Effects, made to measure for recurring projects. They take the repetitive steps out of the workflow, so more time goes into the parts that need a human eye." },
   "toolbox": {

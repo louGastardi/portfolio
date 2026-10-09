@@ -34,8 +34,7 @@
     "srt": "Lädt ein Voiceover-Transkript (.srt) und ein Cut Sheet und setzt jede Bildebene genau dorthin, wo ihr Satz gesprochen wird. Aus einer Stunde Timing wird ein Klick.",
     "meta": ".jsx · AE 2024+ · kostenlos",
     "download": "Download",
-    "steps": { "topic": "THEMA", "script": "SKRIPT", "voice": "STIMME", "frames": "FRAMES", "edit": "SCHNITT", "captions": "UNTERTITEL", "upload": "UPLOAD", "youtube": "YOUTUBE", "analytics": "ANALYTICS", "comments": "KOMMENTARE" },
-    "soon": "Bald"
+    "steps": { "topic": "THEMA", "script": "SKRIPT", "voice": "STIMME", "frames": "FRAMES", "edit": "SCHNITT", "captions": "UNTERTITEL", "upload": "UPLOAD", "youtube": "YOUTUBE", "analytics": "ANALYTICS", "comments": "KOMMENTARE" }
   },
   "automation": { "title": "Automatisierung", "intro": "Plugins für After Effects, maßgeschneidert für wiederkehrende Projekte. Sie nehmen die repetitiven Schritte aus dem Workflow, damit mehr Zeit für die Teile bleibt, die ein menschliches Auge brauchen." },
   "toolbox": {

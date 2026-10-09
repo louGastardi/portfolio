@@ -10,9 +10,8 @@
 .script__body h3 { font-size: 30px; }
 .script__body p { font-size: 15px; line-height: 1.45; margin: 8px 0 14px; }
 .script__meta { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
-.script__dl { background: var(--ink); color: #fff; padding: 10px 16px; font: 700 14px var(--font-body); box-shadow: var(--shadow-sm); text-decoration: none; }
-/* #6b6b6b keeps white text above 4.5:1, the plan's #999 does not */
-.script__dl.is-soon { background: #6b6b6b; box-shadow: none; }
+.script__dl { background: var(--ink); color: #fff; padding: 10px 16px; font: 700 14px var(--font-body); box-shadow: var(--shadow-sm); text-decoration: none; transition: transform .2s, box-shadow .2s; }
+.script__dl:hover, .script__dl:focus-visible { transform: translate(-2px, -2px); box-shadow: var(--shadow); }
 @media (max-width: 760px) {
   .auto { padding: 60px var(--gutter) 70px; }
   .auto__head, .scripts { grid-template-columns: 1fr; }
