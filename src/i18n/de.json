@@ -44,5 +44,5 @@
     "items": { "stopMotion": "Stop-Motion", "frameByFrame": "Frame-by-Frame-Animation", "imageGen": "Bildgenerierung", "videoGen": "Videogenerierung", "aiVoice": "KI-Voiceover", "vibeCoding": "Vibe Coding", "workflow": "Workflow-Automatisierung", "editing": "Schnitt", "grading": "Color Grading", "audio": "Audio-Mastering", "camera": "Kameraführung", "responsive": "Responsive Design" }
   },
   "contact": { "title": "Bringen wir Dinge in", "move": "Bewegung.", "cvEn": "CV · English", "cvDe": "Lebenslauf · Deutsch", "reel": "Showreel" },
-  "a11y": { "top": "LG, Lou Gastardi, zurück nach oben", "sections": "Bereiche", "language": "Sprache", "player": "Videoplayer", "close": "Schließen" }
+  "a11y": { "top": "Lou Gastardi, zurück nach oben", "sections": "Bereiche", "language": "Sprache", "player": "Videoplayer", "close": "Schließen" }
 }

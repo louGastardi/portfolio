@@ -44,5 +44,5 @@
     "items": { "stopMotion": "Stop motion", "frameByFrame": "Frame-by-frame animation", "imageGen": "Image generation", "videoGen": "Video generation", "aiVoice": "AI voiceover", "vibeCoding": "Vibe coding", "workflow": "Workflow automation", "editing": "Editing", "grading": "Color grading", "audio": "Audio mastering", "camera": "Camera operation", "responsive": "Responsive design" }
   },
   "contact": { "title": "Let's make things", "move": "move.", "cvEn": "CV · English", "cvDe": "Lebenslauf · Deutsch", "reel": "Showreel" },
-  "a11y": { "top": "LG, Lou Gastardi, back to top", "sections": "Sections", "language": "Language", "player": "Video player", "close": "Close" }
+  "a11y": { "top": "Lou Gastardi, back to top", "sections": "Sections", "language": "Language", "player": "Video player", "close": "Close" }
 }

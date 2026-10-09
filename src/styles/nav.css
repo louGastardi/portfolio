@@ -1,6 +1,11 @@
 .nav { position: sticky; top: 0; z-index: 50; display: flex; gap: 16px; align-items: center; justify-content: space-between; padding: 14px var(--gutter); background: var(--paper); border-bottom: var(--border); }
-.nav__logo { font: 700 20px var(--font-body); text-decoration: none; }
-.nav__logo span { background: var(--lime); padding: 0 4px; }
+/* Logo = After Effects keyframe diamond, half filled. The right half turns lime on hover. */
+.nav__logo { display: block; width: 28px; height: 28px; }
+.nav__logo svg { display: block; width: 100%; height: 100%; overflow: visible; }
+.nav__kf-r { fill: #fff; stroke: var(--ink); stroke-width: 4; stroke-linejoin: round; transition: fill .2s; }
+.nav__kf-l { fill: var(--ink); }
+.nav__logo:hover .nav__kf-r, .nav__logo:focus-visible .nav__kf-r { fill: var(--lime); }
+.nav__logo:focus-visible { outline: 2px solid var(--lime); outline-offset: 3px; }
 .nav__links { display: flex; gap: 22px; }
 .nav__links a { text-decoration: none; }
 .nav__links a:hover { color: var(--green); }
