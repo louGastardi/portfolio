@@ -1,4 +1,4 @@
-.tl { background: var(--soft); border-top: var(--border); }
+.tl { background: var(--soft); }
 .tl__pin { min-height: calc(100vh - var(--nav-h)); min-height: calc(100svh - var(--nav-h)); padding: 60px 0 50px; display: flex; flex-direction: column; justify-content: center; }
 .tl__head { padding: 0 var(--gutter); display: flex; justify-content: space-between; align-items: end; }
 .tl__title { font-size: var(--title); }
