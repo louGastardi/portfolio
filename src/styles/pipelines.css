@@ -2,8 +2,9 @@
 .pipe__title { font-size: var(--title); }
 .pipe__flow { margin-top: 26px; }
 /* Graph left, framed print card right */
-/* The graph keeps its drawn width (height capped), so the card stays next to it on wide screens */
-.pipe__body { --graph-h: min(470px, 42vh); display: flex; gap: 48px; align-items: center; margin-top: 14px; }
+/* The graph keeps its drawn width (height capped), so the card stays next to it on wide screens.
+   The pair is centered in the page width under the left aligned header. */
+.pipe__body { --graph-h: min(470px, 42vh); display: flex; justify-content: center; gap: 48px; align-items: center; margin-top: 14px; }
 .pipe__graph { position: relative; flex: 0 1 calc(var(--graph-h) * 1000 / 480); min-width: 0; }
 .pipe__steps { flex: 0 0 400px; }
 /* Height capped so title plus graph fit one desktop screen, the drawing centers in the box */

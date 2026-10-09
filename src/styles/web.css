@@ -1,8 +1,10 @@
-/* Text column starts at the gutter. Capped columns keep the devices next to the text on wide screens. */
-main > section.web { display: grid; grid-template-columns: minmax(300px, 500px) minmax(0, 680px); justify-content: start; gap: 40px 64px; align-content: center; align-items: center; padding: 70px var(--gutter); }
+/* Title and intro start at the gutter. The cards and devices form one block that is centered
+   in the page width below them, so the empty space splits evenly left and right on wide screens. */
+main > section.web { padding: 70px var(--gutter); }
+.web__body { display: flex; justify-content: center; align-items: center; gap: 64px; margin-top: 36px; }
 .web__title { font-size: var(--title); }
-/* Two compact project cards side by side under the text, sized like before the descriptions came in */
-.web__learn { display: flex; gap: 18px; margin: 28px 0 10px; }
+/* The two project cards stack in a column next to the devices */
+.web__learn { display: flex; flex-direction: column; gap: 18px; flex: none; }
 .web__mini { display: flex; flex-direction: column; width: 200px; text-decoration: none; font-size: 12px; transition: transform .2s; }
 .web__mini:hover, .web__mini:focus-visible { transform: translate(-2px, -2px); }
 .web__mini img { height: 100px; width: 100%; object-fit: cover; object-position: center top; border-bottom: var(--border); }
@@ -11,7 +13,7 @@ main > section.web { display: grid; grid-template-columns: minmax(300px, 500px) 
 .web__mini p { font-size: 12px; line-height: 1.4; margin: 0; }
 .web__mini span { margin-top: auto; }
 .web__mini span::after { content: ' ↗' / ''; }
-.web__devices { position: relative; min-height: 440px; isolation: isolate; width: 100%; }
+.web__devices { position: relative; min-height: 440px; isolation: isolate; flex: 0 1 680px; min-width: 0; }
 /* Solid lime offset like the cards. drop-shadow follows the laptop outline (screen plus wider base). */
 .web__laptop { position: absolute; left: 40px; top: 30px; width: min(520px, 80%); filter: drop-shadow(7px 7px 0 var(--lime)); }
 /* --view is the visible screen height, so the scroll stops at the bottom of the shot.
@@ -24,8 +26,9 @@ main > section.web { display: grid; grid-template-columns: minmax(300px, 500px) 
 @keyframes shot-scroll { to { transform: translateY(calc(-100% + var(--view))); } }
 @media (prefers-reduced-motion: reduce) { .web__shot { animation: none; } }
 @media (max-width: 760px) {
-  main > section.web { grid-template-columns: 1fr; padding: 60px var(--gutter); }
-  .web__learn { gap: 12px; }
+  main > section.web { padding: 60px var(--gutter); }
+  .web__body { display: block; margin-top: 28px; }
+  .web__learn { flex-direction: row; gap: 12px; margin-bottom: 40px; }
   .web__mini { flex: 1; width: auto; min-width: 0; }
   .web__mini img { height: 96px; }
   .web__mini div { padding: 10px; }
