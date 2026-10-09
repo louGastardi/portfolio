@@ -4,22 +4,26 @@
   "marquee": ["Motion Design", "3D-Animation", "Frame-by-Frame-Animation", "Stop Motion", "Vektorillustration", "Compositing", "Color Grading", "Schnitt", "Audio-Mastering", "Kameraführung", "KI-Video", "Bildgenerierung", "Automatisierung", "Pipelines", "Webdesign"],
   "about": {
     "title": "Über mich",
-    "bio": "Ich animiere die Teile, die ein menschliches Auge brauchen, und baue Systeme für den Rest. Angefangen habe ich mit Papier und einer Kamera, mit Stop Motion. Heute verbinde ich Motion, Code und KI.",
+    "bio": "Ich habe Medienkunst an der Bauhaus-Universität Weimar studiert, wo ich mich in Stop Motion verliebt habe, und acht Jahre lang bei Camera Medica für Marken animiert. Unterwegs wollte ich wissen, was hinter dem Bildschirm passiert, also habe ich programmieren gelernt. Heute gestalte und animiere ich Lerninhalte bei eduBITES und baue die Tools und KI-Pipelines, mit denen ein kleines Team mehr schafft, ohne beim Handwerk zu sparen.",
     "based": "Wohnort", "basedValue": "Berlin",
-    "doing": "Fokus", "doingValue": "Motion · Frame-by-Frame · Creative Tech · KI-Pipelines",
+    "doing": "Fokus", "doingValue": "Motion · Creative Tech · KI-Pipelines",
     "speaks": "Sprachen", "speaksValue": "PT · EN · DE · ES"
   },
   "timeline": {
     "title": "Von Keyframes…",
-    "y2010": "Bauhaus Weimar. Papier, Knete und Frame-by-Frame.",
-    "y2014": "Camera Medica. Motion für Hunderte Kunden.",
-    "y2022": "Programmieren gelernt. ONE und Ironhack.",
-    "y2024": "eduBITES. Kurse, Motion und Web.",
-    "y2026": "Creative Technologist. Pipelines."
+    "y2010": "Medienkunst an der Bauhaus-Universität Weimar. Papier, Knete und eine Kamera. Stop Motion war meine erste Liebe.",
+    "y2014": "Camera Medica. Angefangen als Video Specialist, acht Jahre geblieben als Motion Designerin. Hunderte Kundenprojekte.",
+    "y2022": "Neugierig darauf, was hinter dem Bildschirm passiert. Programmieren gelernt mit Oracle ONE und Ironhack.",
+    "y2024": "eduBITES. Skripte, Animation, interaktive Lektionen und die Firmenwebsite.",
+    "y2026": "Creative Technologist. Ich baue die Pipelines, die Motion, Code und KI verbinden."
   },
-  "motion": { "stopMotion": "Stop-Motion", "afterEffects": "After Effects", "penguin": "KI-Animation", "character": "Character-Animation", "compositing": "Compositing", "shorts": "YouTube Shorts", "motionGraphics": "Motion Graphics", "explainer": "2D/3D-Erklärvideo", "fx": "FX / Partikel", "frameByFrame": "Frame-by-Frame" },
+  "motion": {
+    "intro": "Mit Animation hat alles angefangen, und dahin komme ich immer wieder zurück. Ich probiere gern verschiedene Wege aus, Dinge zu bewegen, von Papier und Knete über Keyframes und 3D bis zu KI, und mische sie, um zu sehen, was dabei herauskommt.",
+    "stopMotion": "Stop-Motion", "afterEffects": "After Effects", "penguin": "KI-Animation", "character": "Character-Animation", "compositing": "Compositing", "shorts": "YouTube Shorts", "motionGraphics": "Motion Graphics", "explainer": "2D/3D-Erklärvideo", "fx": "FX / Partikel", "frameByFrame": "Frame-by-Frame"
+  },
   "web": {
     "title": "Gebaut fürs Web",
+    "intro": "Ich habe Webentwicklung gelernt, um meine Ideen selbst zu bauen, nicht nur zu gestalten. Seitdem finde ich immer bessere Wege: leichtere Seiten, saubereren Code und kleine Automatisierungen, die Stunden sparen.",
     "edubites": "eduBITES · Test Your Agentic Skills. Design, Code und Betreuung.",
     "rpgLine": "Ein Browserspiel, gesteuert mit Pfeiltasten und Leertaste.",
     "rpg": "JS · OOP-Spiel",
@@ -30,7 +34,8 @@
     "aria": "Automatisierte YouTube-Pipeline: Thema, Skript, Stimme, Frames, Schnitt, Untertitel, Upload, YouTube, Analytics, Kommentare, dann zurück zum Thema",
     "title": "…zu Pipelines.",
     "flow": "The Bias Gap · automatisierter YouTube-Kanal",
-    "hover": "Für Details über einen Schritt fahren",
+    "caseLabel": "Fallstudie",
+    "intro": "The Bias Gap ist ein Nebenprojekt. Ich wollte sehen, wie weit eine Person einen YouTube-Kanal bringen kann, also habe ich die ganze Pipeline mit kostenlosen Tools gebaut, von der Themenwahl bis zum angepinnten Kommentar. Sie führt den Kanal für mich, und ich gebe nur noch jedes Video frei.",
     "loop": "Erkenntnisse speisen das nächste Thema",
     "aa": "Ein ScriptUI-Panel für After Effects. Ein Klick fügt jeder Ebene Ein- und Ausgänge, elastische Skalierung, Fades und leichte Kamerabewegungen hinzu. Mit Expressions gebaut, die Animationen passen sich beim Trimmen an. Sequenziert, precomposed und kopiert außerdem den aktuellen Frame.",
     "srt": "Lädt ein Voiceover-Transkript (.srt) und ein Cut Sheet und setzt jede Bildebene genau dorthin, wo ihr Satz gesprochen wird. Aus einer Stunde Timing wird ein Klick.",
@@ -51,7 +56,7 @@
     }
   },
   "automation": { "title": "Automatisierung", "intro": "Plugins für After Effects, maßgeschneidert für wiederkehrende Projekte. Sie nehmen die repetitiven Schritte aus dem Workflow, damit mehr Zeit für die Teile bleibt, die ein menschliches Auge brauchen.", "tutAa": "Tutorial: Animation Automation", "tutSrt": "Tutorial: Sequence from SRT", "play": "Tutorial abspielen" },
-  "toolbox": { "title": "Werkzeuge" },
+  "toolbox": { "title": "Werkzeuge", "intro": "Die Tools, die ich im Alltag am meisten nutze." },
   "contact": { "title": "Bringen wir Dinge in", "move": "Bewegung.", "cvEn": "CV · English", "cvDe": "Lebenslauf · Deutsch", "reel": "Showreel" },
   "a11y": { "top": "Lou Gastardi, zurück nach oben", "sections": "Bereiche", "language": "Sprache", "player": "Videoplayer", "close": "Schließen" }
 }

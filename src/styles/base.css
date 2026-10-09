@@ -13,4 +13,9 @@ main h2.disp { line-height: .95; }
 .mono { font-family: var(--font-mono); font-size: 11px; letter-spacing: 2px; text-transform: uppercase; }
 .card { border: var(--border); box-shadow: var(--shadow); background: var(--paper); }
 .lime { color: var(--lime); }
+/* Short intro under a section title: same size as the About bio, same gap in every section */
+.intro { font-size: 19px; line-height: 1.45; max-width: 560px; margin-top: 24px; }
+.intro__label { margin-top: 24px; color: var(--green); }
+.intro--labelled { margin-top: 8px; }
+@media (max-width: 760px) { .intro { font-size: 17px; } }
 .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }

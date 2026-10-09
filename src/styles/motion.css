@@ -1,5 +1,5 @@
 .slab { background: var(--ink); color: #fff; padding: 60px var(--gutter); overflow: hidden; }
-/* Title and bento share one centered column, so the bento sits in the middle of the page */
+/* Title and intro start at the gutter like every section, the bento sits centered below them */
 .slab__inner { width: 100%; max-width: 1000px; margin-inline: auto; }
 .slab__title { font-size: clamp(110px, 15vw, 190px); letter-spacing: 2px; }
 /* Ten looping clips, one per style. Wide clips (16:9) take 2x2 cells, the two vertical
@@ -28,3 +28,4 @@
   .bento { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-rows: 96px; gap: 10px;
     grid-template-areas: "erb ae" "chr comp" "pen halo" "pen halo" "pen halo" "mg exp" "fx fbf"; }
 }
+.slab .intro { color: #ddd; }

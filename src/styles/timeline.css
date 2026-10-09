@@ -30,6 +30,6 @@
 .tl__kf.is-hit { background: var(--lime); border: 1.5px solid var(--ink); }
 @media (max-width: 760px) {
   .tl__cards { grid-template-columns: 1fr; }
-  .tl__ruler, .tl__layers, .tl__comp { display: none; }
+  .tl__ruler, .tl__layers { display: none; }
   .tl__card { opacity: 1; transform: none; }
 }
