@@ -1,30 +1,19 @@
-/* The hero fills the screen below the nav on every size. The name, crystal and cards are
-   placed around --mid (a little above center, the role line sits below), with offsets in
-   name-size units, so the composition stays together on tall screens instead of spreading out. */
-.hero { --fs: clamp(120px, 22vw, 300px); --mid: calc(50% - 20px); height: calc(100vh - var(--nav-h)); height: calc(100svh - var(--nav-h)); min-height: 560px; overflow: hidden; }
-.hero__name { position: absolute; left: -1.2vw; top: max(16px, calc(var(--mid) - var(--fs) * .9)); font-size: var(--fs); }
+/* Split hero: white half with the name, ink half with the 3D gem. Fills the screen below the nav. */
+.hero { display: grid; grid-template-columns: 1fr 1fr; height: calc(100vh - var(--nav-h)); height: calc(100svh - var(--nav-h)); min-height: 520px; overflow: hidden; }
+.hero__l { display: flex; flex-direction: column; justify-content: center; padding: 40px var(--gutter); min-width: 0; }
+/* Sized so GASTARDI fills the white half without touching the black one */
+.hero__name { font-size: min(10.4vw, 30vh); }
 .hero__name span { display: block; }
-.hero__l2 { margin-left: 8vw; }
-/* Crystal sits up and right of the name, in the gap between LOU and the first card */
-.hero__crystal { position: absolute; left: 53%; top: max(8px, calc(var(--mid) - var(--fs) * 1.22)); width: min(26vw, 280px); height: min(26vw, 280px); }
-.hero__card { position: absolute; overflow: hidden; }
-.hero__card img, .hero__card video { width: 100%; height: 100%; object-fit: cover; object-position: top; }
-.hero__card--1 { right: 6%; top: calc(var(--mid) - var(--fs) * .79); width: 230px; height: 150px; rotate: 6deg; }
-.hero__card--2 { right: 22%; top: var(--mid); width: 210px; height: 135px; rotate: -8deg; }
-.hero__card--3 { right: 4%; top: calc(var(--mid) + var(--fs) * .15); width: 170px; height: 225px; rotate: 3deg; }
-.hero__role { position: absolute; left: var(--gutter); bottom: 44px; font-size: 13px; }
-/* Mobile: name, crystal and cards flow in one centered grid, so the cards sit right under the name
-   instead of at the bottom of a tall screen */
+.hero__role { margin-top: 28px; font-size: 13px; }
+.hero__r { position: relative; background: var(--ink); }
+/* Soft cold glow behind the gem, like light through ice */
+.hero__r::before { content: ''; position: absolute; left: 50%; top: 50%; width: min(70%, 520px); aspect-ratio: 1; translate: -50% -50%; border-radius: 50%; background: radial-gradient(closest-side, rgba(224,234,243,.13), rgba(224,234,243,.04) 55%, transparent); pointer-events: none; }
+.hero__crystal { position: absolute; inset: 0; width: 100%; height: 100%; }
+/* Mobile: name block first, black block with the gem below */
 @media (max-width: 760px) {
-  .hero { display: grid; grid-template-columns: 1fr 1fr; align-content: center; column-gap: 6vw; height: auto; min-height: calc(100svh - var(--nav-h)); padding: 32px var(--gutter) 84px; }
-  .hero__name { position: static; grid-column: 1 / -1; font-size: 22vw; }
-  .hero__l2 { margin-left: 4vw; }
-  .hero__crystal { position: relative; left: auto; top: auto; grid-column: 1 / -1; justify-self: end; width: 34vw; height: 34vw; margin: -2vw 6vw -6vw 0; z-index: 1; }
-  .hero__card { position: relative; }
-  .hero__card--1 { right: auto; top: auto; grid-column: 1; align-self: center; width: 100%; height: 32vw; }
-  .hero__card--2 { display: none; }
-  .hero__card--3 { right: auto; top: auto; grid-column: 2; justify-self: end; width: 38vw; height: 50vw; }
-  .hero__role { bottom: 24px; }
+  .hero { grid-template-columns: 1fr; grid-template-rows: auto 1fr; height: auto; min-height: calc(100svh - var(--nav-h)); }
+  .hero__l { padding: 40px var(--gutter) 32px; }
+  .hero__name { font-size: 24vw; }
+  .hero__role { margin-top: 18px; font-size: 11px; letter-spacing: 1.5px; }
+  .hero__r { min-height: 320px; }
 }
-/* The penguin loop is vertical, keep the bird in frame instead of the top water */
-.hero__card--1 video { object-position: center 58%; }

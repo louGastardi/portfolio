@@ -1,17 +1,8 @@
-// The cards stay put, only the crystal follows the mouse (see crystal.js).
 export function initHero({ reduced }) {
   loadCrystal(document.querySelector('.hero__crystal'), { reduced })
-  if (reduced) {
-    document.querySelectorAll('.hero video').forEach(v => {
-      v.removeAttribute('autoplay')
-      v.autoplay = false
-      v.pause()
-      v.currentTime = 0
-    })
-  }
 }
 
-// three.js is the heaviest dependency, so the crystal loads in its own chunk:
+// three.js is the heaviest dependency, so the gem loads in its own chunk:
 // once the canvas is on screen and the browser is idle after first paint.
 function loadCrystal(canvas, opts) {
   if (!canvas) return
