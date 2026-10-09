@@ -35,7 +35,7 @@ No small "eyebrow" labels above section titles.
 Lime band with a running list: Motion design ◆ After Effects ◆ Cinema 4D ◆ AI video ◆ Automation ◆ Web ◆ Stop motion.
 
 ### 01 About
-- Split layout. Left: "ABOUT ME:" with lime underline, short bio, form-like fact lines (Name: Lou Gastardi, Based in, Doing, Speaks).
+- Split layout. Left: "ABOUT ME:" with lime underline, short bio, form-like fact lines (Based in, Doing, Speaks).
 - Right: black panel with the portrait from 2026-10-08 (Flow, mirrored, black and white).
 
 ### 02 Timeline ("From keyframes…")
