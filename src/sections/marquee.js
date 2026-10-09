@@ -26,7 +26,8 @@ export function initMarquee(track, getItems) {
     timer = setTimeout(build, 150)
   })
   document.addEventListener('langchange', build)
-  // Anton loads async, its glyph widths change the set width
-  document.fonts?.ready.then(build)
+  // Anton loads async and changes the set width. fonts.ready can resolve before the
+  // font is even requested, so ask for Anton explicitly and rebuild once it is in.
+  document.fonts?.load('26px Anton').then(build, () => {})
   build()
 }
