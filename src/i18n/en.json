@@ -1,17 +1,17 @@
 {
   "nav": { "about": "About", "timeline": "Timeline", "motion": "Motion", "web": "Web", "pipelines": "Pipelines", "automation": "Automation", "contact": "Contact" },
   "hero": { "role": "Motion Designer / Creative Technologist" },
-  "marquee": ["Motion design", "After Effects", "Cinema 4D", "Premiere Pro", "AI video", "Image generation", "Automation", "Pipelines", "Remotion", "Compositing", "Color grading", "Stop motion", "Web", "React", "Figma"],
+  "marquee": ["Motion design", "After Effects", "Cinema 4D", "Premiere Pro", "AI video", "Image generation", "Automation", "Pipelines", "Remotion", "Compositing", "Color grading", "Stop motion", "Frame-by-frame animation", "Web", "React", "Figma"],
   "about": {
     "title": "About me:",
     "bio": "I animate the parts that need a human eye, and build the systems that handle the rest. I started with paper and a camera, making stop motion. Now I connect motion, code and AI.",
     "based": "Based in", "basedValue": "Berlin, Germany",
-    "doing": "Doing", "doingValue": "Motion · Creative tech · AI pipelines",
+    "doing": "Doing", "doingValue": "Motion · Frame-by-frame · Creative tech · AI pipelines",
     "speaks": "Speaks", "speaksValue": "PT · EN · DE · ES"
   },
   "timeline": {
     "title": "From keyframes…",
-    "y2010": "Bauhaus Weimar. Paper, clay and a camera.",
+    "y2010": "Bauhaus Weimar. Paper, clay and frame-by-frame.",
     "y2014": "Camera Medica. Motion for hundreds of clients.",
     "y2022": "Learned to code. ONE and Ironhack.",
     "y2024": "eduBITES. Courses, motion and web.",
@@ -41,7 +41,7 @@
   "automation": { "title": "Automation", "intro": "Plugins I built for After Effects, made to measure for recurring projects. They take the repetitive steps out of the workflow, so more time goes into the parts that need a human eye.", "tutAa": "Tutorial: Animation Automation", "tutSrt": "Tutorial: Sequence from SRT", "play": "Play tutorial" },
   "toolbox": {
     "title": "Toolbox",
-    "items": { "stopMotion": "Stop motion", "imageGen": "Image generation", "videoGen": "Video generation", "aiVoice": "AI voiceover", "vibeCoding": "Vibe coding", "workflow": "Workflow automation", "editing": "Editing", "grading": "Color grading", "audio": "Audio mastering", "camera": "Camera operation", "responsive": "Responsive design" }
+    "items": { "stopMotion": "Stop motion", "frameByFrame": "Frame-by-frame animation", "imageGen": "Image generation", "videoGen": "Video generation", "aiVoice": "AI voiceover", "vibeCoding": "Vibe coding", "workflow": "Workflow automation", "editing": "Editing", "grading": "Color grading", "audio": "Audio mastering", "camera": "Camera operation", "responsive": "Responsive design" }
   },
   "contact": { "title": "Let's make things", "move": "move.", "cvEn": "CV · English", "cvDe": "Lebenslauf · Deutsch", "reel": "Showreel" },
   "a11y": { "top": "LG, Lou Gastardi, back to top", "sections": "Sections", "language": "Language", "player": "Video player", "close": "Close" }

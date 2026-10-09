@@ -1,17 +1,17 @@
 {
   "nav": { "about": "Über mich", "timeline": "Werdegang", "motion": "Motion", "web": "Web", "pipelines": "Pipelines", "automation": "Automatisierung", "contact": "Kontakt" },
   "hero": { "role": "Motion Designerin / Creative Technologist" },
-  "marquee": ["Motion Design", "After Effects", "Cinema 4D", "Premiere Pro", "KI-Video", "Bildgenerierung", "Automatisierung", "Pipelines", "Remotion", "Compositing", "Color Grading", "Stop Motion", "Web", "React", "Figma"],
+  "marquee": ["Motion Design", "After Effects", "Cinema 4D", "Premiere Pro", "KI-Video", "Bildgenerierung", "Automatisierung", "Pipelines", "Remotion", "Compositing", "Color Grading", "Stop Motion", "Frame-by-Frame-Animation", "Web", "React", "Figma"],
   "about": {
     "title": "Über mich:",
     "bio": "Ich animiere die Teile, die ein menschliches Auge brauchen, und baue Systeme für den Rest. Angefangen habe ich mit Papier und einer Kamera, mit Stop Motion. Heute verbinde ich Motion, Code und KI.",
     "based": "Wohnort", "basedValue": "Berlin",
-    "doing": "Fokus", "doingValue": "Motion · Creative Tech · KI-Pipelines",
+    "doing": "Fokus", "doingValue": "Motion · Frame-by-Frame · Creative Tech · KI-Pipelines",
     "speaks": "Sprachen", "speaksValue": "PT · EN · DE · ES"
   },
   "timeline": {
     "title": "Von Keyframes…",
-    "y2010": "Bauhaus Weimar. Papier, Knete und eine Kamera.",
+    "y2010": "Bauhaus Weimar. Papier, Knete und Frame-by-Frame.",
     "y2014": "Camera Medica. Motion für Hunderte Kunden.",
     "y2022": "Programmieren gelernt. ONE und Ironhack.",
     "y2024": "eduBITES. Kurse, Motion und Web.",
@@ -41,7 +41,7 @@
   "automation": { "title": "Automatisierung", "intro": "Plugins für After Effects, maßgeschneidert für wiederkehrende Projekte. Sie nehmen die repetitiven Schritte aus dem Workflow, damit mehr Zeit für die Teile bleibt, die ein menschliches Auge brauchen.", "tutAa": "Tutorial: Animation Automation", "tutSrt": "Tutorial: Sequence from SRT", "play": "Tutorial abspielen" },
   "toolbox": {
     "title": "Werkzeuge",
-    "items": { "stopMotion": "Stop-Motion", "imageGen": "Bildgenerierung", "videoGen": "Videogenerierung", "aiVoice": "KI-Voiceover", "vibeCoding": "Vibe Coding", "workflow": "Workflow-Automatisierung", "editing": "Schnitt", "grading": "Color Grading", "audio": "Audio-Mastering", "camera": "Kameraführung", "responsive": "Responsive Design" }
+    "items": { "stopMotion": "Stop-Motion", "frameByFrame": "Frame-by-Frame-Animation", "imageGen": "Bildgenerierung", "videoGen": "Videogenerierung", "aiVoice": "KI-Voiceover", "vibeCoding": "Vibe Coding", "workflow": "Workflow-Automatisierung", "editing": "Schnitt", "grading": "Color Grading", "audio": "Audio-Mastering", "camera": "Kameraführung", "responsive": "Responsive Design" }
   },
   "contact": { "title": "Bringen wir Dinge in", "move": "Bewegung.", "cvEn": "CV · English", "cvDe": "Lebenslauf · Deutsch", "reel": "Showreel" },
   "a11y": { "top": "LG, Lou Gastardi, zurück nach oben", "sections": "Bereiche", "language": "Sprache", "player": "Videoplayer", "close": "Schließen" }
