@@ -60,11 +60,16 @@ loop biasgap-halo-r9 biasgap_loop_halo.mp4
 # Animation bento loops: cut and encoded by scripts/cut-clips.sh (see assets/round4/clips-v2.md),
 # copied here with clean names
 [ -f assets/round4/v2/explainer.mp4 ] || scripts/cut-clips.sh
-for n in stopmotion aftereffects character compositing motiongraphics explainer fx framebyframe; do
+for n in stopmotion aftereffects character motiongraphics explainer fx framebyframe; do
   cp "$SRC/round4/v2/$n.mp4" "$OUT/anim-$n.mp4"
   cp "$SRC/round4/v2/$n.webm" "$OUT/anim-$n.webm"
   cp "$SRC/round4/v2/$n.jpg" "$OUT/anim-$n-poster.jpg"
 done
+# Compositing tile: kinetic title sequence (assets/round8), already cut and encoded at 640px.
+# Versioned name so the swap is not hidden by a cached copy of the old compositing clip.
+cp "$SRC/round8/burda-type.mp4" "$OUT/title-design-r9.mp4"
+cp "$SRC/round8/burda-type.webm" "$OUT/title-design-r9.webm"
+cp "$SRC/round8/burda-type-poster.jpg" "$OUT/title-design-r9-poster.jpg"
 # Pipeline prints, one per step, from published Short 58 (see assets/round7/pipeline.md)
 mkdir -p "$OUT/pipeline"
 for f in "$SRC"/round7/pipeline/*.png; do n=$(basename "$f" .png); cwebp -quiet -q 78 -resize 1000 0 "$f" -o "$OUT/pipeline/$n.webp"; done
