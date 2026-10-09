@@ -22,6 +22,7 @@ import { initTimeline, refreshOnLayoutChange } from './sections/timeline.js'
 import { initMotion } from './sections/motion.js'
 import { initPipelines } from './sections/pipelines.js'
 import { initToolbox } from './sections/toolbox.js'
+import { initWeb } from './sections/web.js'
 
 const i18n = createI18n({ en, de }, 'en')
 initNav(i18n)
@@ -33,6 +34,7 @@ initMarquee(document.querySelector('.marquee__run'), () => (i18n.lang === 'de' ?
 
 initTimeline()
 initMotion({ reduced })
+initWeb()
 initPipelines({ reduced })
 initToolbox()
 

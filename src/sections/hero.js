@@ -1,8 +1,6 @@
-import { initCrystal } from './crystal.js'
-
 // Cards drift with the mouse, deeper cards move more.
 export function initHero({ reduced }) {
-  initCrystal(document.querySelector('.hero__crystal'), { reduced })
+  loadCrystal(document.querySelector('.hero__crystal'), { reduced })
   if (reduced) {
     document.querySelectorAll('.hero video').forEach(v => {
       v.removeAttribute('autoplay')
@@ -28,4 +26,19 @@ export function initHero({ reduced }) {
     dy = e.clientY / window.innerHeight - 0.5
     if (!queued) { queued = true; requestAnimationFrame(write) }
   })
+}
+
+// three.js is the heaviest dependency, so the crystal loads in its own chunk:
+// once the canvas is on screen and the browser is idle after first paint.
+function loadCrystal(canvas, opts) {
+  if (!canvas) return
+  const load = () => import('./crystal.js').then(({ initCrystal }) => initCrystal(canvas, opts))
+  const whenIdle = () => ('requestIdleCallback' in window ? requestIdleCallback(load, { timeout: 1200 }) : setTimeout(load, 200))
+  if (!('IntersectionObserver' in window)) return whenIdle()
+  const io = new IntersectionObserver(([entry]) => {
+    if (!entry.isIntersecting) return
+    io.disconnect()
+    whenIdle()
+  })
+  io.observe(canvas)
 }

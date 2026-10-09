@@ -38,5 +38,6 @@
   },
   "automation": { "title": "Automation", "intro": "Plugins I built for After Effects, made to measure for recurring projects. They take the repetitive steps out of the workflow, so more time goes into the parts that need a human eye." },
   "toolbox": { "title": "Toolbox" },
-  "contact": { "title": "Let's make things", "move": "move.", "cvEn": "CV · English", "cvDe": "Lebenslauf · Deutsch", "reel": "Showreel" }
+  "contact": { "title": "Let's make things", "move": "move.", "cvEn": "CV · English", "cvDe": "Lebenslauf · Deutsch", "reel": "Showreel" },
+  "a11y": { "top": "LG, Lou Gastardi, back to top", "sections": "Sections", "language": "Language", "player": "Video player", "close": "Close" }
 }
