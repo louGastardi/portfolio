@@ -1,8 +1,6 @@
 .auto { background: var(--ink); color: #fff; padding: 70px var(--gutter) 90px; }
 .auto__head { display: grid; grid-template-columns: auto 1fr; gap: 40px; align-items: end; }
-.auto__title { font-size: clamp(72px, 12vw, 160px); }
-/* The German word is half again as long, so it gets a smaller size to leave room for the intro */
-:lang(de) .auto__title { font-size: clamp(60px, 8.5vw, 120px); }
+.auto__title { font-size: var(--title); }
 .auto__intro { font-size: 19px; line-height: 1.45; max-width: 520px; color: #ddd; }
 .auto .script { color: var(--ink); }
 .scripts { display: grid; grid-template-columns: 1fr 1fr; gap: 34px; margin-top: 50px; }

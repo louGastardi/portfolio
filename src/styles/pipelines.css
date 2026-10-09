@@ -1,5 +1,5 @@
 .pipe { border-top: var(--border); padding: 70px var(--gutter) 80px; }
-.pipe__title { font-size: clamp(64px, 10vw, 110px); }
+.pipe__title { font-size: var(--title); }
 .pipe__flow { margin-top: 26px; }
 .pipe__graph { position: relative; }
 /* Height capped so title plus graph fit one desktop screen, the drawing centers in the box */

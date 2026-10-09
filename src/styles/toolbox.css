@@ -1,5 +1,5 @@
 main > section.tools { background: var(--soft); border-top: var(--border); padding: 60px var(--gutter); display: grid; grid-template-columns: 330px 1fr; gap: 30px; align-content: center; }
-.tools__title { font-size: clamp(64px, 9vw, 100px); }
+.tools__title { font-size: var(--title); }
 .tools__pile { position: relative; height: 340px; display: flex; flex-wrap: wrap; gap: 10px; align-content: flex-start; }
 .tools__pile b { background: #fff; border: var(--border); box-shadow: var(--shadow-sm); padding: 7px 13px; font: 500 17px var(--font-body); white-space: nowrap; user-select: none; }
 /* Clipped so boxes drop in from the top edge and never spill over the title or the next section */
