@@ -8,3 +8,10 @@ import { initNav } from './sections/nav.js'
 
 const i18n = createI18n({ en, de }, 'en')
 initNav(i18n)
+
+import './styles/hero.css'
+import { reducedMotion } from './lib/prefs.js'
+import { initHero } from './sections/hero.js'
+
+const reduced = reducedMotion()
+initHero({ reduced })

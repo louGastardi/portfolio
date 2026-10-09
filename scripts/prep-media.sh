@@ -20,7 +20,7 @@ for n in 24 28 54; do img "biasgap_cover_$n.jpg" 600; done
 loop() { # name src
   ffmpeg -v error -y -i "$SRC/$2" -an -c:v libx264 -crf 26 -preset slow -pix_fmt yuv420p -movflags +faststart "$OUT/$1.mp4"
   ffmpeg -v error -y -i "$SRC/$2" -an -c:v libvpx-vp9 -crf 36 -b:v 0 "$OUT/$1.webm"
-  ffmpeg -v error -y -i "$SRC/$2" -frames:v 1 -q:v 3 "$OUT/$1-poster.jpg"
+  ffmpeg -v error -y -ss 1 -i "$SRC/$2" -frames:v 1 -q:v 3 "$OUT/$1-poster.jpg"
 }
 loop curioso-capybara curioso_loop_capivara.mp4
 loop curioso-penguin curioso_loop_penguin.mp4
