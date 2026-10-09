@@ -79,7 +79,7 @@ Lime band with a running list: Motion design ◆ After Effects ◆ Cinema 4D ◆
 - Skill boxes from the CV (Motion & 3D, AI, Video, Code) fall in and pile up with simple physics when the section enters the screen. They can be dragged.
 
 ### 07 Contact
-- Black slab, giant "LET'S MAKE THINGS MOVE." (MOVE in lime), e-mail, buttons: CV English, Lebenslauf Deutsch, Showreel.
+- Black slab, giant "LET'S MAKE THINGS MOVE." (MOVE in lime), e-mail, one row of buttons: CV English, Lebenslauf Deutsch, Showreel, then square icon buttons for LinkedIn, GitHub and YouTube.
 
 ## 4. Tech
 

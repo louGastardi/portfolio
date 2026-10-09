@@ -1472,12 +1472,10 @@ Expected: two PDFs in `public/cv/`.
     <a class="contact__btn" href="./cv/Lou_Gastardi_CV_EN.pdf" download>↓ <span data-i18n="contact.cvEn"></span></a>
     <a class="contact__btn" href="./cv/Lou_Gastardi_Lebenslauf_DE.pdf" download>↓ <span data-i18n="contact.cvDe"></span></a>
     <a class="contact__btn contact__btn--lime" href="https://www.youtube.com/watch?v=VSI67Y0nnyo" target="_blank" rel="noopener">▶ <span data-i18n="contact.reel"></span></a>
+    <a class="contact__btn contact__btn--icon" href="https://www.linkedin.com/in/louisegastardi/" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05C20.6 8.65 21 11.3 21 14.7V21h-4v-5.6c0-1.34-.03-3.06-1.86-3.06-1.87 0-2.16 1.46-2.16 2.96V21H9z"/></svg></a>
+    <a class="contact__btn contact__btn--icon" href="https://github.com/louGastardi" target="_blank" rel="noopener" aria-label="GitHub" title="GitHub"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.53-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.42-2.7 5.39-5.26 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5z"/></svg></a>
+    <a class="contact__btn contact__btn--icon" href="https://www.youtube.com/watch?v=VSI67Y0nnyo" target="_blank" rel="noopener" aria-label="YouTube" title="YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.6 15.6V8.4l6.2 3.6z"/></svg></a>
   </div>
-  <p class="contact__links mono">
-    <a href="https://www.linkedin.com/in/louisegastardi/" target="_blank" rel="noopener">LinkedIn</a> ·
-    <a href="https://github.com/louGastardi" target="_blank" rel="noopener">GitHub</a> ·
-    <a href="https://www.youtube.com/watch?v=VSI67Y0nnyo" target="_blank" rel="noopener">YouTube</a>
-  </p>
 </section>
 ```
 
@@ -1491,8 +1489,8 @@ Expected: two PDFs in `public/cv/`.
 .contact__btn { background: #fff; color: var(--ink); border: 2px solid #fff; box-shadow: 6px 6px 0 var(--lime); padding: 14px 22px; font: 700 18px var(--font-body); text-decoration: none; }
 .contact__btn--lime { background: var(--lime); }
 .contact__btn:hover { translate: -2px -2px; box-shadow: 8px 8px 0 var(--lime); }
-.contact__links { margin-top: 40px; color: #aaa; }
-.contact__links a { text-decoration: none; }
+.contact__btn--icon { display: flex; align-items: center; justify-content: center; width: 56px; padding: 0; }
+.contact__btn--icon svg { width: 24px; height: 24px; fill: var(--ink); }
 ```
 
 - [ ] **Step 4: Import CSS in `src/main.js` (append)**
@@ -1503,7 +1501,7 @@ import './styles/contact.css'
 
 - [ ] **Step 5: Verify in browser**
 
-Expected: black contact slab, "LET'S MAKE THINGS MOVE." with lime last line, mail link, both CV buttons download the right PDF, DE toggle changes title to "Bringen wir Dinge in Bewegung."
+Expected: black contact slab, "LET'S MAKE THINGS MOVE." with lime last line, mail link, both CV buttons download the right PDF, LinkedIn, GitHub and YouTube icon buttons in the same row open in a new tab, DE toggle changes title to "Bringen wir Dinge in Bewegung."
 
 - [ ] **Step 6: Commit**
 
