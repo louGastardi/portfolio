@@ -10,7 +10,7 @@ class FakeIO {
 
 const setup = () => {
   document.body.innerHTML = `<div class="bento">
-    <button class="bento__item" data-yt="x"><video muted loop playsinline preload="none"></video><span>Loop</span></button>
+    <figure class="bento__item"><video muted loop playsinline preload="none"></video><figcaption>Loop</figcaption></figure>
   </div>`
   const video = document.querySelector('video')
   video.play = vi.fn(() => Promise.resolve())
@@ -38,5 +38,13 @@ describe('motion bento', () => {
     initMotion({ reduced: true })
     expect(observer).toBe(null)
     expect(video.play).not.toHaveBeenCalled()
+  })
+
+  it('tiles are plain previews, clicking does nothing', () => {
+    const video = setup()
+    initMotion({ reduced: false })
+    document.querySelector('.bento__item').click()
+    expect(video.play).not.toHaveBeenCalled()
+    expect(document.querySelector('dialog')).toBe(null)
   })
 })

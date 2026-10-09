@@ -6,26 +6,20 @@
    loops take one column of four rows. Five columns, eight rows, no empty cell. The rows are
    capped so the loops are never blown up past their real size. Frame-by-frame closes the grid. */
 .bento { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); grid-auto-rows: clamp(64px, 10.5vh, 104px); gap: 12px; padding-top: 30px;
-  grid-template-areas: "erb erb ae ae pen" "erb erb ae ae pen" "chr chr comp comp pen" "chr chr comp comp pen"
+  grid-template-areas: "erb erb ae ae pen" "erb erb ae ae pen" "chr chr title title pen" "chr chr title title pen"
     "halo mg mg exp exp" "halo mg mg exp exp" "halo fx fx fbf fbf" "halo fx fx fbf fbf"; }
-.bento__item { position: relative; overflow: hidden; border: 2px solid #fff; background: #333; padding: 0; color: inherit; font: inherit; cursor: pointer; }
-.bento__item:focus-visible { outline: 3px solid var(--lime); outline-offset: 3px; }
-.bento__item video { width: 100%; height: 100%; object-fit: cover; border: 0; }
-.bento__item span { position: absolute; left: 6px; right: 6px; bottom: 6px; width: fit-content; color: #fff; background: rgba(35,35,35,.85); padding: 2px 5px; text-align: left; font-size: 10px; letter-spacing: 1px; }
+/* Plain looping previews, not links or buttons */
+.bento__item { position: relative; overflow: hidden; margin: 0; border: 2px solid #fff; background: #333; }
+.bento__item video { display: block; width: 100%; height: 100%; object-fit: cover; border: 0; }
+.bento__item figcaption { position: absolute; left: 6px; right: 6px; bottom: 6px; width: fit-content; color: #fff; background: rgba(35,35,35,.85); padding: 2px 5px; text-align: left; font-size: 10px; letter-spacing: 1px; }
 .bento__item--erb { grid-area: erb; } .bento__item--ae { grid-area: ae; } .bento__item--pen { grid-area: pen; }
-.bento__item--chr { grid-area: chr; } .bento__item--comp { grid-area: comp; } .bento__item--halo { grid-area: halo; }
+.bento__item--chr { grid-area: chr; } .bento__item--title { grid-area: title; } .bento__item--halo { grid-area: halo; }
 .bento__item--mg { grid-area: mg; } .bento__item--exp { grid-area: exp; } .bento__item--fx { grid-area: fx; } .bento__item--fbf { grid-area: fbf; }
 /* The penguin loop is vertical, keep the bird in frame instead of the top water */
 .bento__item--pen video { object-position: center 58%; }
-.lightbox { margin: auto; width: min(92vw, 1100px); border: var(--border); box-shadow: var(--shadow); padding: 0; background: #000; overflow: visible; }
-.lightbox::backdrop { background: rgba(0,0,0,.8); }
-.lightbox__frame { aspect-ratio: 16 / 9; }
-.lightbox__frame iframe { width: 100%; height: 100%; border: 0; display: block; }
-.lightbox__close { position: absolute; right: 0; top: -44px; z-index: 2; width: 40px; height: 40px; font-size: 30px; line-height: 1; background: none; color: #fff; border: 0; cursor: pointer; }
-.lightbox__close:focus-visible { outline: 2px solid var(--lime); }
 @media (max-width: 760px) {
   .slab__title { font-size: clamp(64px, 20vw, 110px); }
   .bento { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-rows: 96px; gap: 10px;
-    grid-template-areas: "erb ae" "chr comp" "pen halo" "pen halo" "pen halo" "mg exp" "fx fbf"; }
+    grid-template-areas: "erb ae" "chr title" "pen halo" "pen halo" "pen halo" "mg exp" "fx fbf"; }
 }
 .slab .intro { color: #ddd; }

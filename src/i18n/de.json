@@ -58,5 +58,5 @@
   "automation": { "title": "Automatisierung", "intro": "Plugins für After Effects, maßgeschneidert für wiederkehrende Projekte. Sie nehmen die repetitiven Schritte aus dem Workflow, damit mehr Zeit für die Teile bleibt, die ein menschliches Auge brauchen.", "tutAa": "Tutorial: Animation Automation", "tutSrt": "Tutorial: Sequence from SRT", "play": "Tutorial abspielen" },
   "toolbox": { "title": "Werkzeuge", "intro": "Was ich jeden Tag öffne, um zu animieren, zu schneiden, zu generieren und zu bauen." },
   "contact": { "title": "Bringen wir Dinge in", "move": "Bewegung.", "cvEn": "CV · English", "cvDe": "Lebenslauf · Deutsch", "reel": "Showreel" },
-  "a11y": { "top": "Lou Gastardi, zurück nach oben", "sections": "Bereiche", "language": "Sprache", "player": "Videoplayer", "close": "Schließen" }
+  "a11y": { "top": "Lou Gastardi, zurück nach oben", "sections": "Bereiche", "language": "Sprache" }
 }
