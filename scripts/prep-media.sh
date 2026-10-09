@@ -45,13 +45,18 @@ crop45 round6/rpg_game_play.png career-code 565 105 1021 675
 crop45 round6/edubites_lesson_beurteilen.png career-edubites 0 0 960 1200
 crop45 round7/pipeline/frames.png career-pipeline 6 0 594 735
 
+# Loops are squeezed to limited (tv) range yuv420p with a fixed 1 s GOP. Full range sources
+# (yuvj420p, color_range=pc, as the Bias Gap exports are) make a VP9 webm that Chrome's hardware
+# decoder rejects with PIPELINE_ERROR_DECODE, the tile then freezes on its first frame and never
+# falls back to the mp4. Versioned output names keep browsers from serving a cached broken copy.
+LOOPVF="scale=in_range=auto:out_range=tv,format=yuv420p"
 loop() { # name src
-  ffmpeg -v error -y -i "$SRC/$2" -an -c:v libx264 -crf 26 -preset slow -pix_fmt yuv420p -movflags +faststart "$OUT/$1.mp4"
-  ffmpeg -v error -y -i "$SRC/$2" -an -c:v libvpx-vp9 -crf 36 -b:v 0 "$OUT/$1.webm"
-  ffmpeg -v error -y -ss 1 -i "$SRC/$2" -frames:v 1 -q:v 3 "$OUT/$1-poster.jpg"
+  ffmpeg -v error -y -i "$SRC/$2" -an -vf "$LOOPVF" -c:v libx264 -crf 24 -preset slow -g 30 -keyint_min 30 -sc_threshold 0 -color_range tv -movflags +faststart "$OUT/$1.mp4"
+  ffmpeg -v error -y -i "$SRC/$2" -an -vf "$LOOPVF" -c:v libvpx-vp9 -crf 34 -b:v 0 -g 30 -color_range tv "$OUT/$1.webm"
+  ffmpeg -v error -y -ss 1 -i "$SRC/$2" -vf "$LOOPVF" -frames:v 1 -q:v 3 "$OUT/$1-poster.jpg"
 }
 loop curioso-penguin curioso_loop_penguin.mp4
-loop biasgap-halo biasgap_loop_halo.mp4
+loop biasgap-halo-r9 biasgap_loop_halo.mp4
 # Animation bento loops: cut and encoded by scripts/cut-clips.sh (see assets/round4/clips-v2.md),
 # copied here with clean names
 [ -f assets/round4/v2/explainer.mp4 ] || scripts/cut-clips.sh
