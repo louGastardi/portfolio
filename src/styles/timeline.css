@@ -2,21 +2,19 @@
 .tl__pin { min-height: calc(100vh - var(--nav-h)); min-height: calc(100svh - var(--nav-h)); padding: 60px 0 50px; display: flex; flex-direction: column; justify-content: center; }
 .tl__head { padding: 0 var(--gutter); display: flex; justify-content: space-between; align-items: end; }
 .tl__title { font-size: var(--title); }
-.tl__cards { list-style: none; display: grid; grid-template-columns: repeat(5, 1fr); gap: 22px; margin: 36px var(--gutter) 30px; }
+/* Columns capped so the cards keep a portrait shape on wide screens, spread along the ruler */
+.tl__cards { list-style: none; display: grid; grid-template-columns: repeat(5, minmax(0, 250px)); justify-content: space-between; gap: 22px; margin: 30px var(--gutter) 28px; }
 .tl__card { rotate: var(--r); opacity: .45; transform: scale(.94); transition: opacity .35s, transform .35s; }
 .tl__card.is-on { opacity: 1; transform: scale(1.06); z-index: 2; }
-.tl__card img, .tl__code, .tl__mini { height: 112px; width: 100%; object-fit: cover; }
-/* Keep the face in frame on the wide, short card */
-.tl__card img.tl__img--face { object-position: 50% 12%; }
-.tl__code { margin: 0; background: #1e1e1e; color: var(--lime); padding: 10px; font: 11px/1.5 var(--font-mono); }
-.tl__code i { color: #888; font-style: normal; }
-.tl__mini { display: flex; align-items: center; justify-content: center; gap: 6px; border-bottom: var(--border); }
-.tl__mini i { width: 22px; height: 16px; border: 2px solid var(--ink); }
-.tl__mini i.on { background: var(--lime); }
-/* Connector lines between the mini keyframes */
-.tl__mini span { width: 14px; height: 2px; background: var(--ink); }
-.tl__card p { padding: 8px 10px; font-size: 13px; line-height: 1.35; }
-.tl__card b { display: block; font-size: 30px; }
+/* Portrait media so the whole action shows. On short screens the height is capped and the
+   crop moves to the part that matters in each picture. */
+.tl__card img { width: 100%; height: auto; aspect-ratio: 4 / 5; max-height: 31vh; object-fit: cover; border-bottom: var(--border); }
+.tl__card img.tl__img--sm { object-position: 50% 60%; }
+.tl__card img.tl__img--cam { object-position: 50% 25%; }
+.tl__card img.tl__img--lesson { object-position: 50% 45%; }
+.tl__card img.tl__img--top { object-position: 50% 0; }
+.tl__card p { padding: 8px 10px 10px; font-size: 12.5px; line-height: 1.35; }
+.tl__card b { display: block; font-size: 28px; }
 .tl__ruler { position: relative; z-index: 3; margin: 0 var(--gutter); height: 26px; border: var(--border); border-bottom: 0; background: repeating-linear-gradient(90deg, var(--ink) 0 1.5px, transparent 1.5px 40px) bottom / 40px 8px repeat-x; }
 /* Height set in JS to ruler + layers. Ruler z-index keeps it above the cards and the layer stack. */
 .tl__playhead { position: absolute; top: -2px; height: 130px; width: 2px; left: 0; background: var(--green); pointer-events: none; }
@@ -29,7 +27,11 @@
 .tl__kf { position: absolute; top: 9px; width: 12px; height: 12px; background: var(--ink); rotate: 45deg; }
 .tl__kf.is-hit { background: var(--lime); border: 1.5px solid var(--ink); }
 @media (max-width: 760px) {
-  .tl__cards { grid-template-columns: 1fr; }
+  .tl__cards { grid-template-columns: 1fr; gap: 16px; }
+  /* Phones: picture left, text right */
+  .tl__card { display: grid; grid-template-columns: 112px 1fr; align-items: center; }
+  .tl__card img { max-height: none; height: 100%; border-bottom: 0; border-right: var(--border); }
+  .tl__card p { font-size: 14px; }
   .tl__ruler, .tl__layers { display: none; }
   .tl__card { opacity: 1; transform: none; }
 }

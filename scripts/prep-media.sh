@@ -14,13 +14,36 @@ img edubites_agentic_desktop.jpg 1200 75
 img edubites_agentic_mobile.jpg 420 75
 img rpg_game.png 800
 img encryptor.png 800
-# Old portfolio photos are circle-masked squares: crop the inscribed square (side = 3616/sqrt2), then export at 900px
-career() { # src name
-  python3 -c "from PIL import Image; im=Image.open('$SRC/curriculum_old/$1').convert('RGB'); o=530; im.crop((o,o,im.width-o,im.height-o)).save('$SRC/curriculum_old/${1%.*}_sq.jpg', quality=92)"
-  cwebp -quiet -q 80 -resize 900 0 "$SRC/curriculum_old/${1%.*}_sq.jpg" -o "$OUT/$2.webp"
+# Old portfolio photos are circle-masked squares. Cut the largest 4:5 rectangle that still fits
+# inside the circle around the given center (fractions of the side), so the hands, the puppet
+# and the camera stay in frame on the tall timeline cards. Exported at 640px wide.
+career() { # src name cx cy
+  python3 - "$SRC/curriculum_old/$1" "$SRC/curriculum_old/${1%.*}_45.jpg" "$3" "$4" <<'PY'
+import sys
+from PIL import Image
+src, out, cx, cy = sys.argv[1], sys.argv[2], float(sys.argv[3]), float(sys.argv[4])
+im = Image.open(src).convert('RGB'); n = im.width
+fits = lambda w: all((x - .5) ** 2 + (y - .5) ** 2 <= .25 for x in (cx - w / 2, cx + w / 2) for y in (cy - w * .625, cy + w * .625))
+lo, hi = 0.0, 1.0
+for _ in range(40):
+    mid = (lo + hi) / 2
+    lo, hi = (mid, hi) if fits(mid) else (lo, mid)
+w = lo
+im.crop(tuple(round(v * n) for v in (cx - w / 2, cy - w * .625, cx + w / 2, cy + w * .625))).save(out, quality=92)
+PY
+  cwebp -quiet -q 80 -resize 640 0 "$SRC/curriculum_old/${1%.*}_45.jpg" -o "$OUT/$2.webp"
 }
-career foto_01.png career-camera
-career foto_02.png career-stopmotion
+career foto_01.png career-camera 0.45 0.45
+career foto_02.png career-stopmotion 0.5 0.5
+# Timeline 2022, 2024, 2026: 4:5 crops of the Procrastination game in play, an eduBITES lesson
+# opener (rendered headless at 480x600, 2x) and the Bias Gap frames print
+crop45() { # src name left top right bottom
+  python3 -c "from PIL import Image; Image.open('$SRC/$1').convert('RGB').crop(($3,$4,$5,$6)).save('/tmp/crop45.png')"
+  cwebp -quiet -q 80 -resize 640 0 /tmp/crop45.png -o "$OUT/$2.webp"
+}
+crop45 round6/rpg_game_play.png career-code 565 105 1021 675
+crop45 round6/edubites_lesson_beurteilen.png career-edubites 0 0 960 1200
+crop45 round4/pipeline/frames.png career-pipeline 6 0 594 735
 
 loop() { # name src
   ffmpeg -v error -y -i "$SRC/$2" -an -c:v libx264 -crf 26 -preset slow -pix_fmt yuv420p -movflags +faststart "$OUT/$1.mp4"
