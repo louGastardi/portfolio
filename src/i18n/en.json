@@ -1,0 +1,40 @@
+{
+  "nav": { "about": "About", "timeline": "Timeline", "motion": "Motion", "web": "Web", "pipelines": "Pipelines", "contact": "Contact" },
+  "hero": { "role": "Motion Designer / Creative Technologist · Berlin" },
+  "marquee": ["Motion design", "After Effects", "Cinema 4D", "AI video", "Automation", "Web", "Stop motion"],
+  "about": {
+    "title": "About me:",
+    "bio": "I animate the parts that need a human eye, and build the systems that handle the rest. I started with paper and a camera, making stop motion. Now I connect motion, code and AI.",
+    "based": "Based in", "basedValue": "Berlin, Germany",
+    "doing": "Doing", "doingValue": "Motion · Creative tech · AI pipelines",
+    "speaks": "Speaks", "speaksValue": "PT · EN · DE · ES"
+  },
+  "timeline": {
+    "title": "From keyframes…",
+    "y2010": "Bauhaus Weimar. Paper, clay and a camera.",
+    "y2014": "Camera Medica. Motion for hundreds of clients.",
+    "y2022": "Learned to code. ONE and Ironhack.",
+    "y2024": "eduBITES. Courses, motion and web.",
+    "y2026": "Creative Technologist. Pipelines."
+  },
+  "web": {
+    "title": "Built for the web",
+    "edubites": "eduBITES · AI Skill Assessment. Design, code and upkeep.",
+    "rpg": "JS · OOP game",
+    "decrypter": "HTML · CSS · JS",
+    "visit": "Visit"
+  },
+  "pipelines": {
+    "title": "…to pipelines.",
+    "flow": "The Bias Gap · automated YouTube channel",
+    "hover": "Hover a step to see it run",
+    "loop": "insights feed the next topic",
+    "aa": "A ScriptUI panel for After Effects. One click adds entrances, exits, elastic scale, fades and subtle camera moves to any layer. Built with expressions, so animations adapt when you trim. Also sequences, precomposes and copies the current frame.",
+    "srt": "Load a voiceover transcript (.srt) and a cut sheet, and it places every image layer where its line is spoken. An hour of manual timing becomes one click.",
+    "meta": ".jsx · AE 2024+ · free",
+    "download": "Download",
+    "soon": "Soon"
+  },
+  "toolbox": { "title": "Toolbox" },
+  "contact": { "title": "Let's make things", "move": "move.", "cvEn": "CV · English", "cvDe": "Lebenslauf · Deutsch", "reel": "Showreel" }
+}

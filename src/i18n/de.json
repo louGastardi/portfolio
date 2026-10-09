@@ -1,0 +1,40 @@
+{
+  "nav": { "about": "Über mich", "timeline": "Werdegang", "motion": "Motion", "web": "Web", "pipelines": "Pipelines", "contact": "Kontakt" },
+  "hero": { "role": "Motion Designerin / Creative Technologist · Berlin" },
+  "marquee": ["Motion Design", "After Effects", "Cinema 4D", "KI-Video", "Automatisierung", "Web", "Stop Motion"],
+  "about": {
+    "title": "Über mich:",
+    "bio": "Ich animiere die Teile, die ein menschliches Auge brauchen, und baue Systeme für den Rest. Angefangen habe ich mit Papier und einer Kamera, mit Stop Motion. Heute verbinde ich Motion, Code und KI.",
+    "based": "Wohnort", "basedValue": "Berlin",
+    "doing": "Fokus", "doingValue": "Motion · Creative Tech · KI-Pipelines",
+    "speaks": "Sprachen", "speaksValue": "PT · EN · DE · ES"
+  },
+  "timeline": {
+    "title": "Von Keyframes…",
+    "y2010": "Bauhaus Weimar. Papier, Knete und eine Kamera.",
+    "y2014": "Camera Medica. Motion für Hunderte Kunden.",
+    "y2022": "Programmieren gelernt. ONE und Ironhack.",
+    "y2024": "eduBITES. Kurse, Motion und Web.",
+    "y2026": "Creative Technologist. Pipelines."
+  },
+  "web": {
+    "title": "Gebaut fürs Web",
+    "edubites": "eduBITES · AI Skill Assessment. Design, Code und Betreuung.",
+    "rpg": "JS · OOP-Spiel",
+    "decrypter": "HTML · CSS · JS",
+    "visit": "Ansehen"
+  },
+  "pipelines": {
+    "title": "…zu Pipelines.",
+    "flow": "The Bias Gap · automatisierter YouTube-Kanal",
+    "hover": "Über einen Schritt fahren, um ihn laufen zu sehen",
+    "loop": "Erkenntnisse speisen das nächste Thema",
+    "aa": "Ein ScriptUI-Panel für After Effects. Ein Klick fügt jeder Ebene Ein- und Ausgänge, elastische Skalierung, Fades und leichte Kamerabewegungen hinzu. Mit Expressions gebaut, die Animationen passen sich beim Trimmen an. Sequenziert, precomposed und kopiert außerdem den aktuellen Frame.",
+    "srt": "Lädt ein Voiceover-Transkript (.srt) und ein Cut Sheet und setzt jede Bildebene genau dorthin, wo ihr Satz gesprochen wird. Aus einer Stunde Timing wird ein Klick.",
+    "meta": ".jsx · AE 2024+ · kostenlos",
+    "download": "Download",
+    "soon": "Bald"
+  },
+  "toolbox": { "title": "Werkzeuge" },
+  "contact": { "title": "Bringen wir Dinge in", "move": "Bewegung.", "cvEn": "CV · English", "cvDe": "Lebenslauf · Deutsch", "reel": "Showreel" }
+}
