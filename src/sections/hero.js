@@ -2,7 +2,7 @@ export function initHero({ reduced }) {
   loadCrystal(document.querySelector('.hero__crystal'), { reduced })
 }
 
-// three.js is the heaviest dependency, so the gem loads in its own chunk:
+// three.js is the heaviest dependency, so the keyframe loads in its own chunk:
 // once the canvas is on screen and the browser is idle after first paint.
 function loadCrystal(canvas, opts) {
   if (!canvas) return

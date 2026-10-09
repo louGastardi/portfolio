@@ -1,4 +1,4 @@
-/* Split hero: white half with the name, ink half with the 3D gem. Fills the screen below the nav. */
+/* Split hero: white half with the name, ink half with the 3D keyframe. Fills the screen below the nav. */
 .hero { display: grid; grid-template-columns: 1fr 1fr; height: calc(100vh - var(--nav-h)); height: calc(100svh - var(--nav-h)); min-height: 520px; overflow: hidden; }
 .hero__l { display: flex; flex-direction: column; justify-content: center; padding: 40px var(--gutter); min-width: 0; }
 /* Sized so GASTARDI fills the white half without touching the black one */
@@ -6,10 +6,10 @@
 .hero__name span { display: block; }
 .hero__role { margin-top: 28px; font-size: 13px; }
 .hero__r { position: relative; background: var(--ink); }
-/* Soft cold glow behind the gem, like light through ice */
-.hero__r::before { content: ''; position: absolute; left: 50%; top: 50%; width: min(70%, 520px); aspect-ratio: 1; translate: -50% -50%; border-radius: 50%; background: radial-gradient(closest-side, rgba(224,234,243,.13), rgba(224,234,243,.04) 55%, transparent); pointer-events: none; }
+/* Soft lime glow behind the keyframe */
+.hero__r::before { content: ''; position: absolute; left: 50%; top: 50%; width: min(70%, 520px); aspect-ratio: 1; translate: -50% -50%; border-radius: 50%; background: radial-gradient(closest-side, rgba(145,193,30,.12), rgba(145,193,30,.035) 55%, transparent); pointer-events: none; }
 .hero__crystal { position: absolute; inset: 0; width: 100%; height: 100%; }
-/* Mobile: name block first, black block with the gem below */
+/* Mobile: name block first, black block with the keyframe below */
 @media (max-width: 760px) {
   .hero { grid-template-columns: 1fr; grid-template-rows: auto 1fr; height: auto; min-height: calc(100svh - var(--nav-h)); }
   .hero__l { padding: 40px var(--gutter) 32px; }
