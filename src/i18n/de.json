@@ -1,5 +1,5 @@
 {
-  "nav": { "about": "Über mich", "timeline": "Werdegang", "motion": "Motion", "web": "Web", "pipelines": "Pipelines", "automation": "Automatisierung", "contact": "Kontakt" },
+  "nav": { "about": "Über mich", "timeline": "Werdegang", "motion": "Animation", "web": "Web", "pipelines": "Pipelines", "automation": "Automatisierung", "contact": "Kontakt" },
   "hero": { "role": "Motion Designerin / Creative Technologist" },
   "marquee": ["Motion Design", "3D-Animation", "Frame-by-Frame-Animation", "Stop Motion", "Vektorillustration", "Compositing", "Color Grading", "Schnitt", "Audio-Mastering", "Kameraführung", "KI-Video", "Bildgenerierung", "Automatisierung", "Pipelines", "Webdesign"],
   "about": {
@@ -17,7 +17,7 @@
     "y2024": "eduBITES. Kurse, Motion und Web.",
     "y2026": "Creative Technologist. Pipelines."
   },
-  "motion": { "capybara": "Mundo Curioso · Wasserschwein", "shorts": "The Bias Gap · Shorts", "eraserboy": "Eraserboy · Stop-Motion", "diderot": "The Bias Gap · Diderot-Effekt", "faces": "Stop-Motion · Ersatzgesichter", "penguin": "Mundo Curioso · Pinguin", "set": "Stop-Motion · Pappkulisse" },
+  "motion": { "eraserboy": "Eraserboy · Stop-Motion", "penguin": "Mundo Curioso · KI-Animation", "shorts": "The Bias Gap · Shorts", "frameByFrame": "Frame-by-Frame", "threeD": "3D", "character": "Character-Animation", "type": "Kinetische Typografie", "twoD": "2D-Erklärvideo", "fx": "FX / Partikel" },
   "web": {
     "title": "Gebaut fürs Web",
     "edubites": "eduBITES · Test Your Agentic Skills. Design, Code und Betreuung.",

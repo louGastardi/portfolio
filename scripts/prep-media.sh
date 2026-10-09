@@ -36,4 +36,12 @@ loop curioso-capybara curioso_loop_capivara.mp4
 loop curioso-penguin curioso_loop_penguin.mp4
 loop biasgap-halo biasgap_loop_halo.mp4
 loop biasgap-diderot biasgap_loop_diderot.mp4
+# Round 4 loops are already encoded (see assets/round4/clips.md), copy them with clean names
+clip() { # name src
+  cp "$SRC/round4/$2.mp4" "$OUT/$1.mp4"
+  cp "$SRC/round4/$2.webm" "$OUT/$1.webm"
+  cp "$SRC/round4/$2.jpg" "$OUT/$1-poster.jpg"
+}
+clip eraserboy eraserboy-loop
+for n in framebyframe 3d character type 2d fx; do clip "reel-$n" "reel-$n"; done
 echo "media ready:"; ls -1 "$OUT"

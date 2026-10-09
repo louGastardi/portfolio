@@ -1,5 +1,5 @@
 {
-  "nav": { "about": "About", "timeline": "Timeline", "motion": "Motion", "web": "Web", "pipelines": "Pipelines", "automation": "Automation", "contact": "Contact" },
+  "nav": { "about": "About", "timeline": "Timeline", "motion": "Animation", "web": "Web", "pipelines": "Pipelines", "automation": "Automation", "contact": "Contact" },
   "hero": { "role": "Motion Designer / Creative Technologist" },
   "marquee": ["Motion design", "3D animation", "Frame-by-frame animation", "Stop motion", "Vector illustration", "Compositing", "Color grading", "Editing", "Audio mastering", "Camera operation", "AI video", "Image generation", "Automation", "Pipelines", "Web design"],
   "about": {
@@ -17,7 +17,7 @@
     "y2024": "eduBITES. Courses, motion and web.",
     "y2026": "Creative Technologist. Pipelines."
   },
-  "motion": { "capybara": "Mundo Curioso · capybara", "shorts": "The Bias Gap · Shorts", "eraserboy": "Eraserboy · stop motion", "diderot": "The Bias Gap · Diderot effect", "faces": "Stop motion · replacement faces", "penguin": "Mundo Curioso · penguin", "set": "Stop motion · cardboard set" },
+  "motion": { "eraserboy": "Eraserboy · stop motion", "penguin": "Mundo Curioso · AI animation", "shorts": "The Bias Gap · Shorts", "frameByFrame": "Frame-by-frame", "threeD": "3D", "character": "Character animation", "type": "Kinetic type", "twoD": "2D explainer", "fx": "FX / particles" },
   "web": {
     "title": "Built for the web",
     "edubites": "eduBITES · Test Your Agentic Skills. Design, code and upkeep.",
