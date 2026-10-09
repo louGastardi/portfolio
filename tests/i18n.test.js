@@ -28,6 +28,11 @@ describe('i18n', () => {
     expect(i18n.t('nope.missing')).toBe('nope.missing')
   })
 
+  it('returns the key when the path goes past a string', () => {
+    expect(() => i18n.t('nav.about.x')).not.toThrow()
+    expect(i18n.t('nav.about.x')).toBe('nav.about.x')
+  })
+
   it('applies translations to elements with data-i18n', () => {
     document.body.innerHTML = '<a data-i18n="nav.about">x</a>'
     i18n.setLang('de')

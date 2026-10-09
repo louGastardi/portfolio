@@ -1,6 +1,6 @@
 // Tiny dictionary-based i18n. Keys are dot paths into nested JSON.
 function lookup(dict, key) {
-  return key.split('.').reduce((node, part) => (node && part in node ? node[part] : undefined), dict)
+  return key.split('.').reduce((node, part) => (node != null && typeof node === 'object' && part in node ? node[part] : undefined), dict)
 }
 
 export function createI18n(dicts, initial = 'en') {

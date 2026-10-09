@@ -1,11 +1,12 @@
 * { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
+html { scroll-padding-top: var(--nav-h); }
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
 body { font-family: var(--font-body); color: var(--ink); background: var(--paper); overflow-x: hidden; }
 img, video { display: block; max-width: 100%; }
 a { color: inherit; }
 section { position: relative; }
 /* Every section fills the screen, content centered vertically */
-main > section { min-height: 100vh; min-height: 100svh; display: flex; flex-direction: column; justify-content: center; }
+main > section { min-height: calc(100vh - var(--nav-h)); min-height: calc(100svh - var(--nav-h)); display: flex; flex-direction: column; justify-content: center; }
 .disp { font-family: var(--font-display); text-transform: uppercase; line-height: .86; letter-spacing: .5px; font-weight: 400; }
 .mono { font-family: var(--font-mono); font-size: 11px; letter-spacing: 2px; text-transform: uppercase; }
 .card { border: var(--border); box-shadow: var(--shadow); background: var(--paper); }
