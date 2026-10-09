@@ -29,7 +29,7 @@ No small "eyebrow" labels above section titles.
 - Giant "LOU / GASTARDI" in Anton, bleeding off the left edge.
 - Role line: "Motion Designer / Creative Technologist · Berlin". No slogan here.
 - 3D keyframe crystal (Three.js), center right. Rotates with the mouse, slow idle spin.
-- 3 tilted work cards with lime shadow that drift with the mouse: Mundo Curioso capybara loop (video), eduBITES AI Skill Assessment (screenshot), The Bias Gap cover.
+- 3 tilted work cards with lime shadow that drift with the mouse: Mundo Curioso penguin loop (video), eduBITES AI Skill Assessment (screenshot), The Bias Gap cover.
 
 ### Marquee strip
 Lime band with a running list: Motion design ◆ After Effects ◆ Cinema 4D ◆ AI video ◆ Automation ◆ Web ◆ Stop motion.
@@ -98,7 +98,7 @@ Lime band with a running list: Motion design ◆ After Effects ◆ Cinema 4D ◆
 | eduBITES AI Skills screenshots (desktop, mobile) | ready |
 | RPG and Decrypter screenshots | ready |
 | The Bias Gap covers and Halo loop | ready |
-| Mundo Curioso capybara loop, Caju | ready |
+| Mundo Curioso capybara and penguin loops, Caju | ready |
 | Eraserboy teaser | ready. Unlisted on YouTube (`UStyAQmSXkM`), embeddable. Frame and thumbnail in `assets/` |
 | Showreel | temporary YouTube `VSI67Y0nnyo`, will be replaced |
 | Loops cut from the reel | to do after the final reel |

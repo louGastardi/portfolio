@@ -501,6 +501,7 @@ loop() { # name src
   ffmpeg -v error -y -i "$SRC/$2" -frames:v 1 -q:v 3 "$OUT/$1-poster.jpg"
 }
 loop curioso-capybara curioso_loop_capivara.mp4
+loop curioso-penguin curioso_loop_penguin.mp4
 loop biasgap-halo biasgap_loop_halo.mp4
 loop biasgap-diderot biasgap_loop_diderot.mp4
 echo "media ready:"; ls -1 "$OUT"
@@ -509,7 +510,7 @@ echo "media ready:"; ls -1 "$OUT"
 - [ ] **Step 2: Run it**
 
 Run: `brew list webp >/dev/null 2>&1 || brew install webp; chmod +x scripts/prep-media.sh && ./scripts/prep-media.sh`
-Expected: lists 12 `.webp`, 3 `.mp4`, 3 `.webm`, 3 `-poster.jpg`.
+Expected: lists 12 `.webp`, 4 `.mp4`, 4 `.webm`, 4 `-poster.jpg`.
 
 - [ ] **Step 3: Check total size**
 
@@ -545,7 +546,7 @@ export const isMobile = () => window.matchMedia('(max-width: 760px)').matches
   <h1 class="hero__name disp"><span>Lou</span><span class="hero__l2">Gastardi</span></h1>
   <canvas class="hero__crystal" aria-hidden="true"></canvas>
   <figure class="hero__card hero__card--1 card" data-depth="18">
-    <video src="./media/curioso-capybara.mp4" poster="./media/curioso-capybara-poster.jpg" muted loop playsinline autoplay></video>
+    <video src="./media/curioso-penguin.mp4" poster="./media/curioso-penguin-poster.jpg" muted loop playsinline autoplay></video>
     <figcaption class="mono">Mundo Curioso</figcaption>
   </figure>
   <figure class="hero__card hero__card--2 card" data-depth="10">
@@ -670,7 +671,7 @@ initHero({ reduced })
 
 - [ ] **Step 7: Verify in browser**
 
-Expected: "LOU / GASTARDI" bleeding left, lime/black octahedron spinning and tilting with the mouse, 3 tilted cards with lime shadows drifting, capybara video looping, role line bottom left. Compare with the mockup hero.
+Expected: "LOU / GASTARDI" bleeding left, lime/black octahedron spinning and tilting with the mouse, 3 tilted cards with lime shadows drifting, penguin video looping, role line bottom left. Compare with the mockup hero.
 
 - [ ] **Step 8: Commit**
 
