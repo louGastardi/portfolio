@@ -82,7 +82,7 @@ cliploop() { # name src start duration poster_at
 # Animation bento loops: cut and encoded by scripts/cut-clips.sh (see assets/round4/clips-v2.md),
 # copied here with clean names
 [ -f assets/round4/v2/explainer.mp4 ] || scripts/cut-clips.sh
-for n in stopmotion aftereffects character motiongraphics explainer fx framebyframe; do
+for n in stopmotion aftereffects character motiongraphics explainer framebyframe; do
   cp "$SRC/round4/v2/$n.mp4" "$OUT/anim-$n.mp4"
   cp "$SRC/round4/v2/$n.webm" "$OUT/anim-$n.webm"
   cp "$SRC/round4/v2/$n.jpg" "$OUT/anim-$n-poster.jpg"
@@ -91,6 +91,9 @@ done
 # (assets/round8). Encoded from the full-size source with the loop settings above, it replaces the
 # title-design-r9 copy of the pre-cut burda-type files (5 s VP9 GOP, irregular H.264 GOP).
 cliploop compositing-r11 round8/zashev_mod4_intro_src.mp4 2.16 6.64 1
+# Medical animation tile (was FX / particles): a capsule travels through the stomach and bursts
+# into particles. Whole 10.2 s clip, poster on the burst at 7.2 s.
+cliploop prosite-r11 round11/prosite.mp4 0 10.2 7.2
 # Pipeline prints, one per step, from published Short 58 (see assets/round7/pipeline.md)
 mkdir -p "$OUT/pipeline"
 for f in "$SRC"/round7/pipeline/*.png; do n=$(basename "$f" .png); cwebp -quiet -q 78 -resize 1000 0 "$f" -o "$OUT/pipeline/$n.webp"; done

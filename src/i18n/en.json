@@ -19,7 +19,7 @@
   },
   "motion": {
     "intro": "Animation is where I started and what I keep coming back to. I like trying different ways of making things move, from manual craft to keyframes, 3D and AI, and mixing them to see what comes out.",
-    "stopMotion": "Stop motion", "afterEffects": "After Effects", "penguin": "AI animation", "character": "Character animation", "compositing": "Compositing", "shorts": "YouTube Shorts", "motionGraphics": "Motion graphics", "explainer": "2D/3D explainer", "fx": "FX / particles", "frameByFrame": "Frame-by-frame"
+    "stopMotion": "Stop motion", "afterEffects": "After Effects", "penguin": "AI animation", "character": "Character animation", "compositing": "Compositing", "shorts": "YouTube Shorts", "motionGraphics": "Motion graphics", "explainer": "2D/3D explainer", "medical": "Medical animation", "frameByFrame": "Frame-by-frame"
   },
   "web": {
     "title": "Built for the web",

@@ -19,7 +19,7 @@
   },
   "motion": {
     "intro": "Mit Animation hat alles angefangen, und dahin komme ich immer wieder zurück. Ich probiere gern verschiedene Wege aus, Dinge zu bewegen, von Handarbeit über Keyframes und 3D bis zu KI, und mische sie, um zu sehen, was dabei herauskommt.",
-    "stopMotion": "Stop-Motion", "afterEffects": "After Effects", "penguin": "KI-Animation", "character": "Character-Animation", "compositing": "Compositing", "shorts": "YouTube Shorts", "motionGraphics": "Motion Graphics", "explainer": "2D/3D-Erklärvideo", "fx": "FX / Partikel", "frameByFrame": "Frame-by-Frame"
+    "stopMotion": "Stop-Motion", "afterEffects": "After Effects", "penguin": "KI-Animation", "character": "Character-Animation", "compositing": "Compositing", "shorts": "YouTube Shorts", "motionGraphics": "Motion Graphics", "explainer": "2D/3D-Erklärvideo", "medical": "Medizinische Animation", "frameByFrame": "Frame-by-Frame"
   },
   "web": {
     "title": "Gebaut fürs Web",
