@@ -1,29 +1,65 @@
 {
-  "nav": { "about": "About", "motion": "Animation", "web": "Web", "automation": "Automation", "contact": "Contact" },
-  "hero": { "role": "Motion Designer / Creative Technologist" },
-  "marquee": ["Motion design", "3D animation", "Frame-by-frame animation", "Stop motion", "Vector illustration", "Compositing", "Color grading", "Editing", "Audio mastering", "Camera operation", "AI video", "Image generation", "Automation", "Pipelines", "Web design"],
+  "nav": {
+    "about": "About",
+    "motion": "Animation",
+    "web": "Web",
+    "automation": "Automation",
+    "contact": "Contact"
+  },
+  "hero": {
+    "role": "Motion Designer / Creative Technologist"
+  },
+  "marquee": [
+    "Motion design",
+    "3D animation",
+    "Frame-by-frame animation",
+    "Stop motion",
+    "Vector illustration",
+    "Compositing",
+    "Color grading",
+    "Editing",
+    "Audio mastering",
+    "Camera operation",
+    "AI video",
+    "Image generation",
+    "Automation",
+    "Pipelines",
+    "Web design"
+  ],
   "about": {
     "title": "About me",
-    "bio": "Hi, I'm Lou. I grew up in Brazil and moved to Germany more than 20 years ago. Animation has been my passion since I first moved a puppet one frame at a time, and I'm still chasing new ways to mix styles, techniques and tools until something unexpected comes alive. Off screen you'll find me cooking for friends, making music or rolling through the city on my longboard.",
-    "based": "Based in", "basedValue": "Berlin, Germany",
-    "doing": "Doing", "doingValue": "Motion · Creative tech · AI pipelines",
-    "speaks": "Speaks", "speaksValue": "PT · EN · DE · ES"
+    "bio": "Hi, I'm Lou. I grew up in Brazil and moved to Germany more than 20 years ago. Animation has been my passion since I first moved a puppet one frame at a time, and I'm still looking for new ways to mix styles and tools, and I like it best when the result surprises me. Off screen you'll find me cooking for friends, making music or rolling through the city on my longboard.",
+    "based": "Based in",
+    "basedValue": "Berlin, Germany",
+    "doing": "Doing",
+    "doingValue": "Motion · Creative tech · AI pipelines",
+    "speaks": "Speaks",
+    "speaksValue": "PT · EN · DE · ES"
   },
   "timeline": {
     "title": "My timeline",
     "y2010": "Media Arts studies. Stop motion was my first love and showed me crafts I didn't know I had.",
     "y2014": "Motion designer and video producer. Projects from shooting to finishing, with 2D and 3D animation.",
-    "y2022": "Got curious about what happens behind the screen and started coding. First small web projects, then full-stack apps and a game. Code became another way to animate.",
+    "y2022": "Got curious about what happens behind the screen and started coding. First small web projects, then full-stack apps and a game. Now I use code to animate as well.",
     "y2024": "Beyond animation, I started creating courses, interactive lessons and multimedia experiences.",
     "y2026": "Creative Technologist. Building pipelines and scripts that connect motion, code and AI."
   },
   "motion": {
-    "intro": "Animation is where I started and what I keep coming back to. I like trying different ways of making things move, from manual craft to keyframes, 3D and AI, and mixing them to see what comes out.",
-    "stopMotion": "Stop motion", "afterEffects": "After Effects", "penguin": "AI animation", "character": "Character rigging / animation", "compositing": "Compositing", "shorts": "YouTube Shorts", "motionGraphics": "Motion graphics", "explainer": "2D/3D explainer", "medical": "Medical animation", "frameByFrame": "Frame-by-frame"
+    "intro": "Animation is where I started and what I keep coming back to. I like trying different ways of making things move, by hand, with keyframes, in 3D or with AI, and combining them to find the right look for each project.",
+    "stopMotion": "Stop motion",
+    "afterEffects": "After Effects",
+    "penguin": "AI animation",
+    "character": "Character rigging / animation",
+    "compositing": "Compositing",
+    "shorts": "YouTube Shorts",
+    "motionGraphics": "Motion graphics",
+    "explainer": "2D/3D explainer",
+    "medical": "Medical animation",
+    "frameByFrame": "Frame-by-frame"
   },
   "web": {
     "title": "Built for the web",
-    "intro": "I learned web development to build my ideas myself, not only design them. Since then I keep finding better ways to build: lighter pages, cleaner code and small automations that save hours.",
+    "intro": "I learned web development to build my ideas myself, not only design them. Since then I keep finding better ways to build: lighter pages and small automations that save me hours.",
     "rpgLine": "A browser game played with the arrow keys and the space bar.",
     "rpg": "JS · OOP game",
     "decrypterLine": "Turns a message into code and back again.",
@@ -40,7 +76,18 @@
     "srt": "Load a voiceover transcript (.srt) and a cut sheet, and it places every image layer where its line is spoken. An hour of manual timing becomes one click.",
     "meta": ".jsx · AE 2024+ · free",
     "download": "Download",
-    "steps": { "topic": "TOPIC", "script": "SCRIPT", "voice": "VOICE", "frames": "FRAMES", "edit": "EDIT", "captions": "CAPTIONS", "upload": "UPLOAD", "youtube": "YOUTUBE", "analytics": "ANALYTICS", "comments": "COMMENTS" },
+    "steps": {
+      "topic": "TOPIC",
+      "script": "SCRIPT",
+      "voice": "VOICE",
+      "frames": "FRAMES",
+      "edit": "EDIT",
+      "captions": "CAPTIONS",
+      "upload": "UPLOAD",
+      "youtube": "YOUTUBE",
+      "analytics": "ANALYTICS",
+      "comments": "COMMENTS"
+    },
     "desc": {
       "topic": "Pick a bias from the backlog, ranked by what performs",
       "script": "Write the short script in markdown",
@@ -54,8 +101,24 @@
       "comments": "Pin a comment automatically"
     }
   },
-  "automation": { "title": "Automation", "intro": "Plugins I built for After Effects, made to measure for recurring projects. They take the repetitive steps out of the workflow, so more time goes into the parts that need a human eye.", "tutAa": "Tutorial: Animation Automation", "tutSrt": "Tutorial: Sequence from SRT", "play": "Play tutorial" },
-  "toolbox": { "title": "Toolbox", "intro": "What I open every day to animate, edit, generate and build." },
-  "contact": { "title": "Let's make things", "move": "move." },
-  "a11y": { "top": "Lou Gastardi, back to top", "sections": "Sections", "language": "Language" }
+  "automation": {
+    "title": "Automation",
+    "intro": "Plugins I built for After Effects, made to measure for recurring projects. They take the repetitive steps out of the workflow, so more time goes into the creative decisions.",
+    "tutAa": "Tutorial: Animation Automation",
+    "tutSrt": "Tutorial: Sequence from SRT",
+    "play": "Play tutorial"
+  },
+  "toolbox": {
+    "title": "Toolbox",
+    "intro": "What I open every day to animate, edit, generate and build."
+  },
+  "contact": {
+    "title": "Let's make things",
+    "move": "move."
+  },
+  "a11y": {
+    "top": "Lou Gastardi, back to top",
+    "sections": "Sections",
+    "language": "Language"
+  }
 }
