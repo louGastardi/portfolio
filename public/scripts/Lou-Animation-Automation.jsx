@@ -753,16 +753,16 @@
         pop.add("button", undefined, "Fade Out").onClick = function () { fade("out"); };
         pop.add("button", undefined, "Fade In+Out").onClick = function () { fade("both"); };
 
-        var psrt = w.add("panel", undefined, "Sequence from SRT (paste a path or click …)");
+        var psrt = w.add("panel", undefined, "Sequence from SRT (paste a path or click ...)");
         psrt.orientation = "column"; psrt.alignChildren = ["fill", "center"]; psrt.margins = 10; psrt.spacing = 6;
         var rowMd = psrt.add("group"); rowMd.orientation = "row"; rowMd.alignChildren = ["left", "center"];
         rowMd.add("statictext", undefined, "MD :");
         ui.mdField = rowMd.add("edittext", undefined, ""); ui.mdField.characters = 42;
-        rowMd.add("button", undefined, "…").onClick = function () { var f = File.openDialog("Select the cut sheet (.md)", "*.md;*.txt;*.markdown"); if (f) ui.mdField.text = f.fsName; };
+        rowMd.add("button", undefined, "...").onClick = function () { var f = File.openDialog("Select the cut sheet (.md)", "*.md;*.txt;*.markdown"); if (f) ui.mdField.text = f.fsName; };
         var rowSrt = psrt.add("group"); rowSrt.orientation = "row"; rowSrt.alignChildren = ["left", "center"];
         rowSrt.add("statictext", undefined, "SRT:");
         ui.srtField = rowSrt.add("edittext", undefined, ""); ui.srtField.characters = 42;
-        rowSrt.add("button", undefined, "…").onClick = function () { var f = File.openDialog("Select the transcript (.srt)", "*.srt;*.txt;*.vtt"); if (f) ui.srtField.text = f.fsName; };
+        rowSrt.add("button", undefined, "...").onClick = function () { var f = File.openDialog("Select the transcript (.srt)", "*.srt;*.txt;*.vtt"); if (f) ui.srtField.text = f.fsName; };
         psrt.add("button", undefined, "Sequence from SRT").onClick = function () { sequenceFromSRT(); };
 
         var ppc = w.add("panel", undefined, "Organize");
