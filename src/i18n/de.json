@@ -120,5 +120,18 @@
     "top": "Lou Gastardi, zurück nach oben",
     "sections": "Bereiche",
     "language": "Sprache"
+  },
+  "reel": {
+    "open": "Showreel",
+    "play": "Abspielen",
+    "pause": "Pause",
+    "mute": "Stumm",
+    "unmute": "Ton an",
+    "volume": "Lautstärke",
+    "seek": "Position",
+    "quality": "Qualität",
+    "full": "Vollbild",
+    "exitFull": "Vollbild beenden",
+    "close": "Schließen"
   }
 }

@@ -1,0 +1,68 @@
+/* Showreel modal: dimmed, blurred page behind, video framed like the cards, controls on an ink bar */
+.reel { border: 0; padding: 0; background: transparent; max-width: none; max-height: none; width: 100%; height: 100%; display: none; place-items: center; }
+.reel[open] { display: grid; }
+.reel::backdrop { background: rgba(35, 35, 35, .78); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); }
+html.reel-open { overflow: hidden; }
+
+.reel__box { position: relative; width: min(92vw, calc((100svh - 150px) * 16 / 9), 1280px); border: 2px solid #fff; box-shadow: 8px 8px 0 var(--lime); background: var(--ink); }
+.reel__stage { position: relative; aspect-ratio: 16 / 9; background: #000; }
+.reel__video { width: 100%; height: 100%; max-width: none; object-fit: contain; cursor: pointer; }
+
+.reel__big { position: absolute; left: 50%; top: 50%; translate: -50% -50%; width: 84px; height: 84px; display: grid; place-items: center; background: var(--lime); border: 2px solid var(--ink); box-shadow: 5px 5px 0 var(--ink); cursor: pointer; transition: opacity .2s; }
+.reel__big svg { width: 34px; height: 34px; fill: var(--ink); margin-left: 4px; }
+.reel .reel__big:focus-visible { outline-color: #fff; outline-offset: 4px; }
+.reel__big:hover { translate: calc(-50% - 2px) calc(-50% - 2px); box-shadow: 7px 7px 0 var(--ink); }
+.reel.is-playing .reel__big { opacity: 0; pointer-events: none; }
+
+.reel__close { position: absolute; right: -2px; bottom: calc(100% + 12px); width: 44px; height: 44px; display: grid; place-items: center; background: #fff; border: 2px solid #fff; box-shadow: 4px 4px 0 var(--lime); cursor: pointer; }
+.reel__close svg { width: 20px; height: 20px; stroke: var(--ink); stroke-width: 2.6; }
+.reel__close:hover { translate: -2px -2px; box-shadow: 6px 6px 0 var(--lime); }
+
+.reel__bar { display: flex; align-items: center; gap: 14px; padding: 10px 14px; color: #fff; }
+.reel__bar button { width: 34px; height: 34px; flex: none; display: grid; place-items: center; background: none; border: 0; color: #fff; cursor: pointer; }
+.reel__bar button svg { width: 20px; height: 20px; fill: currentColor; }
+.reel__bar button:hover { color: var(--lime); }
+.reel button:focus-visible, .reel select:focus-visible, .reel input:focus-visible { outline: 2px solid var(--lime); outline-offset: 2px; }
+.reel__time { flex: none; font-variant-numeric: tabular-nums; }
+
+/* Icon swaps driven by state classes on the dialog */
+.reel__play .i-pause, .reel.is-playing .reel__play .i-play { display: none; }
+.reel.is-playing .reel__play .i-pause { display: block; }
+.reel__mute .i-off, .reel.is-muted .reel__mute .i-on { display: none; }
+.reel.is-muted .reel__mute .i-off { display: block; }
+.reel__full .i-exit, .reel.is-full .reel__full .i-enter { display: none; }
+.reel.is-full .reel__full .i-exit { display: block; }
+
+/* Range inputs: thin white track, lime fill up to --p, square lime thumb */
+.reel__bar input[type="range"] { -webkit-appearance: none; appearance: none; height: 18px; background: transparent; cursor: pointer; --p: 0%; }
+.reel__bar input[type="range"]::-webkit-slider-runnable-track { height: 4px; background: linear-gradient(90deg, var(--lime) var(--p), rgba(255,255,255,.3) var(--p)); }
+.reel__bar input[type="range"]::-moz-range-track { height: 4px; background: linear-gradient(90deg, var(--lime) var(--p), rgba(255,255,255,.3) var(--p)); }
+.reel__bar input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 12px; height: 12px; margin-top: -4px; background: var(--lime); border: 2px solid #fff; border-radius: 0; }
+.reel__bar input[type="range"]::-moz-range-thumb { width: 10px; height: 10px; background: var(--lime); border: 2px solid #fff; border-radius: 0; }
+.reel__seek { flex: 1; min-width: 60px; }
+.reel__vol { width: 80px; flex: none; }
+
+.reel__quality { flex: none; font: inherit; color: #fff; background: var(--ink); border: 1px solid rgba(255,255,255,.5); padding: 5px 6px; cursor: pointer; }
+
+/* Fullscreen: the box fills the screen, the video takes everything above the bar */
+.reel__box:fullscreen { width: 100vw; height: 100vh; border: 0; box-shadow: none; display: flex; flex-direction: column; }
+.reel__box:fullscreen .reel__stage { flex: 1; aspect-ratio: auto; }
+.reel__box:fullscreen .reel__close { display: none; }
+
+@media (max-width: 760px) {
+  .reel__box { width: calc(100vw - 32px); }
+  .reel__bar { gap: 8px; padding: 8px 10px; flex-wrap: wrap; }
+  .reel__seek { order: -1; flex-basis: 100%; }
+  .reel__vol { display: none; }
+  .reel__time { margin-right: auto; }
+  .reel__big { width: 64px; height: 64px; }
+  .reel__big svg { width: 26px; height: 26px; }
+}
+
+/* Hero button that opens the reel */
+.hero__reel { margin-top: 32px; align-self: flex-start; display: inline-flex; align-items: center; gap: 12px; padding: 14px 22px; background: var(--paper); color: var(--ink); border: var(--border); box-shadow: 6px 6px 0 var(--lime); font: 700 18px var(--font-body); cursor: pointer; }
+.hero__reel svg { width: 16px; height: 16px; fill: var(--ink); }
+.hero__reel:hover { translate: -2px -2px; box-shadow: 8px 8px 0 var(--lime); }
+.hero__reel:focus-visible { outline: 3px solid var(--lime); outline-offset: 4px; }
+button.contact__btn { cursor: pointer; }
+@media (max-width: 760px) { .hero__reel { margin-top: 22px; padding: 12px 18px; font-size: 16px; } }
