@@ -71,29 +71,29 @@ loop() { # name src
 }
 loop curioso-penguin curioso_loop_penguin.mp4
 loop biasgap-halo-r9 biasgap_loop_halo.mp4
-# Same loop settings for clips cut from a longer full-size source, scaled to 640px wide
+# Same loop settings for clips cut from a longer full-size source, scaled to 1280px wide
 cliploop() { # name src start duration poster_at
-  local vf="scale=640:-2:in_range=auto:out_range=tv,format=yuv420p"
+  local vf="scale=1280:-2:flags=lanczos:in_range=auto:out_range=tv,format=yuv420p"
   local g; g=$(ffprobe -v error -select_streams v -show_entries stream=r_frame_rate -of csv=p=0 "$SRC/$2" | bc) # 1 s GOP
-  ffmpeg -v error -y -ss "$3" -t "$4" -i "$SRC/$2" -an -vf "$vf" -c:v libx264 -crf 24 -preset slow -g "$g" -keyint_min "$g" -sc_threshold 0 -color_range tv -map_metadata -1 -movflags +faststart "$OUT/$1.mp4"
-  ffmpeg -v error -y -ss "$3" -t "$4" -i "$SRC/$2" -an -vf "$vf" -c:v libvpx-vp9 -crf 34 -b:v 0 -g "$g" -color_range tv -map_metadata -1 "$OUT/$1.webm"
-  ffmpeg -v error -y -ss "$(echo "$3 + $5" | bc)" -i "$SRC/$2" -vf "$vf" -frames:v 1 -q:v 3 "$OUT/$1-poster.jpg"
+  ffmpeg -v error -y -ss "$3" -t "$4" -i "$SRC/$2" -an -vf "$vf" -c:v libx264 -crf 21 -preset slow -g "$g" -keyint_min "$g" -sc_threshold 0 -color_range tv -map_metadata -1 -movflags +faststart "$OUT/$1.mp4"
+  ffmpeg -v error -y -ss "$3" -t "$4" -i "$SRC/$2" -an -vf "$vf" -c:v libvpx-vp9 -crf 31 -b:v 0 -g "$g" -color_range tv -map_metadata -1 "$OUT/$1.webm"
+  ffmpeg -v error -y -ss "$(echo "$3 + $5" | bc)" -i "$SRC/$2" -vf "$vf" -frames:v 1 -q:v 2 "$OUT/$1-poster.jpg"
 }
 # Animation bento loops: cut and encoded by scripts/cut-clips.sh (see assets/round4/clips-v2.md),
 # copied here with clean names
-[ -f assets/round4/v2/explainer.mp4 ] || scripts/cut-clips.sh
+[ -f assets/round4/v3/explainer.mp4 ] || scripts/cut-clips.sh
 for n in stopmotion aftereffects character motiongraphics explainer framebyframe; do
-  cp "$SRC/round4/v2/$n.mp4" "$OUT/anim-$n.mp4"
-  cp "$SRC/round4/v2/$n.webm" "$OUT/anim-$n.webm"
-  cp "$SRC/round4/v2/$n.jpg" "$OUT/anim-$n-poster.jpg"
+  cp "$SRC/round4/v3/$n.mp4" "$OUT/anim-$n-r12.mp4"
+  cp "$SRC/round4/v3/$n.webm" "$OUT/anim-$n-r12.webm"
+  cp "$SRC/round4/v3/$n.jpg" "$OUT/anim-$n-r12-poster.jpg"
 done
 # Compositing tile: kinetic title sequence, 2.16 s to 8.80 s of the Zashev Mod 4 intro
 # (assets/round8). Encoded from the full-size source with the loop settings above, it replaces the
 # title-design-r9 copy of the pre-cut burda-type files (5 s VP9 GOP, irregular H.264 GOP).
-cliploop compositing-r11 round8/zashev_mod4_intro_src.mp4 2.16 6.64 1
+cliploop compositing-r12 round8/zashev_mod4_intro_src.mp4 2.16 6.64 1
 # Medical animation tile (was FX / particles): a capsule travels through the stomach and bursts
 # into particles. Whole 10.2 s clip, poster on the burst at 7.2 s.
-cliploop prosite-r11 round11/prosite.mp4 0 10.2 7.2
+cliploop prosite-r12 round11/prosite.mp4 0 10.2 7.2
 # Pipeline prints, one per step, from published Short 58 (see assets/round7/pipeline.md)
 mkdir -p "$OUT/pipeline"
 for f in "$SRC"/round7/pipeline/*.png; do n=$(basename "$f" .png); cwebp -quiet -q 78 -resize 1000 0 "$f" -o "$OUT/pipeline/$n.webp"; done
